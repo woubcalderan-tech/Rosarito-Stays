@@ -5,6 +5,6 @@ import tailwindcss from "@tailwindcss/vite";
 export default defineConfig(({ command, isPreview }) => ({
   plugins: [react(), tailwindcss()],
   define: {
-    __LOCAL_SAMPLE_PHOTOS__: command === "serve" && !isPreview,
+    __LOCAL_DEVELOPMENT__: command === "serve" && !isPreview,
   },
 }));

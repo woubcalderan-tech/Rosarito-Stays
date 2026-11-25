@@ -1,13 +1,17 @@
 import { homepagePhotos } from "../assets/images/homepage";
 import { BookingLink } from "../booking/BookingLink";
+import { BookingSearch } from "../booking/BookingSearch";
+import { HomeBookingBanner } from "../booking/HomeBookingBanner";
 import { paths, site, suitePath } from "../config/site";
 import { featuredSuiteSlug } from "../data/suites";
 import { en } from "../localization/en";
 import { getSuite } from "../services/suites";
 import type { ImageAsset } from "../types/content";
-import { ActionLink, Metadata, Section } from "../ui/Content";
+import { ActionLink, Container, Metadata, Section } from "../ui/Content";
 import { ResponsiveImage } from "../ui/ResponsiveImage";
 import "../styles/home-photography.css";
+import "../styles/home-desktop.css";
+import "../styles/home-booking-banner.css";
 
 function HomepagePhoto({
   image,
@@ -42,11 +46,17 @@ export function HomePage() {
         <div className="home-intro-layout">
           <div className="home-intro-copy">
             <h1 id="home-title">
-              Stay somewhere
-              <br /> remembered.
+              <span>Stay somewhere</span>
+              <br /> <span>remembered.</span>
             </h1>
             <div className="short-rule" aria-hidden="true" />
-            <p>Vacation suites in {site.location}.</p>
+            <p>
+              Vacation suites in {site.city},{" "}
+              <span className="home-location-region">
+                {site.region}
+                <span className="home-location-country">, {site.country}</span>.
+              </span>
+            </p>
           </div>
           {photos && (
             <HomepagePhoto
@@ -55,6 +65,7 @@ export function HomePage() {
               priority
             />
           )}
+          <BookingSearch />
           <div className="home-intro-action">
             <BookingLink />
           </div>
@@ -86,42 +97,26 @@ export function HomePage() {
           </div>
         </div>
       </Section>
-      <Section
-        className={`home-panel home-end${photos ? " home-end--photographed" : ""}`}
-        labelledBy="home-end-title"
-      >
-        {photos && (
-          <figure className="home-scenes">
-            <ul>
-              {photos.scenes.map(({ label, image }) => (
-                <li key={label}>
-                  <ResponsiveImage {...image} />
-                  <span>{label}</span>
-                </li>
-              ))}
-            </ul>
-            <figcaption className="home-photo-credit">
-              Sample photos from Las Olas Grand
-            </figcaption>
-          </figure>
-        )}
-        <div
-          className={
-            photos ? "home-closing home-closing--photographed" : "home-closing"
-          }
-        >
-          <div className="home-closing-copy">
-            <h2 id="home-end-title">Book your Rosarito stay</h2>
-            <BookingLink variant="secondary" />
-          </div>
-          {photos && (
-            <HomepagePhoto
-              image={photos.closing}
-              className="home-closing-photo"
-            />
-          )}
+      {photos && (
+        <div className="home-discovery">
+          <Container>
+            <figure className="home-scenes">
+              <ul>
+                {photos.scenes.map(({ label, image }) => (
+                  <li key={label}>
+                    <ResponsiveImage {...image} />
+                    <span>{label}</span>
+                  </li>
+                ))}
+              </ul>
+              <figcaption className="home-photo-credit">
+                Sample photos from Las Olas Grand
+              </figcaption>
+            </figure>
+          </Container>
         </div>
-      </Section>
+      )}
+      <HomeBookingBanner />
     </>
   );
 }

@@ -1,0 +1,294 @@
+:root {
+  --font-home-editorial: "Libre Caslon Display", Georgia, serif;
+}
+
+@font-face {
+  font-family: "Libre Caslon Display";
+  src: url("../assets/fonts/LibreCaslonDisplay-Regular.ttf") format("truetype");
+  font-display: swap;
+  font-style: normal;
+  font-weight: 400;
+}
+
+.home-booking-search {
+  display: none;
+}
+
+@media (64rem <= width) {
+  .site-header.site-header--home {
+    position: absolute;
+    z-index: 3;
+    inset: 0 0 auto;
+    border: 0;
+    color: #25170d;
+  }
+
+  .skip-link:has(+ .site-header--home) {
+    z-index: 4;
+  }
+
+  .site-header--home .container-site {
+    width: 100%;
+    padding-inline: clamp(2.5rem, 5.47vw, 6rem) clamp(1.625rem, 2.54vw, 3rem);
+  }
+
+  .site-header--home .header-row {
+    justify-content: start;
+    align-items: flex-start;
+    gap: clamp(1.625rem, 3.85vw, 4.25rem);
+    padding-block: clamp(1.625rem, 2.54vw, 2.25rem) 0;
+  }
+
+  .site-header--home .brand {
+    display: grid;
+    justify-items: center;
+    width: max-content;
+    flex-shrink: 0;
+    text-transform: uppercase;
+    font-size: clamp(1.28125rem, 2vw, 1.5625rem);
+    line-height: 1.25;
+    font-weight: 600;
+    letter-spacing: 0.225em;
+    color: #352013;
+  }
+
+  .site-header--home .brand img {
+    width: clamp(5rem, 7.82vw, 6.25rem);
+    margin-block: -0.125rem 0.35rem;
+  }
+  .site-header--home .brand small {
+    font-size: clamp(0.625rem, 0.98vw, 0.75rem);
+    letter-spacing: 0.4em;
+    margin-block-start: 0.45rem;
+  }
+
+  .site-header--home .header-booking .action {
+    min-height: clamp(2.4375rem, 3.8vw, 3rem);
+    padding-inline: clamp(1.5rem, 2.4vw, 2.25rem);
+    font-size: clamp(0.6875rem, 1.1vw, 0.8125rem);
+    border-radius: 0.125rem;
+    background: #303b12;
+    border-color: #303b12;
+  }
+
+  .site-header--home .header-booking .action:hover {
+    background: var(--color-olive-hover);
+  }
+
+  .home-panel.home-intro {
+    --hero-inset: clamp(2.5rem, 3.90625vw, 5rem);
+    display: block;
+    position: relative;
+    isolation: isolate;
+    min-height: 0;
+    padding: clamp(8.25rem, min(16.75vw, 23svh), 14.5rem) 0
+      clamp(2.5rem, 6.5svh, 3.4375rem);
+    background: #f2e6d9;
+    color: #2c1a0f;
+  }
+
+  .home-intro .container-site {
+    width: 100%;
+    padding-inline: var(--hero-inset);
+  }
+
+  .home-panel.home-intro .home-intro-layout {
+    display: block;
+  }
+
+  .home-intro .home-hero-photo {
+    position: absolute;
+    z-index: -1;
+    inset: 0 0 0 25%;
+    margin: 0;
+    border-radius: 0;
+  }
+
+  .home-intro .home-hero-photo img {
+    object-position: 57% 50%;
+  }
+
+  .home-intro .home-hero-photo::after {
+    position: absolute;
+    inset: 0;
+    content: "";
+    background:
+      radial-gradient(
+        ellipse at 3% 44%,
+        rgb(242 230 217 / 62%),
+        transparent 36%
+      ),
+      linear-gradient(
+        180deg,
+        rgb(242 230 217 / 98%),
+        rgb(246 236 225 / 91%) 9%,
+        transparent 32%
+      ),
+      linear-gradient(
+        90deg,
+        #f2e6d9 0%,
+        rgb(242 230 217 / 96%) 6%,
+        rgb(242 230 217 / 60%) 15%,
+        rgb(242 230 217 / 10%) 30%,
+        transparent 42%
+      );
+    pointer-events: none;
+  }
+
+  .home-intro .home-hero-photo .home-photo-credit {
+    z-index: 1;
+    background: rgb(250 243 233 / 95%);
+    font-size: 0.6875rem;
+  }
+
+  .home-intro-copy h1 {
+    inline-size: max-content;
+    max-inline-size: 100%;
+    color: #2c1a0f;
+    font-family: var(--font-home-editorial);
+    font-size: clamp(3.5rem, 5.46875vw, 5.5rem);
+    line-height: 1.035;
+    letter-spacing: 0;
+    -webkit-text-stroke: 0.18px currentColor;
+    text-wrap: initial;
+  }
+
+  .home-intro-copy h1 span {
+    display: inline-block;
+    white-space: nowrap;
+    transform: scaleX(1.08);
+    transform-origin: left;
+  }
+  .home-intro-copy h1 span:last-child {
+    transform: scaleX(1.16);
+  }
+  .home-location-region {
+    display: block;
+  }
+  .home-location-country {
+    display: none;
+  }
+
+  .home-intro-copy .short-rule {
+    width: clamp(5.0625rem, 7.91vw, 7rem);
+    border-color: #503825;
+    margin-block-start: clamp(1rem, 1.66vw, 1.9rem);
+  }
+  .home-intro .home-intro-copy p {
+    max-width: clamp(17.5rem, 27.35vw, 24rem);
+    margin-block-start: clamp(1rem, 1.76vw, 1.5rem);
+    font-size: clamp(0.9375rem, 1.47vw, 1.125rem);
+    line-height: 1.54;
+  }
+
+  .home-intro-action {
+    display: none;
+  }
+
+  .home-booking-search {
+    display: grid;
+    grid-template-columns: 155fr 155fr 175fr 185fr;
+    margin-block-start: clamp(2.5rem, 8svh, 4rem);
+    width: min(65.43vw, 65rem);
+    min-height: clamp(3.1875rem, 4.98vw, 4rem);
+    background: #f6eee3;
+    color: #2b1b0f;
+    border-radius: 0.125rem;
+    box-shadow: 0 0.5rem 0.875rem rgb(48 28 13 / 20%);
+    font-size: clamp(0.8125rem, 1.26vw, 1rem);
+  }
+
+  .home-booking-field {
+    position: relative;
+    display: flex;
+    align-items: center;
+    gap: 0.65rem;
+    min-width: 0;
+    padding-inline: clamp(0.8rem, 1.75vw, 1.5rem);
+  }
+
+  .home-booking-field + .home-booking-field::before {
+    position: absolute;
+    inset: 25% auto 25% 0;
+    border-inline-start: 1px solid #d9caba;
+    content: "";
+    pointer-events: none;
+  }
+
+  .home-booking-field > svg {
+    flex: 0 0 auto;
+    pointer-events: none;
+  }
+
+  .home-booking-field input,
+  .home-booking-field select {
+    flex: 1;
+    min-width: 0;
+    height: 100%;
+    color: inherit;
+    background: transparent;
+    border: 0;
+    cursor: pointer;
+  }
+
+  .home-booking-field input {
+    position: static;
+  }
+  .home-booking-field input::-webkit-calendar-picker-indicator {
+    position: absolute;
+    inset: 0;
+    width: 100%;
+    height: 100%;
+    opacity: 0;
+    cursor: pointer;
+  }
+  .home-booking-field
+    input[data-filled="false"]:not(:focus)::-webkit-datetime-edit {
+    opacity: 0;
+  }
+  .home-booking-field input[data-filled="false"]:not(:focus) {
+    color: transparent;
+  }
+  .home-date-placeholder {
+    position: absolute;
+    inset-inline-start: calc(clamp(0.8rem, 1.75vw, 1.5rem) + 19px + 0.65rem);
+    pointer-events: none;
+  }
+  .home-booking-field:focus-within .home-date-placeholder {
+    opacity: 0;
+  }
+  .home-booking-field select {
+    appearance: none;
+    padding-inline-end: 1.15rem;
+  }
+  .home-booking-guests > svg:last-child {
+    position: absolute;
+    right: clamp(0.8rem, 1.75vw, 1.5rem);
+  }
+  .home-booking-field:focus-within {
+    outline: 2px solid #554027;
+    outline-offset: -4px;
+  }
+  .home-booking-field :focus-visible {
+    outline: none;
+  }
+
+  .home-intro .home-booking-search .action {
+    margin: 0;
+    min-height: 100%;
+    border-radius: 0 0.125rem 0.125rem 0;
+    background: #303b12;
+    border-color: #303b12;
+    letter-spacing: 0.13em;
+    font-size: clamp(0.8125rem, 1.27vw, 1rem);
+    cursor: pointer;
+  }
+
+  .home-intro .home-booking-search .action:hover {
+    background: var(--color-olive-hover);
+  }
+  .home-intro .home-booking-search .action:focus-visible {
+    outline: 2px solid #faf3e9;
+    outline-offset: -5px;
+  }
+}

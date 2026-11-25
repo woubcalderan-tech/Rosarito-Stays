@@ -1,0 +1,218 @@
+.desktop-nav {
+  display: none;
+}
+
+.brand {
+  display: grid;
+  justify-items: center;
+  width: max-content;
+  flex-shrink: 0;
+  color: #352013;
+  font-weight: 600;
+  line-height: 1.25;
+  letter-spacing: 0.225em;
+  text-transform: uppercase;
+}
+
+.brand img {
+  width: 4rem;
+  margin-block-end: 0.3rem;
+}
+.brand small {
+  margin-block-start: 0.35rem;
+  font-size: 0.625rem;
+  letter-spacing: 0.32em;
+}
+
+.mobile-nav-group p,
+.footer-nav-group p {
+  font-weight: 650;
+  text-transform: uppercase;
+  letter-spacing: 0.08em;
+}
+.mobile-nav-group p {
+  margin-block: 0.6rem 0.2rem;
+  font-size: 0.75rem;
+}
+.mobile-nav-group a,
+.mobile-nav-group .nav-unavailable {
+  display: flex;
+  flex-wrap: wrap;
+  align-items: baseline;
+  gap: 0.4rem;
+}
+.nav-unavailable small {
+  color: #655044;
+  font-size: 0.6875rem;
+}
+
+.site-footer {
+  background: #f4ece2;
+  color: #352013;
+}
+.footer-main {
+  display: grid;
+  justify-items: center;
+  gap: 1.5rem;
+  padding: 1.5rem clamp(1.25rem, 5.45vw, 6.5rem);
+}
+.brand--footer {
+  font-size: clamp(1rem, 1.75vw, 1.3125rem);
+}
+.brand--footer img {
+  width: clamp(4rem, 7.8vw, 5.5rem);
+}
+.footer-nav {
+  display: grid;
+  width: 100%;
+  grid-template-columns: repeat(3, minmax(0, 1fr));
+  gap: clamp(0.5rem, 2vw, 1.75rem);
+  text-align: start;
+}
+.footer-nav-group p {
+  margin-block-end: 0.45rem;
+  font-size: 0.625rem;
+}
+.footer-nav-group ul {
+  display: grid;
+  gap: 0.2rem;
+  font-size: 0.75rem;
+  line-height: 1.35;
+}
+.footer-nav-group a,
+.footer-nav-group .nav-unavailable {
+  display: inline-block;
+  padding-block: 0.15rem;
+}
+.footer-nav-group small {
+  display: block;
+}
+.footer-social {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  gap: clamp(1.25rem, 2.25vw, 2.125rem);
+}
+.footer-social img {
+  filter: invert(11%) sepia(22%) saturate(1876%) hue-rotate(345deg)
+    brightness(92%);
+}
+.footer-legal {
+  display: flex;
+  justify-content: center;
+  flex-wrap: wrap;
+  gap: 0.25rem 1.25rem;
+  padding: 0.35rem 1rem 0.5rem;
+  border-top: 1px solid rgb(83 59 45 / 13%);
+  font-size: 0.6875rem;
+  color: #584239;
+}
+.site-footer a:hover {
+  text-decoration: underline;
+  text-underline-offset: 0.2em;
+}
+
+@media (48rem <= width < 64rem) {
+  .footer-main {
+    grid-template-columns: auto minmax(0, 1fr);
+    align-items: center;
+    column-gap: 2.5rem;
+  }
+  .footer-social {
+    grid-column: 1 / -1;
+  }
+}
+
+@media (64rem <= width) {
+  .footer-main {
+    grid-template-columns: minmax(12rem, 1.24fr) minmax(0, 3.4fr);
+    align-items: center;
+    min-height: 8.5625rem;
+    gap: clamp(1.5rem, 3.3vw, 3.25rem);
+    padding-block: 1.25rem;
+  }
+  .footer-main--with-social {
+    grid-template-columns: minmax(12rem, 1.24fr) minmax(0, 2.32fr) minmax(
+        7rem,
+        0.82fr
+      );
+  }
+  .footer-brand-area,
+  .footer-social {
+    display: flex;
+    width: 100%;
+    min-height: 5.5rem;
+    align-items: center;
+  }
+  .footer-brand-area {
+    border-inline-end: 1px solid rgb(83 59 45 / 25%);
+  }
+  .footer-social {
+    border-inline-start: 1px solid rgb(83 59 45 / 25%);
+  }
+}
+
+@media (64rem <= width) {
+  .desktop-nav {
+    display: block;
+    margin-inline-start: auto;
+  }
+
+  .desktop-nav-groups {
+    display: flex;
+    gap: clamp(1rem, 3vw, 3rem);
+  }
+
+  .desktop-nav-groups > li {
+    position: relative;
+  }
+  .desktop-nav-groups button {
+    display: flex;
+    align-items: center;
+    gap: 0.35rem;
+    min-height: 2.4375rem;
+    padding-inline: 0.45rem;
+    color: #21180e;
+    cursor: pointer;
+    font-weight: 650;
+    letter-spacing: 0.065em;
+    text-transform: uppercase;
+    font-size: clamp(0.6875rem, 1.05vw, 0.8125rem);
+  }
+  .desktop-nav-groups button[aria-expanded="true"] {
+    background: #f5ecdf;
+  }
+  .desktop-nav-panel {
+    z-index: 2;
+    position: absolute;
+    top: 100%;
+    left: 50%;
+    translate: -50% 0;
+    width: max-content;
+    min-width: 7.3rem;
+    padding: 0.35rem 0;
+    background: #f5ecdf;
+    box-shadow: 0 0.35rem 0.8rem rgb(41 26 13 / 14%);
+    font-size: 0.75rem;
+  }
+  .desktop-nav-panel a,
+  .desktop-nav-panel span {
+    display: block;
+    padding: 0.35rem 0.8rem;
+  }
+  .desktop-nav-panel a:hover {
+    text-decoration: underline;
+    text-underline-offset: 0.2em;
+  }
+  .desktop-nav-panel a:focus-visible {
+    outline-offset: -2px;
+  }
+  .desktop-nav-panel span,
+  .desktop-nav-panel small {
+    color: #5b4d41;
+  }
+  .desktop-nav-panel small {
+    display: block;
+    font-size: 0.6875rem;
+  }
+}

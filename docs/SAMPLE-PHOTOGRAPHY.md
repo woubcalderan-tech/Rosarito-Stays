@@ -11,11 +11,12 @@ All 48 JPGs in `sample-photos/` are supplied photographs from the Las Olas Grand
 | Coastline tile           | `airbnb-coastline-view.jpg` | `coastline`                     | Elevated view of the coast with land and ocean side by side.                                    |
 | Property highlights tile | `img_4776.jpg`              | `terrace-seating`               | Outdoor seating with an ocean backdrop.                                                         |
 | Dining tile              | `img_4736.jpg`              | `dining-area`                   | Dining table aligned with a waterfront opening. The photograph shows a condominium dining area. |
-| Closing booking band     | `airbnb-cliff-path.jpg`     | `cliff-path`                    | Stone and coastal planting beside the terracotta text panel.                                    |
 
 Copies use WebP quality 83, a standard sRGB color space and composition-specific crops. Widths run from 360 to 1440 px without upscaling. The homepage identifies the source of the temporary photography beside the imagery. Its other routes hold no sample images.
 
 The centralized manifest is `src/assets/images/homepage.ts`. It only renders the sample photos in the local Vite development server. A standard production build omits them. Before publication, replace the manifest mappings with approved Rosarito Stays imagery in a separate asset directory, update alt text and attribution, and verify responsive crops and production output.
+
+The closing booking banner uses a layered terracotta plaster treatment. The available Las Olas Grand photographs do not depict the approved arch, lantern, and planting composition. The previously selected cliff-path source and WebPs are retained for local inventory and are no longer used in the banner.
 
 ## Complete visual inventory
 

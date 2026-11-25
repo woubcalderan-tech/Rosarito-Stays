@@ -8,15 +8,13 @@
 }
 
 .home-hero-photo,
-.home-feature-photo,
-.home-closing-photo {
+.home-feature-photo {
   position: relative;
   overflow: hidden;
 }
 
 .home-hero-photo .home-photo-credit,
-.home-feature-photo .home-photo-credit,
-.home-closing-photo .home-photo-credit {
+.home-feature-photo .home-photo-credit {
   position: absolute;
   inset-block-end: 0.5rem;
   inset-inline-end: 0.5rem;
@@ -25,8 +23,7 @@
 
 .home-hero-photo img,
 .home-feature-photo img,
-.home-scenes img,
-.home-closing-photo img {
+.home-scenes img {
   width: 100%;
   object-fit: cover;
 }
@@ -52,9 +49,10 @@
 .home-feature-photo {
   border-radius: var(--radius-media);
 }
-.home-end.home-end--photographed {
-  background: var(--color-cream);
-  color: var(--color-ink);
+.home-discovery {
+  padding-block-start: var(--section-space);
+  text-align: center;
+  display: flow-root;
 }
 .home-scenes {
   margin-block-end: clamp(1.5rem, 4vw, 3rem);
@@ -77,22 +75,6 @@
   font-size: var(--text-label);
   padding: 0.5rem 0.25rem;
 }
-.home-closing--photographed {
-  display: grid;
-  background: var(--color-terracotta);
-  color: var(--color-cream);
-  border-radius: var(--radius-media);
-  overflow: hidden;
-}
-.home-closing--photographed .home-closing-copy {
-  padding: clamp(1.25rem, 4vw, 3rem);
-  align-self: center;
-}
-.home-closing-photo img {
-  height: clamp(9rem, 30vw, 16rem);
-  object-position: center 55%;
-}
-
 @media (48rem <= width) {
   .home-intro--photographed .home-intro-layout {
     display: grid;
@@ -116,13 +98,5 @@
   .home-feature-layout {
     grid-template-columns: minmax(0, 13fr) minmax(0, 7fr);
     text-align: start;
-  }
-  .home-closing--photographed {
-    grid-template-columns: minmax(0, 16fr) minmax(0, 9fr);
-  }
-  .home-closing-photo picture,
-  .home-closing-photo img {
-    height: 100%;
-    min-height: 12rem;
   }
 }

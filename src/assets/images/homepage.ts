@@ -1,6 +1,6 @@
 import type { ImageAsset } from "../../types/content";
 
-declare const __LOCAL_SAMPLE_PHOTOS__: boolean;
+declare const __LOCAL_DEVELOPMENT__: boolean;
 
 // Vite serves these source files in dev without adding them to the build asset graph.
 function sampleUrl(name: string, width: number) {
@@ -40,7 +40,7 @@ const tile = {
   sizes: "(width < 48rem) 30vw, (width < 85rem) 31vw, 390px",
 };
 
-export const homepagePhotos = __LOCAL_SAMPLE_PHOTOS__
+export const homepagePhotos = __LOCAL_DEVELOPMENT__
   ? {
       hero: {
         ...photo("hero-pool", {
@@ -48,7 +48,7 @@ export const homepagePhotos = __LOCAL_SAMPLE_PHOTOS__
           height: 825,
           widths: [640, 1100],
           alt: "Las Olas Grand pool deck with red umbrellas and a view of the ocean",
-          sizes: "(width < 48rem) 100vw, 60vw",
+          sizes: "(width < 48rem) 100vw, 75vw",
         }),
         mobile: {
           srcSet: candidates("hero-pool-mobile", [480, 720]),
@@ -87,12 +87,5 @@ export const homepagePhotos = __LOCAL_SAMPLE_PHOTOS__
           }),
         },
       ],
-      closing: photo("cliff-path", {
-        width: 800,
-        height: 533,
-        widths: [480, 800],
-        alt: "Stone path beside coastal plantings at Las Olas Grand",
-        sizes: "(width < 48rem) 100vw, 36vw",
-      }),
     }
   : undefined;

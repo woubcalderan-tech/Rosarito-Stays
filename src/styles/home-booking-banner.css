@@ -1,0 +1,99 @@
+.home-booking-banner {
+  display: grid;
+  position: relative;
+  isolation: isolate;
+  place-items: center;
+  min-height: clamp(13.125rem, 20.5vw, 18rem);
+  padding: clamp(1.65rem, 2.65vw, 3rem) 1.25rem;
+  background:
+    radial-gradient(
+      ellipse at 51% 38%,
+      rgb(136 64 42 / 45%) 0%,
+      transparent 64%
+    ),
+    radial-gradient(ellipse at 3% 12%, #c27a50 0%, transparent 43%),
+    radial-gradient(ellipse at 99% 12%, #c28259 0%, transparent 46%),
+    radial-gradient(ellipse at 76% 110%, #8f452d 0%, transparent 58%),
+    linear-gradient(117deg, #a35638, #ae6040 53%, #9d5136);
+  color: #fff8ed;
+  text-align: center;
+}
+
+.home-booking-banner::before {
+  position: absolute;
+  z-index: -1;
+  inset: 0;
+  content: "";
+  background-image: url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' width='450' height='312'%3E%3Cfilter id='plaster'%3E%3CfeTurbulence type='fractalNoise' baseFrequency='.76' numOctaves='3' stitchTiles='stitch'/%3E%3C/filter%3E%3Cpath d='M0 0h450v312H0z' filter='url(%23plaster)' opacity='.45'/%3E%3C/svg%3E");
+  opacity: 0.27;
+  mix-blend-mode: soft-light;
+  pointer-events: none;
+}
+.home-booking-banner-content {
+  display: grid;
+  justify-items: center;
+  width: min(100%, 54rem);
+}
+.home-booking-banner-eyebrow {
+  display: flex;
+  align-items: center;
+  gap: clamp(0.5rem, 1.2vw, 0.9rem);
+  font-size: clamp(0.625rem, 1.2vw, 0.875rem);
+  font-weight: 600;
+  letter-spacing: 0.27em;
+  text-transform: uppercase;
+}
+.home-booking-banner-eyebrow::before,
+.home-booking-banner-eyebrow::after {
+  width: clamp(1.125rem, 7vw, 5.25rem);
+  border-top: 1px solid currentColor;
+  content: "";
+}
+.home-booking-banner h2 {
+  margin-block-start: 0.4rem;
+  font-family: var(--font-home-editorial);
+  font-size: clamp(2.125rem, 4.1vw, 3.625rem);
+  font-weight: 400;
+  line-height: 1.05;
+  letter-spacing: 0.01em;
+}
+.home-booking-banner p:not(.home-booking-banner-eyebrow) {
+  max-width: none;
+  margin-block-start: 0.65rem;
+  font-size: clamp(0.875rem, 1.38vw, 1.0625rem);
+}
+.home-booking-banner-action {
+  display: inline-flex;
+  justify-content: center;
+  align-items: center;
+  gap: 0.45rem;
+  min-width: 10.4375rem;
+  min-height: 2.125rem;
+  margin-block-start: clamp(0.9rem, 1.8vw, 1.4rem);
+  padding-inline: 0.75rem;
+  border-radius: 0.125rem;
+  background: #f9ecdf;
+  color: #352013;
+  font-size: 0.6875rem;
+  font-weight: 650;
+  letter-spacing: 0.08em;
+  text-transform: uppercase;
+}
+.home-booking-banner-action:hover {
+  background: #fff8ed;
+}
+.home-booking-banner-action:focus-visible {
+  outline-color: #fff8ed;
+}
+
+@media (pointer: coarse) {
+  .home-booking-banner-action {
+    min-height: 2.75rem;
+  }
+}
+
+@media (64rem <= width) {
+  .home-booking-banner h2 {
+    transform: scaleX(1.1);
+  }
+}

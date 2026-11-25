@@ -15,3 +15,7 @@ Vite serves a React single-page app. React Router owns the route tree and the sh
 The catalog service is the integration point for future Supabase reads. Add availability, reservation and payment services when those workflows are defined. Use server-side operations for reservation integrity, payment events and confirmation emails. Administration will need an authorized server-side boundary. As Spanish content is approved, expand the locale resources and introduce a language selection and URL strategy.
 
 The static HTML sets a robots noindex directive, and `robots.txt` disallows crawling. Keep staging private when it is hosted. Future production hosting needs SPA fallback for deep links, an intentional HTTP 404 strategy, and a separate indexing decision.
+
+## Shared navigation and footer
+
+The desktop disclosures, mobile menu, and shared footer use the groups in `src/config/site.ts`. Explore Rosarito, Dining, and Property Details remain labeled Coming soon until their destinations exist. The Residence uses `/the-residence`. The footer's unconfigured Instagram, Facebook, and YouTube SVGs appear only in local development and do not link out. The local Simple Icons copies are attributed in `src/assets/brand/social/LICENSE.txt`. The marks belong to their respective owners.
