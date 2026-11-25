@@ -17,6 +17,10 @@
 @media (64rem <= width) {
   .site-header.site-header--home {
     --home-header-action-height: clamp(2.4375rem, 3.8vw, 3rem);
+    --home-nav-font-size: clamp(0.8125rem, 0.5625rem + 0.43vw, 1.0625rem);
+    --home-nav-chevron-size: max(13px, 0.95em);
+    --home-nav-chevron-gap: 0.35rem;
+    --home-nav-text-shadow: 0 0 2px rgb(250 243 233 / 80%);
     position: absolute;
     z-index: 3;
     inset: 0 0 auto;
@@ -32,14 +36,54 @@
 
   .site-header--home .desktop-nav-groups button {
     min-height: var(--home-header-action-height);
-    font-size: clamp(0.8125rem, 0.5625rem + 0.43vw, 1.0625rem);
-    text-shadow: 0 0 2px rgb(250 243 233 / 80%);
+    font-size: var(--home-nav-font-size);
+    text-shadow: var(--home-nav-text-shadow);
   }
 
   .site-header--home .desktop-nav-groups button svg {
-    inline-size: max(13px, 0.95em);
-    block-size: max(13px, 0.95em);
+    inline-size: var(--home-nav-chevron-size);
+    block-size: var(--home-nav-chevron-size);
     flex-shrink: 0;
+  }
+
+  .site-header--home .desktop-nav-panel {
+    left: calc(
+      50% - (var(--home-nav-chevron-size) + var(--home-nav-chevron-gap)) / 2
+    );
+    min-width: 0;
+    padding: 0 0 0.125rem;
+    border: 0;
+    background: transparent;
+    box-shadow: none;
+    backdrop-filter: none;
+    color: #21180e;
+    font-size: var(--home-nav-font-size);
+    font-weight: 500;
+    line-height: 1.25;
+    text-align: center;
+    text-shadow: var(--home-nav-text-shadow);
+  }
+
+  .site-header--home .desktop-nav-panel li + li {
+    margin-block-start: 0.375rem;
+  }
+
+  .site-header--home .desktop-nav-panel a,
+  .site-header--home .desktop-nav-panel span {
+    padding: 0.125rem 0.35rem;
+    background: transparent;
+    color: inherit;
+    white-space: nowrap;
+  }
+
+  .site-header--home .desktop-nav-panel a:focus-visible {
+    outline-offset: 1px;
+  }
+
+  .site-header--home .desktop-nav-panel small {
+    color: inherit;
+    font-size: 0.6875rem;
+    font-weight: 400;
   }
 
   .skip-link:has(+ .site-header--home) {
