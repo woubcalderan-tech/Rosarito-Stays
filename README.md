@@ -27,3 +27,11 @@ Open [the local site](http://127.0.0.1:5173). Press Ctrl+C in the terminal runni
 ## Homepage sample photography
 
 See [the photography inventory](docs/SAMPLE-PHOTOGRAPHY.md) for all supplied images, selections, attribution, and replacement instructions. The temporary Las Olas Grand photographs appear in local development only. Standard production builds omit them.
+
+## GitHub Pages design review
+
+Use `npm run build:review` to produce `dist-review/` and `npm run preview:review` to inspect it under `/Rosarito-Stays/`. The review artifact includes the listed sample WebPs, provisional copy, and a notice at the end of each page. It includes static entry points for all known routes and a 404 fallback. It carries noindex and nofollow directives. A GitHub Pages URL should be treated as public.
+
+Run the standard `npm run build` for `dist/`. This build excludes sample property photos and provisional descriptions.
+
+Once the target repository and public use of the selected samples are confirmed, select GitHub Actions under Settings → Pages → Build and deployment → Source. Then run the **Deploy desktop review to GitHub Pages** workflow manually from main.

@@ -2,13 +2,14 @@ import { homepagePhotos } from "../assets/images/homepage";
 import { BookingLink } from "../booking/BookingLink";
 import { BookingSearch } from "../booking/BookingSearch";
 import { HomeBookingBanner } from "../booking/HomeBookingBanner";
-import { paths, site, suitePath } from "../config/site";
+import { site } from "../config/site";
 import { featuredSuiteSlug } from "../data/suites";
-import { en } from "../localization/en";
-import { getSuite } from "../services/suites";
+import { FeaturedSuiteCarousel } from "../suites/FeaturedSuiteCarousel";
+import { listSuites } from "../services/suites";
 import type { ImageAsset } from "../types/content";
-import { ActionLink, Container, Metadata, Section } from "../ui/Content";
+import { Metadata, Section } from "../ui/Content";
 import { ResponsiveImage } from "../ui/ResponsiveImage";
+import { HomeDiscovery } from "./HomeDiscovery";
 import "../styles/home-photography.css";
 import "../styles/home-desktop.css";
 import "../styles/home-booking-banner.css";
@@ -33,7 +34,6 @@ function HomepagePhoto({
 }
 
 export function HomePage() {
-  const featuredSuite = getSuite(featuredSuiteSlug);
   const photos = homepagePhotos;
 
   return (
@@ -71,51 +71,12 @@ export function HomePage() {
           </div>
         </div>
       </Section>
-      <Section className="home-panel home-feature" labelledBy="featured-title">
-        <div className={photos ? "home-feature-layout" : undefined}>
-          {photos && (
-            <HomepagePhoto
-              image={photos.featured}
-              className="home-feature-photo"
-            />
-          )}
-          <div>
-            <p className="eyebrow">Featured Suite</p>
-            <h2 id="featured-title">
-              {featuredSuite?.name ?? en.accommodations}
-            </h2>
-            <ActionLink
-              to={
-                featuredSuite
-                  ? suitePath(featuredSuite.slug)
-                  : paths.accommodations
-              }
-              variant="secondary"
-            >
-              {featuredSuite ? en.viewSuite : en.accommodations}
-            </ActionLink>
-          </div>
-        </div>
-      </Section>
-      {photos && (
-        <div className="home-discovery">
-          <Container>
-            <figure className="home-scenes">
-              <ul>
-                {photos.scenes.map(({ label, image }) => (
-                  <li key={label}>
-                    <ResponsiveImage {...image} />
-                    <span>{label}</span>
-                  </li>
-                ))}
-              </ul>
-              <figcaption className="home-photo-credit">
-                Sample photos from Las Olas Grand
-              </figcaption>
-            </figure>
-          </Container>
-        </div>
-      )}
+      <FeaturedSuiteCarousel
+        suites={listSuites()}
+        initialSlug={featuredSuiteSlug}
+        samples={photos?.featured}
+      />
+      <HomeDiscovery images={photos?.discovery} />
       <HomeBookingBanner />
     </>
   );

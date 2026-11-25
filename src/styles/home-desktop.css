@@ -16,11 +16,30 @@
 
 @media (64rem <= width) {
   .site-header.site-header--home {
+    --home-header-action-height: clamp(2.4375rem, 3.8vw, 3rem);
     position: absolute;
     z-index: 3;
     inset: 0 0 auto;
     border: 0;
     color: #25170d;
+  }
+
+  .site-header--home,
+  .site-header--home .desktop-nav,
+  .site-header--home .desktop-nav-groups button {
+    background: transparent;
+  }
+
+  .site-header--home .desktop-nav-groups button {
+    min-height: var(--home-header-action-height);
+    font-size: clamp(0.8125rem, 0.5625rem + 0.43vw, 1.0625rem);
+    text-shadow: 0 0 2px rgb(250 243 233 / 80%);
+  }
+
+  .site-header--home .desktop-nav-groups button svg {
+    inline-size: max(13px, 0.95em);
+    block-size: max(13px, 0.95em);
+    flex-shrink: 0;
   }
 
   .skip-link:has(+ .site-header--home) {
@@ -63,7 +82,7 @@
   }
 
   .site-header--home .header-booking .action {
-    min-height: clamp(2.4375rem, 3.8vw, 3rem);
+    min-height: var(--home-header-action-height);
     padding-inline: clamp(1.5rem, 2.4vw, 2.25rem);
     font-size: clamp(0.6875rem, 1.1vw, 0.8125rem);
     border-radius: 0.125rem;
@@ -77,14 +96,24 @@
 
   .home-panel.home-intro {
     --hero-inset: clamp(2.5rem, 3.90625vw, 5rem);
-    display: block;
+    display: flex;
+    flex-direction: column;
     position: relative;
     isolation: isolate;
-    min-height: 0;
-    padding: clamp(8.25rem, min(16.75vw, 23svh), 14.5rem) 0
-      clamp(2.5rem, 6.5svh, 3.4375rem);
+    min-height: 100vh;
+    min-height: 100dvh;
+    padding: clamp(8.25rem, 25vh, 23rem) 0 clamp(2.5rem, 7.5vh, 7rem);
+    padding: clamp(8.25rem, 25dvh, 23rem) 0 clamp(2.5rem, 7.5dvh, 7rem);
     background: #f2e6d9;
     color: #2c1a0f;
+  }
+
+  .home-intro .container-site,
+  .home-panel.home-intro .home-intro-layout {
+    display: flex;
+    flex: 1;
+    flex-direction: column;
+    align-items: stretch;
   }
 
   .home-intro .container-site {
@@ -93,7 +122,8 @@
   }
 
   .home-panel.home-intro .home-intro-layout {
-    display: block;
+    gap: clamp(2rem, 5vh, 4rem);
+    gap: clamp(2rem, 5dvh, 4rem);
   }
 
   .home-intro .home-hero-photo {
@@ -102,6 +132,12 @@
     inset: 0 0 0 25%;
     margin: 0;
     border-radius: 0;
+  }
+
+  .home-intro .home-hero-photo picture {
+    position: absolute;
+    inset: -5.5% 0 0;
+    height: auto;
   }
 
   .home-intro .home-hero-photo img {
@@ -117,12 +153,6 @@
         ellipse at 3% 44%,
         rgb(242 230 217 / 62%),
         transparent 36%
-      ),
-      linear-gradient(
-        180deg,
-        rgb(242 230 217 / 98%),
-        rgb(246 236 225 / 91%) 9%,
-        transparent 32%
       ),
       linear-gradient(
         90deg,
@@ -188,8 +218,9 @@
   .home-booking-search {
     display: grid;
     grid-template-columns: 155fr 155fr 175fr 185fr;
-    margin-block-start: clamp(2.5rem, 8svh, 4rem);
+    margin-block-start: auto;
     width: min(65.43vw, 65rem);
+    max-width: 100%;
     min-height: clamp(3.1875rem, 4.98vw, 4rem);
     background: #f6eee3;
     color: #2b1b0f;

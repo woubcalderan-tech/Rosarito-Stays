@@ -180,10 +180,6 @@ main:focus-visible {
   align-items: center;
   min-height: 85svh;
 }
-.home-feature {
-  background: var(--color-sand);
-  text-align: center;
-}
 .breadcrumbs {
   display: flex;
   flex-wrap: wrap;

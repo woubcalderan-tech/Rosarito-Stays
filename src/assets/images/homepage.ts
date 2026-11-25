@@ -1,6 +1,6 @@
 import type { ImageAsset } from "../../types/content";
 
-declare const __LOCAL_DEVELOPMENT__: boolean;
+declare const __SHOW_PREVIEW_CONTENT__: boolean;
 
 // Vite serves these source files in dev without adding them to the build asset graph.
 function sampleUrl(name: string, width: number) {
@@ -33,14 +33,51 @@ interface ImageAssetInfo {
   sizes: string;
 }
 
-const tile = {
-  width: 720,
-  height: 480,
-  widths: [360, 720],
-  sizes: "(width < 48rem) 30vw, (width < 85rem) 31vw, 390px",
-};
+export interface FeaturedSuiteSample {
+  image: ImageAsset;
+  position: string;
+}
 
-export const homepagePhotos = __LOCAL_DEVELOPMENT__
+function featuredPhoto(
+  name: string,
+  alt: string,
+  position: string,
+): FeaturedSuiteSample {
+  return {
+    image: photo(name, {
+      width: 1440,
+      height: 900,
+      widths: [640, 1056, 1440],
+      alt,
+      sizes: "(width < 64rem) 100vw, 65.2vw",
+    }),
+    position,
+  };
+}
+
+function discoveryPhoto(
+  name: string,
+  alt: string,
+  landscapeName = name,
+): ImageAsset {
+  return {
+    ...photo(name + "-portrait", {
+      width: 640,
+      height: 800,
+      widths: [320, 640],
+      alt,
+      sizes: "(width < 64rem) 32vw, 16vw",
+    }),
+    mobile: {
+      srcSet: candidates(landscapeName, [360, 720]),
+      sizes: "32vw",
+      width: 720,
+      height: 480,
+    },
+  };
+}
+
+export const homepagePhotos = __SHOW_PREVIEW_CONTENT__
   ? {
       hero: {
         ...photo("hero-pool", {
@@ -57,35 +94,38 @@ export const homepagePhotos = __LOCAL_DEVELOPMENT__
           height: 780,
         },
       },
-      featured: photo("featured-bedroom", {
-        width: 1440,
-        height: 900,
-        widths: [640, 1056, 1440],
-        alt: "Las Olas Grand bedroom beside a glass door to an ocean-facing balcony",
-        sizes: "(width < 48rem) 100vw, 65vw",
-      }),
-      scenes: [
-        {
-          label: "Coastline",
-          image: photo("coastline", {
-            ...tile,
-            alt: "Rocky coastline below Las Olas Grand",
-          }),
-        },
-        {
-          label: "Terrace seating",
-          image: photo("terrace-seating", {
-            ...tile,
-            alt: "Blue terrace chairs at Las Olas Grand overlooking the ocean",
-          }),
-        },
-        {
-          label: "Dining area",
-          image: photo("dining-area", {
-            ...tile,
-            alt: "Las Olas Grand condominium dining table beside blue glass balcony doors",
-          }),
-        },
-      ],
+      featured: {
+        "oceanview-suite": featuredPhoto(
+          "featured-oceanview",
+          "Las Olas Grand bedroom with an open door to an ocean-facing balcony",
+          "50% 48%",
+        ),
+        "courtyard-suite": featuredPhoto(
+          "featured-bedroom",
+          "Las Olas Grand bedroom beside a glass door to an ocean-facing balcony",
+          "50% 52%",
+        ),
+        "terrace-suite": featuredPhoto(
+          "featured-terrace",
+          "Las Olas Grand balcony with blue chairs, a glass railing and a bedroom visible through an open door",
+          "50% 53%",
+        ),
+        "garden-suite": featuredPhoto(
+          "featured-garden",
+          "Las Olas Grand bedroom with a tufted headboard beneath a rounded soffit",
+          "50% 51%",
+        ),
+      },
+      discovery: {
+        explore: discoveryPhoto(
+          "coastline",
+          "Rocky coastline below Las Olas Grand",
+        ),
+        dining: discoveryPhoto(
+          "dining",
+          "Las Olas Grand condominium dining table beside blue glass balcony doors",
+          "dining-area",
+        ),
+      },
     }
   : undefined;

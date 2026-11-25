@@ -9,7 +9,9 @@
     "typecheck": "tsc --noEmit",
     "lint": "eslint .",
     "format": "prettier --write .",
-    "format:check": "prettier --check ."
+    "format:check": "prettier --check .",
+    "build:review": "tsc --noEmit && vite build --mode review",
+    "preview:review": "vite preview --mode review --host 127.0.0.1"
   },
   "type": "module",
   "dependencies": {

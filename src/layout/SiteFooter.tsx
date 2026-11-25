@@ -6,13 +6,13 @@ import { navigation, paths } from "../config/site";
 import { Brand } from "./Brand";
 import { NavigationEntries } from "./NavigationEntries";
 
-declare const __LOCAL_DEVELOPMENT__: boolean;
+declare const __SHOW_PREVIEW_CONTENT__: boolean;
 
 export function SiteFooter() {
   return (
     <footer className="site-footer">
       <div
-        className={`footer-main${__LOCAL_DEVELOPMENT__ ? " footer-main--with-social" : ""}`}
+        className={`footer-main${__SHOW_PREVIEW_CONTENT__ ? " footer-main--with-social" : ""}`}
       >
         <div className="footer-brand-area">
           <Brand footer />
@@ -27,7 +27,7 @@ export function SiteFooter() {
             </div>
           ))}
         </nav>
-        {__LOCAL_DEVELOPMENT__ && (
+        {__SHOW_PREVIEW_CONTENT__ && (
           <div
             className="footer-social"
             role="group"

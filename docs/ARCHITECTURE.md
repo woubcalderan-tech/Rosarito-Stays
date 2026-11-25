@@ -19,3 +19,5 @@ The static HTML sets a robots noindex directive, and `robots.txt` disallows craw
 ## Shared navigation and footer
 
 The desktop disclosures, mobile menu, and shared footer use the groups in `src/config/site.ts`. Explore Rosarito, Dining, and Property Details remain labeled Coming soon until their destinations exist. The Residence uses `/the-residence`. The footer's unconfigured Instagram, Facebook, and YouTube SVGs appear only in local development and do not link out. The local Simple Icons copies are attributed in `src/assets/brand/social/LICENSE.txt`. The marks belong to their respective owners.
+
+Homepage discovery cards reference the same destination records as shared navigation. Explore Rosarito is planned for `/explore-rosarito`, Property Highlights points to the future `/property-details` page, and Dining is planned for `/dining`. Until those routes exist, all three show Coming soon as non-interactive text. Mockup descriptions are marked provisional in `src/data/home-discovery.ts` and are local-development only.

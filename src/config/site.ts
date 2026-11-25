@@ -22,7 +22,14 @@ export const paths = {
 export interface NavigationEntry {
   label: string;
   to?: string;
+  futurePath?: string;
 }
+
+export const discoveryDestinations = {
+  explore: { label: "Explore Rosarito", futurePath: "/explore-rosarito" },
+  property: { label: "Property Details", futurePath: "/property-details" },
+  dining: { label: "Dining", futurePath: "/dining" },
+} satisfies Record<string, NavigationEntry>;
 
 export const navigation: readonly {
   label: string;
@@ -37,12 +44,12 @@ export const navigation: readonly {
   },
   {
     label: "Local Guide",
-    entries: [{ label: "Explore Rosarito" }, { label: "Dining" }],
+    entries: [discoveryDestinations.explore, discoveryDestinations.dining],
   },
   {
     label: "Details",
     entries: [
-      { label: "Property Details" },
+      discoveryDestinations.property,
       { label: "Contact & FAQ", to: paths.contact },
     ],
   },
