@@ -1,0 +1,5 @@
+node_modules/
+dist/
+design-references/
+package-lock.json
+/sample-photos/
