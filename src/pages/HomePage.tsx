@@ -12,7 +12,10 @@ import { ResponsiveImage } from "../ui/ResponsiveImage";
 import { HomeDiscovery } from "./HomeDiscovery";
 import "../styles/home-photography.css";
 import "../styles/home-desktop.css";
+import "../styles/home-mobile.css";
 import "../styles/home-booking-banner.css";
+
+declare const __SHOW_PREVIEW_CONTENT__: boolean;
 
 function HomepagePhoto({
   image,
@@ -50,13 +53,19 @@ export function HomePage() {
               <br /> <span>remembered.</span>
             </h1>
             <div className="short-rule" aria-hidden="true" />
-            <p>
+            <p className="home-verified-copy">
               Vacation suites in {site.city},{" "}
               <span className="home-location-region">
                 {site.region}
                 <span className="home-location-country">, {site.country}</span>.
               </span>
             </p>
+            {__SHOW_PREVIEW_CONTENT__ && (
+              <p className="home-mobile-ocean-copy">
+                Oceanview vacation suites
+                <br /> in {site.city}, {site.region}.
+              </p>
+            )}
           </div>
           {photos && (
             <HomepagePhoto

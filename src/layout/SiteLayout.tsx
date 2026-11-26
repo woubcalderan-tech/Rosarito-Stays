@@ -85,7 +85,7 @@ export function SiteLayout() {
       <main id="main-content" tabIndex={-1} ref={main}>
         <Outlet />
       </main>
-      <SiteFooter />
+      <SiteFooter key={pathname} home={pathname === paths.home} />
       <ScrollRestoration />
     </>
   );

@@ -121,6 +121,19 @@ export const homepagePhotos = __SHOW_PREVIEW_CONTENT__
           "coastline",
           "Rocky coastline below Las Olas Grand",
         ),
+        property: {
+          // Desktop keeps the decorative palm and never requests this photo.
+          src: "data:image/gif;base64,R0lGODlhAQABAAD/ACwAAAAAAQABAAACADs=",
+          alt: "Stone-lined garden spa among palms at Las Olas Grand",
+          width: 720,
+          height: 720,
+          mobile: {
+            srcSet: candidates("discovery-garden", [360, 720]),
+            sizes: "31vw",
+            width: 720,
+            height: 720,
+          },
+        },
         dining: discoveryPhoto(
           "dining",
           "Las Olas Grand condominium dining table beside blue glass balcony doors",

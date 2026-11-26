@@ -18,6 +18,7 @@ const reviewPhotos = {
   "coastline-portrait": [320, 640],
   "dining-area": [360, 720],
   "dining-portrait": [320, 640],
+  "discovery-garden": [360, 720],
 };
 
 export function githubReview(): Plugin {

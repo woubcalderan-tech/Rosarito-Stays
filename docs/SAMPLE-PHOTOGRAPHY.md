@@ -22,7 +22,7 @@ The featured carousel uses the catalog order and starts on Courtyard Suite. Its 
 
 The closing booking banner uses a layered terracotta plaster treatment. The available Las Olas Grand photographs do not depict the approved arch, lantern, and planting composition. The previously selected cliff-path source and WebPs are retained for local inventory and are no longer used in the banner.
 
-The discovery cards use portrait crops on desktop and existing landscape variants on mobile. Property Highlights uses a decorative palm, including on mobile. The terrace-seating WebPs remain available in the local inventory, without an application reference.
+The discovery cards use portrait crops on desktop and existing landscape variants on mobile. Property Highlights uses the decorative palm on desktop. On mobile, it uses a labeled common-area photo from `airbnb-garden-jacuzzi.jpg`, with 360px and 720px `discovery-garden` WebP variants. The photo shows the Las Olas Grand garden spa and is included in the local and review builds. The terrace-seating WebPs remain available in the local inventory, without an application reference.
 
 ## Complete visual inventory
 

@@ -36,6 +36,7 @@ export function HomeDiscovery({
       <div className="discovery-grid">
         {discoveryCards.map(({ id, heading, action, destination }) => {
           const image = images?.[id];
+          const mobileImage = id === "property";
           const description = provisionalDiscoveryDescriptions[id];
           const actionContent = (
             <>
@@ -46,11 +47,17 @@ export function HomeDiscovery({
 
           return (
             <article
-              className={`discovery-card discovery-card--${id}${image ? " discovery-card--photographed" : ""}`}
+              className={`discovery-card discovery-card--${id}${image && !mobileImage ? " discovery-card--photographed" : ""}`}
               key={id}
             >
               {image && (
-                <figure className="discovery-photo">
+                <figure
+                  className={
+                    mobileImage
+                      ? "discovery-photo discovery-photo--mobile-only"
+                      : "discovery-photo"
+                  }
+                >
                   <ResponsiveImage {...image} />
                   <figcaption>
                     <span aria-hidden="true">Sample</span>
