@@ -5,9 +5,24 @@ import type { Suite } from "../types/content";
 const suites: readonly Suite[] = property.suites.map(
   ({ gallery, featured, ...suite }) => ({
     ...suite,
-    images: gallery?.map((photo) =>
-      propertyImage(photo, "(width < 48rem) 100vw, 55vw"),
-    ),
+    images: gallery?.map((photo) => ({
+      ...propertyImage(photo, "(width < 48rem) 100vw, 55vw"),
+      position: photo.position,
+    })),
+    highlightPhotos: suite.details?.highlights?.photoIds?.flatMap((id) => {
+      const photo = gallery?.find((entry) => entry.id === id);
+      return photo
+        ? [
+            {
+              ...propertyImage(
+                photo,
+                "(width < 22rem) 90vw, (width < 48rem) 46vw, (width < 64rem) 30vw, (width < 100rem) 22vw, 23rem",
+              ),
+              position: photo.position,
+            },
+          ]
+        : [];
+    }),
     featured: featured && {
       order: featured.order,
       description: featured.description,

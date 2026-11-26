@@ -11,3 +11,7 @@ export const paths = {
 export function suitePath(slug: string) {
   return `${paths.accommodations}/${encodeURIComponent(slug)}`;
 }
+
+export function suiteBookingPath(slug: string) {
+  return `${paths.booking}?${new URLSearchParams({ suite: slug })}`;
+}

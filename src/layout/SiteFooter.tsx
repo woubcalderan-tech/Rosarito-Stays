@@ -15,7 +15,14 @@ const socialChannels = [
   { id: "youtube", label: "YouTube", icon: youtube, size: 20 },
 ] as const;
 
-export function SiteFooter({ home }: { home: boolean }) {
+export function SiteFooter({
+  home,
+  compactOnMobile,
+}: {
+  home: boolean;
+  compactOnMobile?: boolean;
+}) {
+  const expandable = home || compactOnMobile;
   const [expanded, setExpanded] = useState<string | null>(null);
   const id = useId();
   const social = property.contact?.social;
@@ -24,7 +31,9 @@ export function SiteFooter({ home }: { home: boolean }) {
     ({ id }) => social?.[id] || demo,
   );
   return (
-    <footer className={home ? "site-footer site-footer--home" : "site-footer"}>
+    <footer
+      className={`site-footer${home ? " site-footer--home" : ""}${compactOnMobile ? " site-footer--compact-mobile" : ""}`}
+    >
       <div
         className={`footer-main${visibleChannels.length ? " footer-main--with-social" : ""}`}
       >
@@ -52,7 +61,7 @@ export function SiteFooter({ home }: { home: boolean }) {
             return (
               <div className="footer-nav-group" key={label}>
                 <p>{label}</p>
-                {home && (
+                {expandable && (
                   <button
                     className="footer-nav-toggle"
                     type="button"
@@ -64,8 +73,8 @@ export function SiteFooter({ home }: { home: boolean }) {
                   </button>
                 )}
                 <ul
-                  id={home ? panelId : undefined}
-                  data-mobile-expanded={home ? open : undefined}
+                  id={expandable ? panelId : undefined}
+                  data-mobile-expanded={expandable ? open : undefined}
                 >
                   <NavigationEntries entries={entries} />
                 </ul>

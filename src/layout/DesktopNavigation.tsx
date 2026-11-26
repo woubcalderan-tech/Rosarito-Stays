@@ -1,9 +1,11 @@
 import { ChevronDown } from "lucide-react";
 import { useEffect, useRef, useState } from "react";
-import { navigation } from "../config/site";
+import { useLocation } from "react-router";
+import { navigation, paths } from "../config/site";
 import { NavigationEntries } from "./NavigationEntries";
 
 export function DesktopNavigation() {
+  const { pathname } = useLocation();
   const [expanded, setExpanded] = useState<number | null>(null);
   const nav = useRef<HTMLElement>(null);
 
@@ -49,12 +51,17 @@ export function DesktopNavigation() {
       <ul className="desktop-nav-groups">
         {navigation.map(({ label, entries }, index) => {
           const open = expanded === index;
+          const active =
+            (pathname === paths.accommodations ||
+              pathname.startsWith(paths.accommodations + "/")) &&
+            entries.some(({ to }) => to === paths.accommodations);
           const panel = `desktop-nav-panel-${index}`;
           return (
             <li key={label}>
               <button
                 type="button"
                 id={`desktop-nav-trigger-${index}`}
+                className={active ? "nav-listing-active" : undefined}
                 aria-expanded={open}
                 aria-controls={panel}
                 onClick={() => setExpanded(open ? null : index)}

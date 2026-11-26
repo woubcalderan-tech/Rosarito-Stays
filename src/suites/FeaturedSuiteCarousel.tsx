@@ -27,7 +27,8 @@ export function FeaturedSuiteCarousel({
 
   const photo = suite.featured?.photo;
   const featuredDescription = suite.featured?.description;
-  const description = suite.summary ?? featuredDescription;
+  const provisional = property.kind === "fictional-demo" && featuredDescription;
+  const description = provisional || (suite.summary ?? featuredDescription);
 
   function advance(delta: number) {
     setActiveIndex((index) => (index + delta + suites.length) % suites.length);
@@ -123,7 +124,7 @@ export function FeaturedSuiteCarousel({
           <div className="featured-suite-divider" aria-hidden="true" />
           {description && (
             <p className="featured-suite-description">
-              {property.kind === "fictional-demo" && !suite.summary && (
+              {provisional && (
                 <span className="sr-only">Provisional design copy. </span>
               )}
               {description}

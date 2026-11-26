@@ -5,7 +5,40 @@ export interface PropertyImage {
   id: string;
   alt: string;
   mobileId?: string;
+  position?: string;
 }
+
+export type AmenityId =
+  | "ocean"
+  | "kitchen"
+  | "cooling"
+  | "balcony"
+  | "courtyard"
+  | "wifi"
+  | "terrace"
+  | "grill"
+  | "garden"
+  | "outdoor-dining"
+  | "outdoor-seating";
+
+export interface SuiteAmenity {
+  id: AmenityId;
+  label: string;
+}
+
+export interface SuiteDetailConfig {
+  bathrooms?: number;
+  description?: string;
+  extraAmenities?: readonly SuiteAmenity[];
+  nightlyRate?: { amount: number; currency: string };
+  highlights?: {
+    introduction?: string;
+    features?: readonly string[];
+    photoIds?: readonly string[];
+  };
+}
+
+export type SuiteBenefitId = "location" | "access" | "comfort" | "stays";
 
 export interface CatalogSuite {
   id: string;
@@ -13,6 +46,10 @@ export interface CatalogSuite {
   name: string;
   summary?: string;
   gallery?: readonly PropertyImage[];
+  maximumGuests?: number;
+  bedrooms?: number;
+  amenities?: readonly SuiteAmenity[];
+  details?: SuiteDetailConfig;
   featured?: {
     order: number;
     description?: string;
@@ -57,6 +94,35 @@ export interface PropertyConfig {
         photo?: PropertyImage;
       }
     >;
+  };
+  accommodations?: {
+    heading: string;
+    introduction: string;
+    hero?: PropertyImage;
+    benefits?: {
+      privateSuites?: string;
+      capacity?: string;
+      ocean?: string;
+      outdoor?: string;
+      location?: string;
+    };
+    bookingBanner?: {
+      heading: string;
+      description: string;
+      photo?: PropertyImage;
+    };
+  };
+  suiteDetails?: {
+    benefits?: readonly {
+      id: SuiteBenefitId;
+      heading: string;
+      description: string;
+    }[];
+    bookingBanner?: {
+      heading: string;
+      description: string;
+      photo?: PropertyImage;
+    };
   };
   contact?: {
     email?: string;

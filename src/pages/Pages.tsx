@@ -1,38 +1,53 @@
 import type { ReactNode } from "react";
-import { useParams } from "react-router";
-import { paths, property, site } from "../config/site";
+import { useParams, useSearchParams } from "react-router";
+import { validSuiteBooking } from "../booking/booking-selection";
+import { paths, property } from "../config/site";
 import { en } from "../localization/en";
-import { getSuite, listSuites } from "../services/suites";
+import { getSuite } from "../services/suites";
 import { SuiteDetails } from "../suites/SuiteDetails";
-import { SuiteSummary } from "../suites/SuiteSummary";
 import { ActionLink, Metadata, Section } from "../ui/Content";
 
 export { HomePage } from "./HomePage";
 
-export function AccommodationsPage() {
-  return (
-    <>
-      <Metadata
-        title={en.accommodations}
-        description={`Browse the suites at ${site.name}.`}
-      />
-      <Section labelledBy="listing-title">
-        <p className="eyebrow">{en.accommodations}</p>
-        <h1 id="listing-title">Find your stay</h1>
-        <div className="short-rule" aria-hidden="true" />
-        <div className="suite-grid">
-          {listSuites().map((suite) => (
-            <SuiteSummary key={suite.slug} suite={suite} />
-          ))}
-        </div>
-      </Section>
-    </>
-  );
-}
+export { AccommodationsPage } from "./AccommodationsPage";
+
 export function SuitePage() {
   const suite = getSuite(useParams().slug);
-  return suite ? <SuiteDetails suite={suite} /> : <NotFoundPage />;
+  return suite ? (
+    <SuiteDetails key={suite.id} suite={suite} />
+  ) : (
+    <NotFoundPage />
+  );
 }
+export function BookingPage() {
+  const [params] = useSearchParams();
+  const suite = getSuite(params.get("suite") ?? undefined);
+  const checkIn = params.get("checkIn") ?? "";
+  const checkOut = params.get("checkOut") ?? "";
+  const guests = params.get("guests") ?? "";
+  const hasSelection =
+    params.has("checkIn") || params.has("checkOut") || params.has("guests");
+  const valid = suite && validSuiteBooking(suite, checkIn, checkOut, guests);
+  return (
+    <PlaceholderPage title="Booking" description={property.booking.description}>
+      {suite && (
+        <>
+          <p>Selected suite: {suite.name}</p>
+          {valid && (
+            <p>
+              Check-in: {checkIn} · Check-out: {checkOut} · Guests: {guests}
+            </p>
+          )}
+          {!valid && hasSelection && (
+            <p>Choose valid dates and a guest count for this suite.</p>
+          )}
+          <p>{property.booking.description}</p>
+        </>
+      )}
+    </PlaceholderPage>
+  );
+}
+
 export function ContactPage() {
   const { address, email, telephone } = property.contact ?? {};
   return (

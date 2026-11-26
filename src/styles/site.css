@@ -195,28 +195,10 @@ main:focus-visible {
   content: "›" / "";
   margin-inline-end: 0.65rem;
 }
-.suite-grid {
-  display: grid;
-  gap: 1.25rem;
-  margin-top: 2rem;
-}
-.suite-summary {
-  border: var(--border-fine);
-  border-radius: var(--radius-media);
-  box-shadow: var(--shadow-suite);
-  overflow: hidden;
-}
-.suite-summary img,
 .suite-photo img {
   width: 100%;
   object-fit: cover;
   aspect-ratio: 16 / 9;
-}
-.suite-summary-content {
-  padding: clamp(1rem, 3vw, 2rem);
-}
-.suite-summary-content .action {
-  width: 100%;
 }
 .suite-details {
   display: grid;
@@ -227,12 +209,6 @@ main:focus-visible {
 }
 
 @media (48rem <= width) {
-  .suite-grid {
-    grid-template-columns: repeat(2, minmax(0, 1fr));
-  }
-  .suite-summary-content .action {
-    width: auto;
-  }
   .header-booking {
     display: block;
     margin-inline-start: auto;

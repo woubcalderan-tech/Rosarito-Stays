@@ -1,7 +1,7 @@
 import type { PropertyConfig } from "./property";
 import { paths } from "./routes";
 
-export { paths, suitePath } from "./routes";
+export { paths, suiteBookingPath, suitePath } from "./routes";
 
 declare const __PROPERTY_CONFIG__: PropertyConfig;
 

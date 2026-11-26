@@ -1,8 +1,14 @@
 import { Menu, X } from "lucide-react";
 import { useEffect, useRef, useState } from "react";
-import { Outlet, ScrollRestoration, useLocation } from "react-router";
+import {
+  matchPath,
+  Outlet,
+  ScrollRestoration,
+  useLocation,
+} from "react-router";
 import { BookingLink } from "../booking/BookingLink";
 import { navigation, paths, property } from "../config/site";
+import { getSuite } from "../services/suites";
 import { useRouteFocus } from "../hooks/useRouteFocus";
 import { Container } from "../ui/Content";
 
@@ -14,7 +20,15 @@ import "../styles/shared-layout.css";
 
 declare const __SHOW_PREVIEW_CONTENT__: boolean;
 
-function Header({ home }: { home: boolean }) {
+function Header({
+  home,
+  accommodations,
+  suiteDetails,
+}: {
+  home: boolean;
+  accommodations: boolean;
+  suiteDetails: boolean;
+}) {
   const [open, setOpen] = useState(false);
   const toggle = useRef<HTMLButtonElement>(null);
   useEffect(() => {
@@ -28,7 +42,7 @@ function Header({ home }: { home: boolean }) {
   }, [open]);
   return (
     <header
-      className={home ? "site-header site-header--home" : "site-header"}
+      className={`site-header${home ? " site-header--home" : ""}${accommodations ? " site-header--accommodations" : ""}${suiteDetails ? " site-header--suite-details" : ""}`}
       onKeyDown={(event) => {
         if (event.key === "Escape" && open) {
           setOpen(false);
@@ -43,6 +57,14 @@ function Header({ home }: { home: boolean }) {
           <div className="header-booking">
             <BookingLink />
           </div>
+          {suiteDetails && (
+            <a
+              className="action action--primary suite-header-booking"
+              href="#suite-booking"
+            >
+              Book a Stay
+            </a>
+          )}
           <button
             ref={toggle}
             type="button"
@@ -78,16 +100,29 @@ function Header({ home }: { home: boolean }) {
 export function SiteLayout() {
   const { key, pathname } = useLocation();
   const main = useRouteFocus();
+  const home = pathname === paths.home;
+  const accommodations = pathname.replace(/\/$/, "") === paths.accommodations;
+  const suiteMatch = matchPath(`${paths.accommodations}/:slug`, pathname);
+  const suiteDetails = Boolean(getSuite(suiteMatch?.params.slug));
   return (
     <>
       <a className="skip-link" href="#main-content">
         Skip to content
       </a>
-      <Header key={key} home={pathname === paths.home} />
+      <Header
+        key={key}
+        home={home}
+        accommodations={accommodations}
+        suiteDetails={suiteDetails}
+      />
       <main id="main-content" tabIndex={-1} ref={main}>
         <Outlet />
       </main>
-      <SiteFooter key={pathname} home={pathname === paths.home} />
+      <SiteFooter
+        key={pathname}
+        home={home}
+        compactOnMobile={accommodations || suiteDetails}
+      />
       {__SHOW_PREVIEW_CONTENT__ && (
         <aside
           className="review-notice"

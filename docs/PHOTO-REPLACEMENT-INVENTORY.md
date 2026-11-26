@@ -64,6 +64,78 @@ The ten masters total **27,618,534 bytes**. The 31 review variants total **3,649
 3. Compare desktop and mobile crops at the real breakpoints, including hero contrast, the suite carousel and the banner. Verify image requests, then inspect both output directories. The demo catalog is available in local development and the review build only.
 4. On a later authorized release, verify the updated Pages artifact and check old public paths. Previous Git commits, release tags, and archived deployments can retain earlier photographs.
 
+## A2 suite gallery expansion
+
+The 16 additional AI-generated masters are PNGs, each 1672 × 941 pixels. The source paths below are relative to `image-masters/suites/`. That directory stays local. SHA-256 comparison found no byte duplicates. A 256-bit luminance difference-hash comparison against the new set and the ten earlier masters found a closest distance of 90 bits. Visual inspection confirmed distinct scenes and the enclosed Courtyard versus oceanfront Terrace distinction.
+
+| Master PNG                                  | Catalog ID                        | Source bytes | SHA-256                                                            |
+| ------------------------------------------- | --------------------------------- | -----------: | ------------------------------------------------------------------ |
+| `oceanview/oceanview-balcony.png`           | `suites/oceanview-balcony`        |    2,577,620 | `6bc29cf59feb187ab7ca5f4fda8308fb3fe1e82cacaa3541e16177d0b6adcaf3` |
+| `oceanview/oceanview-bathroom.png`          | `suites/oceanview-bathroom`       |    2,448,419 | `eac1be52f502cde15b3b0199c55814bb2421c53605ad206130cdfad2418a3883` |
+| `oceanview/oceanview-living.png`            | `suites/oceanview-living`         |    2,735,531 | `2eb58bf609c1298741d52e203a2ba74980aa2ffb691f51b8d9162f00fe12a50e` |
+| `oceanview/oceanview-kitchen.png`           | `suites/oceanview-kitchen`        |    2,484,794 | `590e7517374aeb887a7d6b3f115151c942696bd12e6a3d3e9047c4383efa0851` |
+| `courtyard/courtyard-suite-courtyard.png`   | `suites/courtyard-patio`          |    3,149,311 | `8bf954f60a99a62a94082aae2e23d24ace3f3559dd15ba04157c57d57510c72e` |
+| `courtyard/courtyard-suite-bathroom.png`    | `suites/courtyard-bathroom`       |    2,843,779 | `0627a6857f8618e16d914fb4646061775e783f29d7fba0bc25f63e86559298af` |
+| `courtyard/courtyard-suite-kitchenette.png` | `suites/courtyard-kitchenette`    |    2,589,345 | `9a46a46c6209ace45a1669eb21cdc68563d94b99af00d5f3b0448aec852710fb` |
+| `courtyard/courtyard-suite-living.png`      | `suites/courtyard-living`         |    2,882,915 | `c3e8b6aa6ce61205ad3d0c39a2f3c6b2b269df63e960c8c449b2410d751602d7` |
+| `terrace/terrace-outdoor.png`               | `suites/terrace-outdoor`          |    2,852,485 | `37e38579cc8f7c39b47895a150164443129ae551c9fb048ecbdc6109b6b659c2` |
+| `terrace/terrace-bathroom.png`              | `suites/terrace-bathroom`         |    2,544,622 | `a56ad47aa3827ac6f50e59d42f15a290ba86f53d72753b9b8cfa52c05539f9e2` |
+| `terrace/terrace-refreshment-area.png`      | `suites/terrace-refreshment-area` |    2,521,353 | `e4a7b21d497d13cf04ed760e8ab64f311ae416d08187d15ca777dbabbfaed6c6` |
+| `terrace/terrace-living.png`                | `suites/terrace-living`           |    2,743,542 | `c5e292d0fee00157dce6922b2db6f365961cb7966aa5b83ee01951ba2f3e9b50` |
+| `garden/garden-outdoor-dining.png`          | `suites/garden-outdoor-dining`    |    3,409,923 | `a4819030c8909fa33402efd062c969081a6d6ca5a055962d3b86eccf7eee824c` |
+| `garden/garden-bathroom.png`                | `suites/garden-bathroom`          |    2,454,974 | `318f86571b69270e5af4c82fdef8b7a8b04932baa345e65b9004136fc6ef6fa5` |
+| `garden/garden-kitchen.png`                 | `suites/garden-kitchen`           |    2,732,459 | `820f6091cd188d5c94de5ee2ba673562b8c0c05fea5ca2b18297369439d28eef` |
+| `garden/garden-living.png`                  | `suites/garden-living`            |    2,806,680 | `b5332a5f7f84b167cdb93c70a46330d0c6f984d433c6deda932dc96569f86b1a` |
+
+All variants preserve the source composition and use WebP quality 82. The four widths are 480 × 270, 768 × 432, 1200 × 675, and 1672 × 941. The table lists exact bytes in ascending width order. Filenames use `<catalog-id>-<width>.webp` under the fictional-demo directory.
+
+| Catalog ID                        | 480 px |  768 px | 1200 px | 1672 px |
+| --------------------------------- | -----: | ------: | ------: | ------: |
+| `suites/oceanview-balcony`        | 30,934 |  68,672 | 142,242 | 228,860 |
+| `suites/oceanview-bathroom`       | 21,490 |  46,524 |  97,432 | 160,338 |
+| `suites/oceanview-living`         | 28,804 |  65,502 | 145,766 | 243,036 |
+| `suites/oceanview-kitchen`        | 25,336 |  54,728 | 118,580 | 199,012 |
+| `suites/courtyard-patio`          | 45,540 | 102,998 | 217,242 | 359,760 |
+| `suites/courtyard-bathroom`       | 32,866 |  73,448 | 156,320 | 252,774 |
+| `suites/courtyard-kitchenette`    | 31,640 |  66,544 | 136,900 | 219,154 |
+| `suites/courtyard-living`         | 36,294 |  82,962 | 177,212 | 286,870 |
+| `suites/terrace-outdoor`          | 36,316 |  81,096 | 170,480 | 280,290 |
+| `suites/terrace-bathroom`         | 23,660 |  52,042 | 106,962 | 173,146 |
+| `suites/terrace-refreshment-area` | 31,212 |  68,822 | 139,994 | 230,706 |
+| `suites/terrace-living`           | 31,272 |  70,108 | 152,366 | 252,684 |
+| `suites/garden-outdoor-dining`    | 50,670 | 118,362 | 248,536 | 408,946 |
+| `suites/garden-bathroom`          | 25,536 |  54,214 | 108,170 | 171,054 |
+| `suites/garden-kitchen`           | 31,348 |  69,450 | 148,174 | 238,800 |
+| `suites/garden-living`            | 34,816 |  77,840 | 165,466 | 269,466 |
+
+New masters total **43,777,752 bytes**. The 64 derivatives total **8,077,784 bytes**. The existing 31 optimized variants are preserved, for 95 WebPs in the review build.
+
+| Suite     | Accommodations gallery in display order                                      |
+| --------- | ---------------------------------------------------------------------------- |
+| Oceanview | **Existing bedroom**, living, kitchen, bathroom, balcony                     |
+| Courtyard | **Living room**, existing bedroom, patio, kitchenette, bathroom              |
+| Terrace   | **Oceanfront pergola**, existing bedroom, living, refreshment area, bathroom |
+| Garden    | **Existing bedroom**, living, kitchen, bathroom, outdoor dining              |
+
+The first entry is the listing cover. The homepage uses its existing featured bedroom records independently. In listing frames, per-photo focal positions retain the courtyard opening, ocean horizon, or garden seating. Alt text and focal positions live in the demo suite catalog.
+
+### Local browser image transfer
+
+Measured in Edge at device scale factor 1, with a fresh context at each viewport. Initial bytes include the Oceanview hero, four listing covers, and the booking banner. The hero and Oceanview cover reuse the same variant, so there are five requests. Inactive slides wait until selected. Interaction bytes cover visiting the remaining four slides of every suite. Counts and bytes are from Resource Timing and include response overhead.
+
+| Viewport    | Initial requests | Initial bytes | Additional requests | Additional bytes |
+| ----------- | ---------------: | ------------: | ------------------: | ---------------: |
+| 1366 × 768  |                5 |       451,602 |                  16 |        1,113,192 |
+| 1440 × 900  |                5 |       535,298 |                  16 |        1,283,548 |
+| 1920 × 1080 |                5 |       604,626 |                  16 |        1,283,548 |
+| 360 × 800   |                5 |       189,688 |                  16 |          569,062 |
+| 390 × 844   |                5 |       189,688 |                  16 |          569,062 |
+| 430 × 932   |                5 |       189,688 |                  16 |          569,062 |
+
+### Future Residence and suite use
+
+Reuse the Oceanview balcony and living room, Courtyard patio and living room, Terrace outdoor pergola, and Garden outdoor dining and living room by their existing IDs. These scenes depict **private suite spaces**. Identify the relevant suite when presenting them. The Terrace refreshment area is distinct from a full kitchen. Oceanview and Garden each have two configured bedrooms, with one bedroom photo in each current gallery. Second-bedroom photography is optional future work.
+
 ## Historical v0.2.0-preview reference
 
 The following notes record the pre-conversion delivery specification and generation brief.

@@ -1,0 +1,626 @@
+.accommodations {
+  --listing-gutter: clamp(1rem, 2.35vw, 2.5rem);
+  --listing-cream: #f7efe6;
+  --listing-ink: #302116;
+  background: var(--listing-cream);
+  color: var(--listing-ink);
+}
+
+main:focus-visible:has(> .accommodations) {
+  outline: none;
+}
+
+main:focus-visible > .accommodations h1 {
+  outline: 2px solid currentColor;
+  outline-offset: 0.25rem;
+}
+
+.desktop-nav-groups button.nav-listing-active {
+  box-shadow: inset 0 -2px var(--color-olive);
+}
+
+.accommodations-hero {
+  position: relative;
+  isolation: isolate;
+  display: grid;
+  align-items: center;
+  min-height: clamp(15.625rem, 19.1vw, 20rem);
+  background: #f2e6da;
+}
+
+.accommodations-hero-copy {
+  width: min(100%, 100rem);
+  margin-inline: auto;
+  padding: 2rem clamp(1rem, 5.6vw, 6rem);
+}
+
+.accommodations-hero-photo,
+.accommodations-hero-photo picture,
+.accommodations-hero-photo::after {
+  position: absolute;
+  inset: 0;
+}
+
+.accommodations-hero-photo {
+  z-index: -1;
+  left: 28%;
+}
+
+.accommodations-hero-photo img,
+.compact-booking-photo img {
+  width: 100%;
+  height: 100%;
+  object-fit: cover;
+}
+
+.accommodations-hero-photo img {
+  object-position: 56% 52%;
+}
+
+.accommodations-hero-photo::after {
+  background: linear-gradient(
+    90deg,
+    #f2e6da 1%,
+    rgb(242 230 218 / 91%) 8%,
+    transparent 31%
+  );
+  content: "";
+}
+
+.accommodations-hero .eyebrow {
+  margin-bottom: 0.5rem;
+}
+
+.accommodations h1,
+.accommodations h2 {
+  font-family: var(--font-home-editorial, var(--font-display));
+  text-wrap: initial;
+}
+
+.accommodations h1 {
+  width: fit-content;
+  font-size: clamp(2.75rem, 4.55vw, 4.75rem);
+}
+
+.accommodations .short-rule {
+  margin-block: clamp(0.6rem, 1vw, 0.9rem) 0.85rem;
+}
+
+.accommodations-intro {
+  max-width: min(37ch, 36%);
+  font-size: clamp(0.9375rem, 1.22vw, 1.125rem);
+  line-height: 1.4;
+}
+
+.accommodations-benefits {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  flex-wrap: wrap;
+  gap: 0.6rem 0;
+  width: min(100%, 100rem);
+  min-height: 4.75rem;
+  margin-inline: auto;
+  padding: 0.65rem var(--listing-gutter);
+  font-size: clamp(0.8125rem, 1.14vw, 1.0625rem);
+  font-weight: 550;
+}
+
+.accommodations-benefits li {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  gap: clamp(0.4rem, 1vw, 0.9rem);
+  padding-inline: clamp(0.55rem, 2.55vw, 2.75rem);
+}
+
+.accommodations-benefits li + li {
+  border-inline-start: 1px solid var(--color-stone);
+}
+
+.accommodations-benefits svg {
+  width: clamp(1.25rem, 2.2vw, 2rem);
+  height: auto;
+  flex: none;
+  color: var(--color-olive);
+  stroke-width: 1.4;
+}
+
+.accommodations-list {
+  width: min(100%, 100rem);
+  margin-inline: auto;
+  padding: 1.25rem var(--listing-gutter) clamp(1.5rem, 2.3vw, 2.25rem);
+}
+
+.accommodations-grid {
+  display: grid;
+  gap: clamp(1.1rem, 1.85vw, 1.75rem);
+}
+
+.accommodations-card {
+  display: flex;
+  min-width: 0;
+  flex-direction: column;
+  border-radius: clamp(0.75rem, 1.1vw, 1rem);
+  background: #fbf4eb;
+  box-shadow: 0 0.35rem 0.85rem rgb(76 46 25 / 12%);
+  overflow: hidden;
+}
+
+.suite-gallery {
+  position: relative;
+  aspect-ratio: 2.65 / 1;
+  background: #ede1d4;
+}
+
+.suite-gallery picture,
+.suite-gallery img {
+  width: 100%;
+  height: 100%;
+  object-position: inherit;
+}
+
+.suite-gallery-media,
+.suite-gallery picture {
+  position: absolute;
+  inset: 0;
+}
+
+.suite-gallery-media {
+  touch-action: pan-y pinch-zoom;
+}
+
+.suite-gallery img {
+  object-fit: cover;
+}
+
+.suite-gallery-prev,
+.suite-gallery-next {
+  position: absolute;
+  top: 50%;
+  translate: 0 -50%;
+  display: grid;
+  place-items: center;
+  width: 2.75rem;
+  aspect-ratio: 1;
+  border: 1px solid #fff8ef;
+  border-radius: 50%;
+  background: rgb(39 26 18 / 45%);
+  color: #fff8ef;
+  cursor: pointer;
+}
+
+.suite-gallery-prev {
+  left: 0.85rem;
+}
+
+.suite-gallery-next {
+  right: 0.85rem;
+}
+
+.suite-gallery-dots {
+  position: absolute;
+  bottom: 0.55rem;
+  left: 50%;
+  translate: -50% 0;
+  display: flex;
+  padding-inline: 0.3rem;
+  border-radius: 1rem;
+  background: rgb(39 26 18 / 55%);
+  color: #fff8ef;
+}
+
+.suite-gallery-dots button {
+  display: grid;
+  place-items: center;
+  width: 1.5rem;
+  height: 1.5rem;
+  cursor: pointer;
+}
+
+.suite-gallery-dots button::before {
+  width: 0.55rem;
+  aspect-ratio: 1;
+  border: 1px solid currentColor;
+  border-radius: 50%;
+  content: "";
+}
+
+.suite-gallery button:focus-visible {
+  outline: 2px solid #fff8ef;
+  outline-offset: 2px;
+  box-shadow: 0 0 0 4px #38271d;
+}
+
+.suite-gallery-dots button[aria-current="true"]::before {
+  background: currentColor;
+}
+
+.accommodations-card-copy {
+  display: flex;
+  flex: 1;
+  flex-direction: column;
+  gap: 0.65rem;
+  padding: clamp(1rem, 1.35vw, 1.25rem) clamp(1rem, 2vw, 1.85rem);
+}
+
+.accommodations-card-heading,
+.accommodations-card-actions {
+  display: flex;
+  align-items: center;
+  flex-wrap: wrap;
+  justify-content: space-between;
+  column-gap: 0.8rem;
+  row-gap: 0.55rem;
+}
+
+.accommodations-card h2 {
+  font-size: clamp(1.85rem, 2.6vw, 2.5rem);
+}
+
+.accommodations-card-copy > p {
+  max-width: 53ch;
+  font-size: clamp(0.875rem, 1.08vw, 1rem);
+  line-height: 1.4;
+}
+
+.accommodations-specs,
+.accommodations-amenities {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 0.25rem 0.8rem;
+  font-size: clamp(0.75rem, 0.92vw, 0.875rem);
+}
+
+.accommodations-specs li,
+.accommodations-amenities li {
+  display: flex;
+  align-items: center;
+  gap: 0.35rem;
+}
+
+.accommodations-specs li + li {
+  border-inline-start: 1px solid var(--color-stone);
+  padding-inline-start: 0.8rem;
+}
+
+.accommodations-specs svg,
+.accommodations-amenities svg {
+  width: clamp(1rem, 1.35vw, 1.25rem);
+  height: auto;
+  flex: none;
+  stroke-width: 1.55;
+}
+
+.accommodations-amenities {
+  column-gap: clamp(0.38rem, 0.75vw, 0.85rem);
+  font-size: clamp(0.6875rem, 0.84vw, 0.8125rem);
+}
+
+.accommodations-amenities svg {
+  color: var(--color-olive);
+}
+
+.accommodations-card-actions {
+  margin-top: auto;
+  padding-top: 0.1rem;
+}
+
+.accommodations-suite-link,
+.compact-booking-action {
+  gap: 0.5rem;
+  border-radius: 0.35rem;
+  font-size: 0.78rem;
+  white-space: nowrap;
+}
+
+.accommodations-suite-link {
+  margin-inline-start: auto;
+  padding-inline: clamp(0.7rem, 1.5vw, 1.5rem);
+}
+
+.compact-booking {
+  position: relative;
+  isolation: isolate;
+  background: #8d422a;
+  color: #fff8ef;
+}
+
+.compact-booking-photo,
+.compact-booking-photo picture,
+.compact-booking-photo::after {
+  position: absolute;
+  inset: 0;
+}
+
+.compact-booking-photo {
+  z-index: -1;
+}
+
+.compact-booking-photo img {
+  object-position: center 26%;
+}
+
+.compact-booking-photo::after {
+  background: linear-gradient(
+    90deg,
+    rgb(69 25 12 / 20%),
+    rgb(69 25 12 / 48%) 45%,
+    rgb(69 25 12 / 18%)
+  );
+  content: "";
+}
+
+.compact-booking-content {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  flex-wrap: wrap;
+  min-height: clamp(7rem, 8.6vw, 9rem);
+  gap: 0.85rem clamp(1rem, 2vw, 2rem);
+  padding: 1.1rem var(--listing-gutter);
+}
+
+.compact-booking h2 {
+  font-size: clamp(1.95rem, 3vw, 2.85rem);
+}
+
+.compact-booking p {
+  max-width: 31ch;
+  font-size: clamp(0.875rem, 1.15vw, 1.0625rem);
+  line-height: 1.35;
+}
+
+.compact-booking-action {
+  background: var(--color-cream);
+  border-color: transparent;
+  color: var(--color-ink);
+}
+
+.compact-booking-action:hover {
+  background: #fffaf4;
+}
+
+@media (48rem <= width) {
+  .accommodations-grid {
+    grid-template-columns: repeat(2, minmax(0, 1fr));
+  }
+
+  .compact-booking p {
+    border-inline-start: 1px solid rgb(255 248 239 / 60%);
+    max-width: 33ch;
+    padding-inline-start: clamp(1rem, 2vw, 2rem);
+  }
+}
+
+@media (75rem <= width) {
+  .accommodations-card-actions {
+    column-gap: 1rem;
+  }
+
+  .accommodations-amenities {
+    flex: 1 1 19rem;
+    min-inline-size: 0;
+  }
+
+  .accommodations-suite-link {
+    flex: none;
+  }
+}
+
+@media (width < 48rem) {
+  .site-header--accommodations .container-site {
+    padding-inline: clamp(1rem, 6.15vw, 1.75rem);
+  }
+
+  .site-header--accommodations .header-row {
+    padding-block: 0.4rem;
+  }
+
+  .site-header--accommodations .brand {
+    font-size: 0.8125rem;
+  }
+
+  .site-header--accommodations .brand img {
+    width: 3rem;
+    margin-block-end: 0.15rem;
+  }
+
+  .site-header--accommodations .brand small {
+    margin-block-start: 0.16rem;
+    font-size: 0.5rem;
+  }
+
+  .accommodations {
+    --listing-gutter: clamp(0.625rem, 3.2vw, 0.875rem);
+  }
+
+  .accommodations-hero {
+    min-height: 0;
+    background: var(--listing-cream);
+  }
+
+  .accommodations-hero-photo {
+    display: none;
+  }
+
+  .accommodations-hero-copy {
+    padding: 1.25rem clamp(1.25rem, 6.4vw, 1.75rem) 0.75rem;
+  }
+
+  .accommodations-hero .eyebrow {
+    margin-bottom: 0.3rem;
+    font-size: 0.73rem;
+  }
+
+  .accommodations h1 {
+    font-size: clamp(2rem, 9vw, 2.375rem);
+    line-height: 1.08;
+  }
+
+  .accommodations .short-rule {
+    width: 2.4rem;
+    margin-block: 0.5rem 0.6rem;
+    border-top-width: 1px;
+  }
+
+  .accommodations-intro {
+    max-width: 38ch;
+    font-size: 0.9rem;
+    line-height: 1.4;
+  }
+
+  .accommodations-benefits {
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(min(100%, 3.45rem), 1fr));
+    align-items: stretch;
+    min-height: 0;
+    padding: 0.3rem var(--listing-gutter) 0.75rem;
+  }
+
+  .accommodations-benefits li,
+  .accommodations-amenities li {
+    flex-direction: column;
+    justify-content: start;
+    gap: 0.28rem;
+    padding-inline: 0.28rem;
+    font-size: 0.6875rem;
+    line-height: 1.18;
+    text-align: center;
+    overflow-wrap: anywhere;
+  }
+
+  .accommodations-benefits svg,
+  .accommodations-amenities svg {
+    width: 1.35rem;
+  }
+
+  .accommodations-list {
+    padding-block: 0.2rem 0.9rem;
+  }
+
+  .accommodations-grid {
+    gap: 0.87rem;
+  }
+
+  .accommodations-card {
+    border-radius: 0.95rem;
+  }
+
+  .suite-gallery {
+    border-radius: inherit;
+    overflow: hidden;
+  }
+
+  .suite-gallery-prev,
+  .suite-gallery-next {
+    border-color: transparent;
+    background: transparent;
+    isolation: isolate;
+  }
+
+  .suite-gallery-prev::before,
+  .suite-gallery-next::before {
+    position: absolute;
+    z-index: -1;
+    inset: 0.25rem;
+    border: 1px solid rgb(255 248 239 / 90%);
+    border-radius: 50%;
+    background: rgb(39 26 18 / 28%);
+    content: "";
+  }
+
+  .suite-gallery-dots {
+    bottom: 0.12rem;
+    padding: 0;
+    background: transparent;
+    color: #fff;
+  }
+
+  .suite-gallery-dots button::before {
+    width: 0.48rem;
+    box-shadow: 0 0 3px 1px rgb(29 19 12 / 66%);
+  }
+
+  .accommodations-card-copy {
+    gap: 0.55rem;
+    padding: 0.65rem clamp(0.85rem, 4.15vw, 1.125rem) 0.85rem;
+  }
+
+  .accommodations-card-heading {
+    row-gap: 0.28rem;
+  }
+
+  .accommodations-card h2 {
+    font-size: clamp(1.5rem, 6.55vw, 1.75rem);
+  }
+
+  .accommodations-specs {
+    gap: 0.25rem 0.55rem;
+    font-size: 0.72rem;
+  }
+
+  .accommodations-specs li + li {
+    padding-inline-start: 0.55rem;
+  }
+
+  .accommodations-specs svg {
+    width: 1rem;
+  }
+
+  .accommodations-card-copy > p {
+    font-size: 0.84rem;
+    line-height: 1.38;
+  }
+
+  .accommodations-card-actions {
+    display: grid;
+    grid-template-columns: minmax(0, 1fr);
+    gap: 0.65rem;
+  }
+
+  .accommodations-amenities {
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(min(100%, 3.65rem), 1fr));
+    gap: 0.45rem 0.2rem;
+  }
+
+  .accommodations-amenities li {
+    padding-inline: 0.08rem;
+  }
+
+  .accommodations-suite-link {
+    width: 100%;
+    margin-inline-start: 0;
+  }
+
+  .compact-booking-photo img {
+    object-position: center 42%;
+  }
+
+  .compact-booking-content {
+    flex-direction: column;
+    min-height: 0;
+    gap: 0.45rem;
+    padding: 0.9rem clamp(2rem, 11vw, 4rem);
+    text-align: center;
+  }
+
+  .compact-booking h2 {
+    max-inline-size: 14rem;
+    font-size: clamp(1.5rem, 6.8vw, 1.8125rem);
+    text-wrap: balance;
+  }
+
+  .compact-booking p {
+    max-width: 29ch;
+    font-size: 0.79rem;
+  }
+}
+
+@media (width < 26rem) {
+  .accommodations-card-heading {
+    flex-direction: column;
+    align-items: flex-start;
+  }
+}

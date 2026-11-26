@@ -2,10 +2,11 @@ import { StrictMode } from "react";
 import { createRoot } from "react-dom/client";
 import { createBrowserRouter } from "react-router";
 import { RouterProvider } from "react-router/dom";
-import { paths, property } from "./config/site";
+import { paths } from "./config/site";
 import { SiteLayout } from "./layout/SiteLayout";
 import {
   AccommodationsPage,
+  BookingPage,
   ContactPage,
   HomePage,
   NotFoundPage,
@@ -27,15 +28,7 @@ const router = createBrowserRouter(
         },
         { path: paths.accommodations, Component: AccommodationsPage },
         { path: `${paths.accommodations}/:slug`, Component: SuitePage },
-        {
-          path: paths.booking,
-          element: (
-            <PlaceholderPage
-              title="Booking"
-              description={property.booking.description}
-            />
-          ),
-        },
+        { path: paths.booking, Component: BookingPage },
         { path: paths.contact, Component: ContactPage },
         {
           path: paths.privacy,
