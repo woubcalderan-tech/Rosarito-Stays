@@ -1,35 +1,39 @@
-const city = "Rosarito";
-const region = "Baja California";
-const country = "Mexico";
+import type { PropertyConfig } from "./property";
+import { paths } from "./routes";
 
+export { paths, suitePath } from "./routes";
+
+declare const __PROPERTY_CONFIG__: PropertyConfig;
+
+export const property = __PROPERTY_CONFIG__;
 export const site = {
-  name: "Rosarito Stays",
-  city,
-  region,
-  country,
-  location: [city, region, country].join(", "),
-  locale: "en",
-} as const;
-export const paths = {
-  home: "/",
-  residence: "/the-residence",
-  accommodations: "/accommodations",
-  booking: "/booking",
-  contact: "/contact",
-  privacy: "/privacy",
-  terms: "/terms",
-} as const;
+  name: property.brand.name,
+};
+
 export interface NavigationEntry {
   label: string;
   to?: string;
   futurePath?: string;
 }
 
-export const discoveryDestinations = {
-  explore: { label: "Explore Rosarito", futurePath: "/explore-rosarito" },
-  property: { label: "Property Details", futurePath: "/property-details" },
-  dining: { label: "Dining", futurePath: "/dining" },
-} satisfies Record<string, NavigationEntry>;
+export const discoveryDestinations: Record<
+  keyof PropertyConfig["home"]["discovery"],
+  NavigationEntry
+> = {
+  explore: {
+    label: property.home.discovery.explore.heading,
+    futurePath: property.home.discovery.explore.futurePath,
+  },
+  property: {
+    label: "Property Details",
+    futurePath:
+      property.home.discovery.property.futurePath ?? "/property-details",
+  },
+  dining: {
+    label: property.home.discovery.dining.heading,
+    futurePath: property.home.discovery.dining.futurePath ?? "/dining",
+  },
+};
 
 export const navigation: readonly {
   label: string;
@@ -54,6 +58,3 @@ export const navigation: readonly {
     ],
   },
 ];
-export function suitePath(slug: string) {
-  return `${paths.accommodations}/${encodeURIComponent(slug)}`;
-}

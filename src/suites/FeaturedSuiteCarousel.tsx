@@ -2,40 +2,32 @@ import { ArrowLeft, ArrowRight } from "lucide-react";
 import { useRef, useState } from "react";
 import type { TouchEvent } from "react";
 import { Link } from "react-router";
-import type { FeaturedSuitePhoto } from "../assets/images/homepage";
-import { suitePath } from "../config/site";
-import { provisionalFeaturedDescriptions } from "../data/featured-suite-copy";
+import { property, suitePath } from "../config/site";
 import { en } from "../localization/en";
 import type { Suite } from "../types/content";
 import { ResponsiveImage } from "../ui/ResponsiveImage";
 import "../styles/featured-suite.css";
 
-declare const __SHOW_PREVIEW_CONTENT__: boolean;
-
 export function FeaturedSuiteCarousel({
   suites,
-  initialSlug,
-  photos,
+  initialId,
 }: {
   suites: readonly Suite[];
-  initialSlug: string;
-  photos?: Readonly<Record<string, FeaturedSuitePhoto>>;
+  initialId?: string;
 }) {
   const [activeIndex, setActiveIndex] = useState(() =>
     Math.max(
       0,
-      suites.findIndex(({ slug }) => slug === initialSlug),
+      suites.findIndex(({ id }) => id === initialId),
     ),
   );
   const touchStart = useRef<{ x: number; y: number } | null>(null);
   const suite = suites[activeIndex];
   if (!suite) return null;
 
-  const photo = photos?.[suite.slug];
-  const provisional = suite.summary
-    ? undefined
-    : provisionalFeaturedDescriptions[suite.slug];
-  const description = suite.summary ?? provisional;
+  const photo = suite.featured?.photo;
+  const featuredDescription = suite.featured?.description;
+  const description = suite.summary ?? featuredDescription;
 
   function advance(delta: number) {
     setActiveIndex((index) => (index + delta + suites.length) % suites.length);
@@ -131,7 +123,7 @@ export function FeaturedSuiteCarousel({
           <div className="featured-suite-divider" aria-hidden="true" />
           {description && (
             <p className="featured-suite-description">
-              {__SHOW_PREVIEW_CONTENT__ && provisional && (
+              {property.kind === "fictional-demo" && !suite.summary && (
                 <span className="sr-only">Provisional design copy. </span>
               )}
               {description}

@@ -1,11 +1,10 @@
-import { homepagePhotos } from "../assets/images/homepage";
+import { bannerPhoto, heroPhoto } from "../assets/images/homepage";
 import { BookingLink } from "../booking/BookingLink";
 import { BookingSearch } from "../booking/BookingSearch";
 import { HomeBookingBanner } from "../booking/HomeBookingBanner";
-import { site } from "../config/site";
-import { featuredSuiteSlug } from "../data/suites";
+import { property } from "../config/site";
 import { FeaturedSuiteCarousel } from "../suites/FeaturedSuiteCarousel";
-import { listSuites } from "../services/suites";
+import { listFeaturedSuites } from "../services/suites";
 import type { ImageAsset } from "../types/content";
 import { Metadata, Section } from "../ui/Content";
 import { ResponsiveImage } from "../ui/ResponsiveImage";
@@ -14,8 +13,6 @@ import "../styles/home-photography.css";
 import "../styles/home-desktop.css";
 import "../styles/home-mobile.css";
 import "../styles/home-booking-banner.css";
-
-declare const __SHOW_PREVIEW_CONTENT__: boolean;
 
 function HomepagePhoto({
   image,
@@ -34,39 +31,51 @@ function HomepagePhoto({
 }
 
 export function HomePage() {
-  const photos = homepagePhotos;
+  const { home, location } = property;
 
   return (
     <>
-      <Metadata description={`Explore vacation suites in ${site.location}.`} />
+      <Metadata description={property.brand.description} />
       <Section
-        className={`home-panel home-intro${photos ? " home-intro--photographed" : ""}`}
+        className={`home-panel home-intro${heroPhoto ? " home-intro--photographed" : ""}`}
         labelledBy="home-title"
       >
         <div className="home-intro-layout">
           <div className="home-intro-copy">
             <h1 id="home-title">
-              <span>Stay somewhere</span>
-              <br /> <span>remembered.</span>
+              <span>{home.headline[0]}</span>
+              <br /> <span>{home.headline[1]}</span>
             </h1>
             <div className="short-rule" aria-hidden="true" />
             <p className="home-verified-copy">
-              Vacation suites in {site.city},{" "}
-              <span className="home-location-region">
-                {site.region}
-                <span className="home-location-country">, {site.country}</span>.
-              </span>
+              {location ? `${home.description} ` : home.description}
+              {location && (
+                <>
+                  {location.city},{" "}
+                  <span className="home-location-region">
+                    {location.region}
+                    <span className="home-location-country">
+                      , {location.country}
+                    </span>
+                    .
+                  </span>
+                </>
+              )}
             </p>
-            {__SHOW_PREVIEW_CONTENT__ && (
+            {home.mobileDescription && (
               <p className="home-mobile-ocean-copy">
-                Oceanview vacation suites
-                <br /> in {site.city}, {site.region}.
+                {home.mobileDescription}
+                {location && (
+                  <>
+                    <br /> in {location.city}, {location.region}.
+                  </>
+                )}
               </p>
             )}
           </div>
-          {photos && (
+          {heroPhoto && (
             <HomepagePhoto
-              image={photos.hero}
+              image={heroPhoto}
               className="home-hero-photo"
               priority
             />
@@ -78,12 +87,11 @@ export function HomePage() {
         </div>
       </Section>
       <FeaturedSuiteCarousel
-        suites={listSuites()}
-        initialSlug={featuredSuiteSlug}
-        photos={photos?.featured}
+        suites={listFeaturedSuites()}
+        initialId={property.initialFeaturedSuiteId}
       />
-      <HomeDiscovery images={photos?.discovery} />
-      <HomeBookingBanner image={photos?.banner} />
+      <HomeDiscovery />
+      <HomeBookingBanner image={bannerPhoto} />
     </>
   );
 }

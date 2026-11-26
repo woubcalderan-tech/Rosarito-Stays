@@ -1,11 +1,8 @@
 import { ArrowRight, House, Utensils } from "lucide-react";
 import { Link } from "react-router";
-import {
-  discoveryCards,
-  provisionalDiscoveryDescriptions,
-} from "../data/home-discovery";
+import { discoveryCards } from "../data/home-discovery";
+import { propertyImage } from "../assets/images/homepage";
 import type { DiscoveryCardId } from "../data/home-discovery";
-import type { ImageAsset } from "../types/content";
 import { ResponsiveImage } from "../ui/ResponsiveImage";
 import "../styles/home-discovery.css";
 
@@ -23,63 +20,66 @@ function DiscoveryIcon({ id }: { id: DiscoveryCardId }) {
   );
 }
 
-export function HomeDiscovery({
-  images,
-}: {
-  images?: Partial<Record<DiscoveryCardId, ImageAsset>>;
-}) {
+const photographed = discoveryCards.some(({ photo }) => photo);
+
+export function HomeDiscovery() {
   return (
     <section
-      className={`home-discovery${images ? "" : " home-discovery--text-only"}`}
+      className={`home-discovery${photographed ? "" : " home-discovery--text-only"}`}
       aria-label="Explore the area and property"
     >
       <div className="discovery-grid">
-        {discoveryCards.map(({ id, heading, action, destination }) => {
-          const image = images?.[id];
-          const description = provisionalDiscoveryDescriptions[id];
-          const actionContent = (
-            <>
-              <span>{action}</span>
-              <ArrowRight size={17} aria-hidden="true" />
-            </>
-          );
+        {discoveryCards.map(
+          ({ id, heading, action, description, destination, photo }) => {
+            const image =
+              photo &&
+              (id === "property"
+                ? propertyImage(photo, "12vw", "31vw")
+                : propertyImage(photo, "(width < 64rem) 32vw, 16vw", "32vw"));
+            const actionContent = (
+              <>
+                <span>{action}</span>
+                <ArrowRight size={17} aria-hidden="true" />
+              </>
+            );
 
-          return (
-            <article
-              className={`discovery-card discovery-card--${id}${image ? " discovery-card--photographed" : ""}`}
-              key={id}
-            >
-              {image && (
-                <figure className="discovery-photo">
-                  <ResponsiveImage {...image} />
-                </figure>
-              )}
-              <div className="discovery-card-body">
-                <div className="discovery-card-heading">
-                  <DiscoveryIcon id={id} />
-                  <h2>{heading}</h2>
-                </div>
-                {description && (
-                  <p className="discovery-description">{description}</p>
+            return (
+              <article
+                className={`discovery-card discovery-card--${id}${image ? " discovery-card--photographed" : ""}`}
+                key={id}
+              >
+                {image && (
+                  <figure className="discovery-photo">
+                    <ResponsiveImage {...image} />
+                  </figure>
                 )}
-                {destination.to ? (
-                  <Link
-                    className="discovery-action"
-                    to={destination.to}
-                    aria-label={action}
-                  >
-                    {actionContent}
-                  </Link>
-                ) : (
-                  <div className="discovery-pending">
-                    <span className="discovery-action">{actionContent}</span>
-                    <small>Coming soon</small>
+                <div className="discovery-card-body">
+                  <div className="discovery-card-heading">
+                    <DiscoveryIcon id={id} />
+                    <h2>{heading}</h2>
                   </div>
-                )}
-              </div>
-            </article>
-          );
-        })}
+                  {description && (
+                    <p className="discovery-description">{description}</p>
+                  )}
+                  {destination.to ? (
+                    <Link
+                      className="discovery-action"
+                      to={destination.to}
+                      aria-label={action}
+                    >
+                      {actionContent}
+                    </Link>
+                  ) : (
+                    <div className="discovery-pending">
+                      <span className="discovery-action">{actionContent}</span>
+                      <small>Coming soon</small>
+                    </div>
+                  )}
+                </div>
+              </article>
+            );
+          },
+        )}
       </div>
     </section>
   );

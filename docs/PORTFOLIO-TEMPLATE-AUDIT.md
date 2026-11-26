@@ -1,10 +1,10 @@
 # Portfolio and template architecture audit
 
-## Current baseline
+## v0.3.0-preview baseline
 
-The approved homepage is the portfolio design baseline. The React Router tree, shared layout, suite routes, and existing booking demonstrations carry forward. Phase 3 adds a site-wide fictional-property disclosure to local development and the review build. The homepage conversion is included in v0.3.0-preview. Metadata and booking-placeholder changes remain separate follow-up work.
+The approved homepage is the portfolio design baseline. The React Router tree, shared layout, suite routes, and existing booking demonstrations carry forward. Phase 3 adds a site-wide fictional-property disclosure to local development and the review build. The homepage conversion is included in v0.3.0-preview. The findings below capture the pre-refactor architecture. See [property configuration](PROPERTY-CONFIGURATION.md) for the implementation that followed this audit.
 
-## Where property-specific values live
+## Where property-specific values lived
 
 | Area                                  | Current implementation                                                                                                                                                                                                                                                                                                                                                    | Recommended change                                                                                                                                                                                                                                                                                                                                                            |
 | ------------------------------------- | ------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------- | ----------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------- |

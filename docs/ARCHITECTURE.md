@@ -22,6 +22,6 @@ The desktop disclosures, mobile menu, and shared footer use the groups in `src/c
 
 Homepage discovery cards reference the same destination records as shared navigation. Explore Rosarito is planned for `/explore-rosarito`, Property Highlights points to the future `/property-details` page, and Dining is planned for `/dining`. Until those routes exist, all three show Coming soon as non-interactive text. Mockup descriptions are marked provisional in `src/data/home-discovery.ts` and are limited to local development and the Pages review.
 
-## Fictional photography
+## Property profiles and fictional photography
 
-The homepage image manifest uses the shared variant catalog in `src/assets/images/demo-photo-variants.ts`. The Vite review plugin reads the same list and explicitly emits only those WebPs. Local development reads the same files from source paths. The standard build strips the imagery and provisional text via `__SHOW_PREVIEW_CONTENT__`. The fictional disclosure appears after the footer on demo routes. See the [photography inventory](PHOTO-REPLACEMENT-INVENTORY.md) for source and delivery details.
+The homepage image manifest uses the shared variant catalog in `src/assets/images/demo-photo-variants.ts`. The fictional profile references the variant IDs and the Vite review plugin emits the catalogued WebPs. Local development reads the same files from source paths. The standard build selects the neutral profile, which carries no fictional imagery or suite copy. The fictional disclosure appears after the footer on demo routes. See [property configuration](PROPERTY-CONFIGURATION.md) for the profile contract and the [photography inventory](PHOTO-REPLACEMENT-INVENTORY.md) for asset delivery details.

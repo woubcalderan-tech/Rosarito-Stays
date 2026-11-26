@@ -2,10 +2,11 @@ import { StrictMode } from "react";
 import { createRoot } from "react-dom/client";
 import { createBrowserRouter } from "react-router";
 import { RouterProvider } from "react-router/dom";
-import { paths, site } from "./config/site";
+import { paths, property } from "./config/site";
 import { SiteLayout } from "./layout/SiteLayout";
 import {
   AccommodationsPage,
+  ContactPage,
   HomePage,
   NotFoundPage,
   PlaceholderPage,
@@ -31,11 +32,11 @@ const router = createBrowserRouter(
           element: (
             <PlaceholderPage
               title="Booking"
-              description="Online booking is planned for a future phase."
+              description={property.booking.description}
             />
           ),
         },
-        { path: paths.contact, element: <PlaceholderPage title="Contact" /> },
+        { path: paths.contact, Component: ContactPage },
         {
           path: paths.privacy,
           element: <PlaceholderPage title="Privacy Policy" />,
@@ -51,7 +52,6 @@ const router = createBrowserRouter(
   { basename: import.meta.env.BASE_URL },
 );
 
-document.documentElement.lang = site.locale;
 createRoot(document.getElementById("root")!).render(
   <StrictMode>
     <RouterProvider router={router} />

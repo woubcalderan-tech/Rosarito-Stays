@@ -1,5 +1,6 @@
+import type { ReactNode } from "react";
 import { useParams } from "react-router";
-import { paths } from "../config/site";
+import { paths, property, site } from "../config/site";
 import { en } from "../localization/en";
 import { getSuite, listSuites } from "../services/suites";
 import { SuiteDetails } from "../suites/SuiteDetails";
@@ -13,7 +14,7 @@ export function AccommodationsPage() {
     <>
       <Metadata
         title={en.accommodations}
-        description="Browse the suites at Rosarito Stays."
+        description={`Browse the suites at ${site.name}.`}
       />
       <Section labelledBy="listing-title">
         <p className="eyebrow">{en.accommodations}</p>
@@ -32,19 +33,43 @@ export function SuitePage() {
   const suite = getSuite(useParams().slug);
   return suite ? <SuiteDetails suite={suite} /> : <NotFoundPage />;
 }
+export function ContactPage() {
+  const { address, email, telephone } = property.contact ?? {};
+  return (
+    <PlaceholderPage title="Contact">
+      {(address || email || telephone) && (
+        <address>
+          {address && <p>{address}</p>}
+          {email && (
+            <p>
+              <a href={`mailto:${email}`}>{email}</a>
+            </p>
+          )}
+          {telephone && (
+            <p>
+              <a href={`tel:${telephone}`}>{telephone}</a>
+            </p>
+          )}
+        </address>
+      )}
+    </PlaceholderPage>
+  );
+}
 export function PlaceholderPage({
   title,
   description = en.pending,
+  children,
 }: {
   title: string;
   description?: string;
+  children?: ReactNode;
 }) {
   return (
     <>
       <Metadata title={title} description={description} />
       <Section labelledBy="page-title">
         <h1 id="page-title">{title}</h1>
-        <p>{description}</p>
+        {children ?? <p>{description}</p>}
       </Section>
     </>
   );

@@ -2,7 +2,7 @@ import { Menu, X } from "lucide-react";
 import { useEffect, useRef, useState } from "react";
 import { Outlet, ScrollRestoration, useLocation } from "react-router";
 import { BookingLink } from "../booking/BookingLink";
-import { navigation, paths } from "../config/site";
+import { navigation, paths, property } from "../config/site";
 import { useRouteFocus } from "../hooks/useRouteFocus";
 import { Container } from "../ui/Content";
 
@@ -93,9 +93,7 @@ export function SiteLayout() {
           className="review-notice"
           aria-label="Fictional portfolio disclosure"
         >
-          Rosarito Stays is a fictional hospitality concept created as a web
-          development portfolio demonstration. Property imagery is AI-generated.
-          Reservations and payments are simulated.
+          {`${property.brand.name} is a fictional hospitality concept created as a web development portfolio demonstration. Property imagery is AI-generated. Reservations and payments are simulated.`}
         </aside>
       )}
       <ScrollRestoration />

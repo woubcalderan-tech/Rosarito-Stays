@@ -2,19 +2,20 @@ import { Calendar, ChevronDown, UserRound } from "lucide-react";
 import { useState } from "react";
 import type { FormEvent } from "react";
 import { useNavigate } from "react-router";
-import { paths } from "../config/site";
+import { paths, property } from "../config/site";
 import { en } from "../localization/en";
 
 export function BookingSearch() {
   const navigate = useNavigate();
+  const rules = property.booking;
   const [checkIn, setCheckIn] = useState("");
   const [checkOut, setCheckOut] = useState("");
   const [guests, setGuests] = useState("");
-  const dayAfterCheckIn = checkIn ? new Date(checkIn) : undefined;
-  dayAfterCheckIn?.setUTCDate(dayAfterCheckIn.getUTCDate() + 1);
+  const firstCheckout = checkIn ? new Date(checkIn) : undefined;
+  firstCheckout?.setUTCDate(firstCheckout.getUTCDate() + rules.minimumNights);
   const minCheckout =
-    dayAfterCheckIn && Number.isFinite(dayAfterCheckIn.getTime())
-      ? dayAfterCheckIn.toISOString().slice(0, 10)
+    firstCheckout && Number.isFinite(firstCheckout.getTime())
+      ? firstCheckout.toISOString().slice(0, 10)
       : undefined;
 
   function submit(event: FormEvent<HTMLFormElement>) {
@@ -44,7 +45,8 @@ export function BookingSearch() {
         <input
           type="date"
           value={checkIn}
-          max="9999-12-30"
+          min={rules.earliestCheckIn}
+          max={rules.latestCheckIn}
           data-filled={Boolean(checkIn)}
           onChange={(event) => setCheckIn(event.target.value)}
         />
@@ -57,7 +59,7 @@ export function BookingSearch() {
         <input
           type="date"
           value={checkOut}
-          max="9999-12-31"
+          max={rules.latestCheckOut}
           min={minCheckout}
           data-filled={Boolean(checkOut)}
           onChange={(event) => setCheckOut(event.target.value)}
@@ -71,7 +73,7 @@ export function BookingSearch() {
           onChange={(event) => setGuests(event.target.value)}
         >
           <option value="">Guests</option>
-          {Array.from({ length: 8 }, (_, index) => index + 1).map((count) => (
+          {rules.guestCounts.map((count) => (
             <option key={count} value={count}>
               {count} {count === 1 ? "guest" : "guests"}
             </option>

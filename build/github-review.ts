@@ -6,12 +6,12 @@ import {
   demoPhotoVariants,
 } from "../src/assets/images/demo-photo-variants.ts";
 import type { DemoPhoto } from "../src/assets/images/demo-photo-variants.ts";
-import { paths, suitePath } from "../src/config/site.ts";
-import { suites } from "../src/data/suites.ts";
+import { paths, suitePath } from "../src/config/routes.ts";
+import type { CatalogSuite } from "../src/config/property.ts";
 
 export const reviewBase = "/Rosarito-Stays/";
 
-export function githubReview(): Plugin {
+export function githubReview(suites: readonly CatalogSuite[]): Plugin {
   return {
     name: "rosarito-github-review",
     async generateBundle() {

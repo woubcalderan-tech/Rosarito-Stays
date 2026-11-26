@@ -4,20 +4,29 @@ import { Link } from "react-router";
 import facebook from "../assets/brand/social/facebook.svg?inline";
 import instagram from "../assets/brand/social/instagram.svg?inline";
 import youtube from "../assets/brand/social/youtube.svg?inline";
-import { navigation, paths } from "../config/site";
+import { navigation, paths, property } from "../config/site";
 import { Brand } from "./Brand";
 import { NavigationEntries } from "./NavigationEntries";
 import "../styles/home-mobile-footer.css";
 
-declare const __SHOW_PREVIEW_CONTENT__: boolean;
+const socialChannels = [
+  { id: "instagram", label: "Instagram", icon: instagram, size: 18 },
+  { id: "facebook", label: "Facebook", icon: facebook, size: 18 },
+  { id: "youtube", label: "YouTube", icon: youtube, size: 20 },
+] as const;
 
 export function SiteFooter({ home }: { home: boolean }) {
   const [expanded, setExpanded] = useState<string | null>(null);
   const id = useId();
+  const social = property.contact?.social;
+  const demo = property.kind === "fictional-demo";
+  const visibleChannels = socialChannels.filter(
+    ({ id }) => social?.[id] || demo,
+  );
   return (
     <footer className={home ? "site-footer site-footer--home" : "site-footer"}>
       <div
-        className={`footer-main${__SHOW_PREVIEW_CONTENT__ ? " footer-main--with-social" : ""}`}
+        className={`footer-main${visibleChannels.length ? " footer-main--with-social" : ""}`}
       >
         <div className="footer-brand-area">
           <Brand footer />
@@ -64,15 +73,31 @@ export function SiteFooter({ home }: { home: boolean }) {
             );
           })}
         </nav>
-        {__SHOW_PREVIEW_CONTENT__ && (
+        {visibleChannels.length > 0 && (
           <div
             className="footer-social"
             role="group"
-            aria-label="Social links coming soon"
+            aria-label={social ? "Social links" : "Social links coming soon"}
           >
-            <img src={instagram} alt="Instagram" width={18} height={18} />
-            <img src={facebook} alt="Facebook" width={18} height={18} />
-            <img src={youtube} alt="YouTube" width={20} height={20} />
+            {visibleChannels.map(({ id, label, icon, size }) => {
+              const url = social?.[id];
+              const image = (
+                <img
+                  key={id}
+                  src={icon}
+                  alt={label}
+                  width={size}
+                  height={size}
+                />
+              );
+              return url ? (
+                <a key={id} href={url}>
+                  {image}
+                </a>
+              ) : (
+                image
+              );
+            })}
           </div>
         )}
       </div>

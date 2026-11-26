@@ -15,24 +15,24 @@ npm.cmd run dev
 
 Open [the local site](http://127.0.0.1:5173). Press Ctrl+C in the terminal to stop Vite. On other platforms, use `npm` in place of `npm.cmd`.
 
-| Command                  | Purpose                                                                        |
-| ------------------------ | ------------------------------------------------------------------------------ |
-| `npm run typecheck`      | Strict TypeScript check                                                        |
-| `npm run lint`           | ESLint                                                                         |
-| `npm run format:check`   | Prettier verification                                                          |
-| `npm run format`         | Format project sources and documentation                                       |
-| `npm run build`          | Standard build in `dist/`, with fictional photos and provisional copy excluded |
-| `npm run preview`        | Serve the standard build locally                                               |
-| `npm run build:review`   | Build the GitHub Pages review in `dist-review/`                                |
-| `npm run preview:review` | Serve the review build locally under `/Rosarito-Stays/`                        |
+| Command                  | Purpose                                                      |
+| ------------------------ | ------------------------------------------------------------ |
+| `npm run typecheck`      | Strict TypeScript check                                      |
+| `npm run lint`           | ESLint                                                       |
+| `npm run format:check`   | Prettier verification                                        |
+| `npm run format`         | Format project sources and documentation                     |
+| `npm run build`          | Standard build in `dist/`, with the neutral template profile |
+| `npm run preview`        | Serve the standard build locally                             |
+| `npm run build:review`   | Build the GitHub Pages review in `dist-review/`              |
+| `npm run preview:review` | Serve the review build locally under `/Rosarito-Stays/`      |
 
 ## Public review and client reuse
 
-The [published review](https://woubcalderan-tech.github.io/Rosarito-Stays/) for `v0.3.0-preview` uses AI-generated scenes from an approved fictional property collection. Local development and the explicit Pages review build display the imagery with a site-wide disclosure. The standard build omits fictional images and provisional claims. The review workflow is manual and the preview carries crawler directives.
+The [published review](https://woubcalderan-tech.github.io/Rosarito-Stays/) for `v0.3.0-preview` uses AI-generated scenes from an approved fictional property collection. Local development and the explicit Pages review build display the imagery with a site-wide disclosure. The standard build selects a neutral template profile and omits the fictional brand, suite catalog, imagery, and provisional claims. The review workflow is manual and the preview carries crawler directives.
 
 Use a separate project configuration and deployment for each future client. The client supplies verified property content, contact details, and licensed photographs. The portfolio demo, its database, and its booking exercises stay isolated from client data and services.
 
-[Architecture](docs/ARCHITECTURE.md) · [Conversion audit](docs/PORTFOLIO-TEMPLATE-AUDIT.md) · [Fictional photography inventory](docs/PHOTO-REPLACEMENT-INVENTORY.md) · [Design system](docs/DESIGN-SYSTEM.md) · [Roadmap](docs/PROJECT-ROADMAP.md)
+[Property configuration](docs/PROPERTY-CONFIGURATION.md) · [Architecture](docs/ARCHITECTURE.md) · [Conversion audit](docs/PORTFOLIO-TEMPLATE-AUDIT.md) · [Fictional photography inventory](docs/PHOTO-REPLACEMENT-INVENTORY.md) · [Design system](docs/DESIGN-SYSTEM.md) · [Roadmap](docs/PROJECT-ROADMAP.md)
 
 ## Learning notes
 

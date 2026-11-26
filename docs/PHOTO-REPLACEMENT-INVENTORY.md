@@ -60,7 +60,7 @@ The ten masters total **27,618,534 bytes**. The 31 review variants total **3,649
 ## Replacing the photography for a future client
 
 1. Keep verified, licensed source masters outside `public/`. Record provenance and crop requirements for each placement.
-2. Export appropriately sized derivatives and update image paths and dimensions together in the variant catalog. Set descriptive alt text and crop positions in `homepage.ts`. Add a separate verified client profile with its own approved assets and copy before enabling imagery in that profile.
+2. Export appropriately sized derivatives and update image paths and dimensions together in the variant catalog. Set descriptive alt text, image IDs, and suite crop positions in the relevant [property profile](PROPERTY-CONFIGURATION.md). Add a separate verified client profile with its own approved assets and copy before enabling imagery in that profile.
 3. Compare desktop and mobile crops at the real breakpoints, including hero contrast, the suite carousel and the banner. Verify image requests, then inspect both output directories. The demo catalog is available in local development and the review build only.
 4. On a later authorized release, verify the updated Pages artifact and check old public paths. Previous Git commits, release tags, and archived deployments can retain earlier photographs.
 

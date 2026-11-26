@@ -9,8 +9,14 @@ export interface ImageAsset {
 }
 
 export interface Suite {
+  readonly id: string;
   readonly slug: string;
   readonly name: string;
   readonly summary?: string;
   readonly images?: readonly ImageAsset[];
+  readonly featured?: {
+    order: number;
+    description?: string;
+    photo?: { image: ImageAsset; position: string };
+  };
 }
