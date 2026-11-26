@@ -2,7 +2,7 @@ import { ArrowLeft, ArrowRight } from "lucide-react";
 import { useRef, useState } from "react";
 import type { TouchEvent } from "react";
 import { Link } from "react-router";
-import type { FeaturedSuiteSample } from "../assets/images/homepage";
+import type { FeaturedSuitePhoto } from "../assets/images/homepage";
 import { suitePath } from "../config/site";
 import { provisionalFeaturedDescriptions } from "../data/featured-suite-copy";
 import { en } from "../localization/en";
@@ -15,11 +15,11 @@ declare const __SHOW_PREVIEW_CONTENT__: boolean;
 export function FeaturedSuiteCarousel({
   suites,
   initialSlug,
-  samples,
+  photos,
 }: {
   suites: readonly Suite[];
   initialSlug: string;
-  samples?: Readonly<Record<string, FeaturedSuiteSample>>;
+  photos?: Readonly<Record<string, FeaturedSuitePhoto>>;
 }) {
   const [activeIndex, setActiveIndex] = useState(() =>
     Math.max(
@@ -31,7 +31,7 @@ export function FeaturedSuiteCarousel({
   const suite = suites[activeIndex];
   if (!suite) return null;
 
-  const sample = samples?.[suite.slug];
+  const photo = photos?.[suite.slug];
   const provisional = suite.summary
     ? undefined
     : provisionalFeaturedDescriptions[suite.slug];
@@ -66,23 +66,22 @@ export function FeaturedSuiteCarousel({
 
   return (
     <section
-      className={`featured-suite${sample ? "" : " featured-suite--text-only"}`}
+      className={`featured-suite${photo ? "" : " featured-suite--text-only"}`}
       aria-label="Featured suites"
       aria-roledescription="carousel"
     >
       <div className="featured-suite-visual">
-        {sample && (
+        {photo && (
           <figure
             className="featured-suite-photo"
-            style={{ objectPosition: sample.position }}
+            style={{ objectPosition: photo.position }}
             onTouchStart={startSwipe}
             onTouchEnd={endSwipe}
             onTouchCancel={() => {
               touchStart.current = null;
             }}
           >
-            <ResponsiveImage {...sample.image} />
-            <figcaption>Sample photo from Las Olas Grand</figcaption>
+            <ResponsiveImage {...photo.image} />
           </figure>
         )}
         {suites.length > 1 && (

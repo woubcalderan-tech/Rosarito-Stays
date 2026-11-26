@@ -29,25 +29,10 @@
   border-radius: inherit;
 }
 
-.discovery-photo--mobile-only {
-  display: none;
-}
-
 .discovery-photo img {
   width: 100%;
   aspect-ratio: 8 / 5;
   object-fit: cover;
-}
-
-.discovery-photo figcaption {
-  position: absolute;
-  inset: auto 0.25rem 0.25rem auto;
-  padding: 0.1rem 0.3rem;
-  border-radius: 0.2rem;
-  background: #faf2e8;
-  color: var(--discovery-ink);
-  font-size: 0.625rem;
-  line-height: 1.2;
 }
 
 .discovery-card--property::before {
@@ -148,15 +133,6 @@
   line-height: 1.15;
 }
 
-.discovery-attribution {
-  position: absolute;
-  inset: auto 0 0.38rem;
-  max-width: none;
-  text-align: center;
-  font-size: 0.6875rem;
-  color: #624d3e;
-}
-
 .home-discovery--text-only .discovery-card--property::before {
   position: absolute;
   inset: 0 0 auto auto;
@@ -187,11 +163,7 @@
     border-radius: 0.575rem;
   }
 
-  .discovery-photo--mobile-only {
-    display: block;
-  }
-
-  .discovery-card--property:has(.discovery-photo--mobile-only)::before {
+  .discovery-card--property.discovery-card--photographed::before {
     content: none;
   }
 
@@ -230,6 +202,10 @@
 }
 
 @media (48rem <= width < 64rem) {
+  .discovery-card--property .discovery-photo {
+    display: none;
+  }
+
   .discovery-description {
     display: block;
     margin-block-start: 0.4rem;
@@ -266,6 +242,14 @@
   .discovery-card--photographed {
     display: grid;
     grid-template-columns: min(42%, 14.5rem) minmax(0, 1fr);
+  }
+
+  .discovery-card--property.discovery-card--photographed::before {
+    content: none;
+  }
+
+  .discovery-card--property.discovery-card--photographed .discovery-card-body {
+    padding-inline-start: clamp(0.875rem, 1.6vw, 1.875rem);
   }
 
   .discovery-photo {
@@ -341,10 +325,6 @@
 
   .discovery-pending {
     justify-items: start;
-  }
-
-  .discovery-attribution {
-    inset-block-end: 0.53rem;
   }
 
   .discovery-card--dining .discovery-description {

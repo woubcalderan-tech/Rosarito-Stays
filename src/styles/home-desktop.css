@@ -152,6 +152,20 @@
     color: #2c1a0f;
   }
 
+  .home-intro.home-intro--photographed {
+    --hero-bridge-height: clamp(1.5rem, 2.3vw, 2.75rem);
+    margin-block-end: var(--hero-bridge-height);
+  }
+
+  .home-intro--photographed::after {
+    position: absolute;
+    inset: 100% 0 auto;
+    height: var(--hero-bridge-height);
+    background: linear-gradient(#f2e6d9, #f2e9df);
+    content: "";
+    pointer-events: none;
+  }
+
   .home-intro .container-site,
   .home-panel.home-intro .home-intro-layout {
     display: flex;
@@ -185,7 +199,7 @@
   }
 
   .home-intro .home-hero-photo img {
-    object-position: 57% 50%;
+    object-position: 50% 50%;
   }
 
   .home-intro .home-hero-photo::after {
@@ -193,6 +207,8 @@
     inset: 0;
     content: "";
     background:
+      linear-gradient(0deg, #f2e6d9, transparent clamp(2rem, 5vh, 4rem)),
+      linear-gradient(180deg, rgb(242 230 217 / 63%), transparent 11rem),
       radial-gradient(
         ellipse at 3% 44%,
         rgb(242 230 217 / 62%),
@@ -207,12 +223,6 @@
         transparent 42%
       );
     pointer-events: none;
-  }
-
-  .home-intro .home-hero-photo .home-photo-credit {
-    z-index: 1;
-    background: rgb(250 243 233 / 95%);
-    font-size: 0.6875rem;
   }
 
   .home-intro-copy h1 {

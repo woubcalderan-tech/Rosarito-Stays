@@ -216,3 +216,15 @@
     font-size: 0.6875rem;
   }
 }
+
+.review-notice {
+  margin: 0;
+  padding: 0.6rem 1rem;
+  border-top: 1px solid #d8cbb9;
+  background: #f4ece2;
+  color: #352013;
+  font:
+    400 0.75rem/1.5 system-ui,
+    sans-serif;
+  text-align: center;
+}

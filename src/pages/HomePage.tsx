@@ -29,9 +29,6 @@ function HomepagePhoto({
   return (
     <figure className={className}>
       <ResponsiveImage {...image} priority={priority} />
-      <figcaption className="home-photo-credit">
-        Sample photo from Las Olas Grand
-      </figcaption>
     </figure>
   );
 }
@@ -83,10 +80,10 @@ export function HomePage() {
       <FeaturedSuiteCarousel
         suites={listSuites()}
         initialSlug={featuredSuiteSlug}
-        samples={photos?.featured}
+        photos={photos?.featured}
       />
       <HomeDiscovery images={photos?.discovery} />
-      <HomeBookingBanner />
+      <HomeBookingBanner image={photos?.banner} />
     </>
   );
 }

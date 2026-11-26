@@ -1,6 +1,8 @@
-# Temporary homepage photography
+# Archived Las Olas Grand photography
 
-All 48 JPGs in `sample-photos/` are supplied photographs from the Las Olas Grand condominium project. They are temporary development assets and do not depict Rosarito Stays. The source directory is ignored by Git and sits outside Vite's public directory.
+All 48 JPGs in `sample-photos/` are supplied photographs from the Las Olas Grand condominium project. They depict Las Olas Grand. The local Phase 3 application uses the separate fictional collection. The selected derivatives below describe the historical v0.2.0-preview release. The source directory is ignored by Git and sits outside Vite's public directory.
+
+For exact responsive filenames and art direction, see the [AI photography replacement inventory](PHOTO-REPLACEMENT-INVENTORY.md).
 
 ## Selected photographs
 
@@ -12,17 +14,11 @@ All 48 JPGs in `sample-photos/` are supplied photographs from the Las Olas Grand
 | Featured suite — Terrace   | `img_4813.jpg`              | `featured-terrace`                | Exterior seating and a bedroom visible through the open door.                |
 | Featured suite — Garden    | `img_4826.jpg`              | `featured-garden`                 | Warm bedroom with a rounded soffit. The sample does not show a garden.       |
 | Explore Rosarito           | `airbnb-coastline-view.jpg` | `coastline`, `coastline-portrait` | Elevated view of a rocky coastline.                                          |
-| Dining                     | `img_4736.jpg`              | `dining`, `dining-portrait`       | Las Olas Grand condominium dining area with waterfront glazing.              |
+| Dining                     | `img_4736.jpg`              | `dining-area`, `dining-portrait`  | Las Olas Grand condominium dining area with waterfront glazing.              |
 
 Copies use WebP quality 83, a standard sRGB color space and composition-specific crops. Widths run from 360 to 1440 px without upscaling. The homepage identifies the source of the temporary photography beside the imagery. Its other routes hold no sample images.
 
-The centralized manifest is `src/assets/images/homepage.ts`. The local Vite development server and the explicit GitHub Pages review build render the selected samples. The standard production build omits them. Public use of these Las Olas Grand samples must be confirmed before pushing the review or publishing it. Before publication, replace the manifest mappings with approved Rosarito Stays imagery in a separate asset directory, update alt text and attribution, and verify responsive crops and production output.
-
-The featured carousel uses the catalog order and starts on Courtyard Suite. Its courtyard sentence is provisional mockup copy. The other slides show that their descriptions are pending review. Production keeps the suite names and links in a text-only carousel and excludes both the sample photographs and all draft copy.
-
-The closing booking banner uses a layered terracotta plaster treatment. The available Las Olas Grand photographs do not depict the approved arch, lantern, and planting composition. The previously selected cliff-path source and WebPs are retained for local inventory and are no longer used in the banner.
-
-The discovery cards use portrait crops on desktop and existing landscape variants on mobile. Property Highlights uses the decorative palm on desktop. On mobile, it uses a labeled common-area photo from `airbnb-garden-jacuzzi.jpg`, with 360px and 720px `discovery-garden` WebP variants. The photo shows the Las Olas Grand garden spa and is included in the local and review builds. The terrace-seating WebPs remain available in the local inventory, without an application reference.
+The archived release used the samples in local and review builds. Public review permission applied to the selected samples. The local Phase 3 conversion supersedes those derivatives and their on-screen credit. The original JPGs remain in the ignored archive.
 
 ## Complete visual inventory
 

@@ -140,7 +140,7 @@
   }
 
   .home-intro .home-hero-photo img {
-    object-position: 41% 50%;
+    object-position: 50% 50%;
   }
 
   .home-intro .home-hero-photo::after {
@@ -162,17 +162,6 @@
       );
     content: "";
     pointer-events: none;
-  }
-
-  .home-intro .home-hero-photo .home-photo-credit {
-    z-index: 1;
-    bottom: calc(
-      var(--mobile-hero-bottom) + 11.2rem + env(safe-area-inset-bottom)
-    );
-    right: var(--mobile-booking-inset);
-    padding: 0.2rem 0.38rem;
-    font-size: 0.625rem;
-    background: rgb(250 243 233 / 94%);
   }
 
   .home-intro .home-intro-action {

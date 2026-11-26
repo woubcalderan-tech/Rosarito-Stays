@@ -1,22 +1,6 @@
-.home-photo-credit {
-  background: var(--color-cream);
-  color: var(--color-ink);
-  padding: 0.4rem 0.65rem;
-  text-align: center;
-  font-size: 0.8125rem;
-  line-height: 1.35;
-}
-
 .home-hero-photo {
   position: relative;
   overflow: hidden;
-}
-
-.home-hero-photo .home-photo-credit {
-  position: absolute;
-  inset-block-end: 0.5rem;
-  inset-inline-end: 0.5rem;
-  border-radius: var(--radius-action);
 }
 
 .home-hero-photo img {

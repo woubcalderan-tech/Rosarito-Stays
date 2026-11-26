@@ -12,6 +12,8 @@ import { NavigationEntries } from "./NavigationEntries";
 import { SiteFooter } from "./SiteFooter";
 import "../styles/shared-layout.css";
 
+declare const __SHOW_PREVIEW_CONTENT__: boolean;
+
 function Header({ home }: { home: boolean }) {
   const [open, setOpen] = useState(false);
   const toggle = useRef<HTMLButtonElement>(null);
@@ -86,6 +88,16 @@ export function SiteLayout() {
         <Outlet />
       </main>
       <SiteFooter key={pathname} home={pathname === paths.home} />
+      {__SHOW_PREVIEW_CONTENT__ && (
+        <aside
+          className="review-notice"
+          aria-label="Fictional portfolio disclosure"
+        >
+          Rosarito Stays is a fictional hospitality concept created as a web
+          development portfolio demonstration. Property imagery is AI-generated.
+          Reservations and payments are simulated.
+        </aside>
+      )}
       <ScrollRestoration />
     </>
   );
