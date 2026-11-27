@@ -228,3 +228,19 @@
     sans-serif;
   text-align: center;
 }
+@media (24rem <= width < 48rem) {
+  .site-header--mobile-booking .header-booking {
+    display: block;
+    margin-inline-start: auto;
+  }
+
+  .site-header--mobile-booking .header-booking .action {
+    padding-inline: 0.65rem;
+    font-size: 0.69rem;
+    white-space: nowrap;
+  }
+
+  .site-header--mobile-booking .menu-toggle {
+    margin-inline-start: 0;
+  }
+}

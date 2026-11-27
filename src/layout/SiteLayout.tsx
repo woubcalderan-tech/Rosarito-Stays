@@ -24,12 +24,12 @@ function Header({
   home,
   accommodations,
   suiteDetails,
-  residence,
+  mobileBookingShortcut,
 }: {
   home: boolean;
   accommodations: boolean;
   suiteDetails: boolean;
-  residence: boolean;
+  mobileBookingShortcut: boolean;
 }) {
   const [open, setOpen] = useState(false);
   const toggle = useRef<HTMLButtonElement>(null);
@@ -44,7 +44,7 @@ function Header({
   }, [open]);
   return (
     <header
-      className={`site-header${home ? " site-header--home" : ""}${accommodations ? " site-header--accommodations" : ""}${suiteDetails ? " site-header--suite-details" : ""}${residence ? " site-header--residence" : ""}`}
+      className={`site-header${home ? " site-header--home" : ""}${accommodations ? " site-header--accommodations" : ""}${suiteDetails ? " site-header--suite-details" : ""}${mobileBookingShortcut ? " site-header--mobile-booking" : ""}`}
       onKeyDown={(event) => {
         if (event.key === "Escape" && open) {
           setOpen(false);
@@ -106,6 +106,9 @@ export function SiteLayout() {
   const accommodations = pathname.replace(/\/$/, "") === paths.accommodations;
   const residence =
     !!property.residence && pathname.replace(/\/$/, "") === paths.residence;
+  const propertyDetails =
+    !!property.propertyDetails &&
+    pathname.replace(/\/$/, "") === paths.propertyDetails;
   const suiteMatch = matchPath(`${paths.accommodations}/:slug`, pathname);
   const suiteDetails = Boolean(getSuite(suiteMatch?.params.slug));
   return (
@@ -118,7 +121,7 @@ export function SiteLayout() {
         home={home}
         accommodations={accommodations}
         suiteDetails={suiteDetails}
-        residence={residence}
+        mobileBookingShortcut={residence || propertyDetails}
       />
       <main id="main-content" tabIndex={-1} ref={main}>
         <Outlet />
@@ -126,7 +129,9 @@ export function SiteLayout() {
       <SiteFooter
         key={pathname}
         home={home}
-        compactOnMobile={accommodations || suiteDetails || residence}
+        compactOnMobile={
+          accommodations || suiteDetails || residence || propertyDetails
+        }
       />
       {__SHOW_PREVIEW_CONTENT__ && (
         <aside

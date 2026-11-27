@@ -182,6 +182,18 @@ export const demoPhotoVariants = {
     [480, 600],
     [768, 960],
   ],
+  "property-details/hero": [
+    [480, 160],
+    [768, 256],
+    [1200, 400],
+    [1672, 557],
+    [2172, 724],
+  ],
+  "property-details/coastline": [
+    [480, 192],
+    [768, 307],
+    [1200, 480],
+  ],
 } as const;
 
 export type DemoPhoto = keyof typeof demoPhotoVariants;

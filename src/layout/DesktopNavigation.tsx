@@ -51,9 +51,11 @@ export function DesktopNavigation() {
       <ul className="desktop-nav-groups">
         {navigation.map(({ label, entries }, index) => {
           const open = expanded === index;
+          const pagePath = pathname.replace(/\/$/, "");
           const active =
-            (pathname.replace(/\/$/, "") === paths.residence &&
-              entries.some(({ to }) => to === paths.residence)) ||
+            ((pagePath === paths.residence ||
+              pagePath === paths.propertyDetails) &&
+              entries.some(({ to }) => to === pagePath)) ||
             ((pathname === paths.accommodations ||
               pathname.startsWith(paths.accommodations + "/")) &&
               entries.some(({ to }) => to === paths.accommodations));

@@ -14,6 +14,7 @@ import {
   SuitePage,
 } from "./pages/Pages";
 import { ResidencePage } from "./pages/ResidencePage";
+import { PropertyDetailsPage } from "./pages/PropertyDetailsPage";
 import "./styles/site.css";
 
 const router = createBrowserRouter(
@@ -24,6 +25,7 @@ const router = createBrowserRouter(
       children: [
         { index: true, Component: HomePage },
         { path: paths.residence, Component: ResidencePage },
+        { path: paths.propertyDetails, Component: PropertyDetailsPage },
         { path: paths.accommodations, Component: AccommodationsPage },
         { path: `${paths.accommodations}/:slug`, Component: SuitePage },
         { path: paths.booking, Component: BookingPage },

@@ -27,7 +27,7 @@ export const discoveryDestinations: Record<
   property: {
     label: "Property Details",
     futurePath:
-      property.home.discovery.property.futurePath ?? "/property-details",
+      property.home.discovery.property.futurePath ?? paths.propertyDetails,
   },
   dining: {
     label: property.home.discovery.dining.heading,
@@ -53,7 +53,12 @@ export const navigation: readonly {
   {
     label: "Details",
     entries: [
-      discoveryDestinations.property,
+      property.propertyDetails
+        ? {
+            label: discoveryDestinations.property.label,
+            to: paths.propertyDetails,
+          }
+        : discoveryDestinations.property,
       { label: "Contact & FAQ", to: paths.contact },
     ],
   },

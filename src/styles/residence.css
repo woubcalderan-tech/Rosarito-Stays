@@ -602,23 +602,6 @@
   }
 }
 
-@media (24rem <= width < 48rem) {
-  .site-header--residence .header-booking {
-    display: block;
-    margin-inline-start: auto;
-  }
-
-  .site-header--residence .header-booking .action {
-    padding-inline: 0.65rem;
-    font-size: 0.69rem;
-    white-space: nowrap;
-  }
-
-  .site-header--residence .menu-toggle {
-    margin-inline-start: 0;
-  }
-}
-
 @media (width < 21rem) {
   .residence-property-benefits .residence-benefits {
     display: flex;

@@ -226,3 +226,35 @@ Use a consistent fictional Baja coastal residence with cream plaster, locally pl
 - **Art direction.** The `<picture>` in `ResponsiveImage.tsx` switches to a portrait composition below 48rem. Each composition still has multiple resolution candidates. The dedicated mobile hero master keeps more of the courtyard arch and pool visible.
 
 **Exercise.** Open the local review with DevTools, disable the cache, and reload at 390px and 1440px widths. Run `document.querySelector(".home-hero-photo img").currentSrc` in the console and compare the filenames. At 390px, change the emulated device pixel ratio and reload. Compare the selected pixel width and Network transfer size while the page layout stays fixed.
+
+## P1 Property Details photography
+
+The approved fictional masters are in the ignored `image-masters/property-details/` directory. The WebPs retain the full original composition and natural colors. The hero leaves cream stucco and palm shadows on the left for desktop text. The coastline is illustrative and does not locate the property.
+
+| Master PNG                       | Size       |     Bytes | SHA-256                                                            |
+| -------------------------------- | ---------- | --------: | ------------------------------------------------------------------ |
+| `property-details-hero.png`      | 2172 × 724 | 2,754,505 | `e68c0ea858e61931d2db6dd7edbd769e37570da7b5c9a5f26d4be9f79f1ea4cf` |
+| `property-details-coastline.png` | 1983 × 793 | 2,976,787 | `e50132975ed375949de0ed25c75fbd163e79ecf071677d10e9d4b56e547e0684` |
+
+| Catalog ID                   | WebP dimensions and encoded sizes                                                                                  |
+| ---------------------------- | ------------------------------------------------------------------------------------------------------------------ |
+| `property-details/hero`      | 480 × 160 (21,144 B), 768 × 256 (47,516 B), 1200 × 400 (102,836 B), 1672 × 557 (179,880 B), 2172 × 724 (268,558 B) |
+| `property-details/coastline` | 480 × 192 (24,742 B), 768 × 307 (60,356 B), 1200 × 480 (132,782 B)                                                 |
+
+The eight new variants total **837,814 bytes**. The hero uses quality 85, with 1672px for common desktop widths and the native 2172px width for wide full-bleed placements. The coastline uses quality 82 and tops out at 1200px for its inset placement. The current review package includes 121 WebPs. The neutral build excludes them.
+
+| Placement                | Catalog ID                   | Usage                                                                                                                                                                       |
+| ------------------------ | ---------------------------- | --------------------------------------------------------------------------------------------------------------------------------------------------------------------------- |
+| Hero                     | `property-details/hero`      | New corridor panorama with left-side copy space.                                                                                                                            |
+| Amenities and Facilities | `hero/hero-desktop`          | Reuse 640, 1100 and 1672px. The pool, sun loungers, stucco arches and plants fit the subject. The pool photo has no ocean view.                                             |
+| Location                 | `property-details/coastline` | New illustrative daytime coastline. Use a scenic caption without an address or map pin.                                                                                     |
+| Guest Information        | `suites/suite-terrace`       | Reuse 640, 1056 and 1440px. Identify it as the private Terrace Suite bedroom. The suite photo has warm neutrals, terracotta accents and an ocean-facing outdoor connection. |
+| Closing banner           | `banners/booking-banner`     | Reuse 480, 960 and 1672px with the established terracotta treatment.                                                                                                        |
+
+The mobile reference depicts three smaller facility cards instead of the desktop pool panel. The Residence courtyard and communal lounge can be reviewed for mobile reuse. The Terrace BBQ is private to that suite. The catalog has no approved photo of a communal BBQ, so leave that facility card pending review rather than using a misleading image.
+
+### Mobile facility reuse and transfer
+
+The approved mobile facilities reuse `residence/architecture` (Landscaped Courtyards), `residence/coastal-lounge` (Terrace & Lounge), and `hero/hero-desktop` (Swimming Pool). The Terrace Suite bedroom remains desktop-only.
+
+Cold Chrome contexts on the local review build transferred six WebPs: 225,768 bytes at 390 × 844 CSS pixels and DPR 1, and 414,816 bytes on the 412 × 924 CSS-pixel Pixel 9 profile at DPR 2.625. In both cases all six had arrived by network idle before scrolling. Progressive scrolling and decoding confirmed the same totals before capture. Only the hero is eager; the other five use native lazy loading.

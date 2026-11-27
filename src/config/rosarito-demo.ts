@@ -71,6 +71,20 @@ const oceanviewKitchen = galleryPhoto(
 );
 
 const bookingPhoto = image("banners/booking-banner", "");
+const poolPhoto = image(
+  "hero/hero-desktop",
+  "Pool and sun loungers in a Mediterranean-style courtyard with a central arch",
+);
+const residenceCourtyard = galleryPhoto(
+  "residence/architecture",
+  "Plaster arch framing a stone fountain and courtyard with flowering bougainvillea",
+  "50% 51%",
+);
+const residenceLounge = galleryPhoto(
+  "residence/coastal-lounge",
+  "Oceanfront pergola shading dining tables and lounge seating beside the coast",
+  "52% 51%",
+);
 
 const demoLocation = {
   city: "Rosarito",
@@ -95,11 +109,7 @@ export const rosaritoDemo = {
     headline: ["Stay somewhere", "remembered."],
     description: "Vacation suites in",
     mobileDescription: "Oceanview vacation suites",
-    hero: image(
-      "hero/hero-desktop",
-      "Pool and sun loungers in a Mediterranean-style courtyard with a central arch",
-      "hero/hero-mobile",
-    ),
+    hero: { ...poolPhoto, mobileId: "hero/hero-mobile" },
     banner: {
       eyebrow: "Plan Your Baja Escape",
       heading: "Book Your Rosarito Stay",
@@ -182,16 +192,8 @@ export const rosaritoDemo = {
       "Bougainvillea and arched doors frame a furnished oceanfront terrace at sunset",
       "51% 55%",
     ),
-    architecture: galleryPhoto(
-      "residence/architecture",
-      "Plaster arch framing a stone fountain and courtyard with flowering bougainvillea",
-      "50% 51%",
-    ),
-    experience: galleryPhoto(
-      "residence/coastal-lounge",
-      "Oceanfront pergola shading dining tables and lounge seating beside the coast",
-      "52% 51%",
-    ),
+    architecture: residenceCourtyard,
+    experience: residenceLounge,
     gallery: [
       {
         photo: galleryPhoto(
@@ -233,6 +235,167 @@ export const rosaritoDemo = {
         suiteId: "oceanview",
       },
     ],
+  },
+  propertyDetails: {
+    mobile: {
+      heading: "The Property",
+      description:
+        "Everything you need for a comfortable and unforgettable stay in Rosarito.",
+      locationHeading: "In the Heart of Rosarito",
+      facilities: [
+        {
+          amenityId: "courtyards",
+          label: "Landscaped Courtyards",
+          photo: residenceCourtyard,
+        },
+        {
+          amenityId: "lounge",
+          label: "Terrace & Lounge",
+          photo: residenceLounge,
+        },
+        { amenityId: "pool", label: "Swimming Pool", photo: poolPhoto },
+      ],
+    },
+    hero: {
+      heading: "Property Details",
+      description:
+        "Everything you need to know for a comfortable and seamless stay at Rosarito Stays.",
+      photo: image(
+        "property-details/hero",
+        "Palm shadows on a cream stucco wall beside a corridor of arches and bougainvillea",
+      ),
+    },
+    highlights: [
+      { id: "boutique-suites", label: "Boutique Suites", icon: "bed" },
+      { id: "pool-terrace", label: "Pool & Terrace", icon: "pool" },
+      { id: "wifi", label: "Wi-Fi", icon: "wifi", suiteAmenityId: "wifi" },
+      {
+        id: "outdoor-dining",
+        label: "Outdoor Dining",
+        icon: "utensils",
+        suiteAmenityId: "outdoor-dining",
+      },
+      { id: "courtyards", label: "Relaxing Courtyards", icon: "leaf" },
+    ],
+    amenities: {
+      description:
+        "Thoughtfully designed spaces and essential amenities to make your stay relaxing, convenient and memorable.",
+      photo: poolPhoto,
+      groups: [
+        {
+          id: "suite-comforts",
+          label: "Suite Comforts",
+          items: [
+            {
+              id: "wifi",
+              label: "Wi-Fi",
+              icon: "wifi",
+              scope: "suite",
+              suiteAmenityId: "wifi",
+            },
+            {
+              id: "cooling",
+              label: "Air Conditioning",
+              icon: "snowflake",
+              scope: "suite",
+              suiteAmenityId: "cooling",
+            },
+            {
+              id: "kitchen",
+              label: "Kitchens and Kitchenettes",
+              icon: "kitchen",
+              scope: "suite",
+              suiteAmenityId: "kitchen",
+            },
+            {
+              id: "outdoor-dining",
+              label: "Outdoor Dining",
+              icon: "utensils",
+              scope: "suite",
+              suiteAmenityId: "outdoor-dining",
+            },
+            {
+              id: "grill",
+              label: "Private BBQ",
+              icon: "grill",
+              scope: "suite",
+              suiteAmenityId: "grill",
+            },
+            {
+              id: "terrace",
+              label: "Private Terraces",
+              icon: "umbrella",
+              scope: "suite",
+              suiteAmenityId: "terrace",
+            },
+          ],
+        },
+        {
+          id: "shared-spaces",
+          label: "Shared Spaces",
+          items: [
+            {
+              id: "pool",
+              label: "Swimming Pool",
+              icon: "pool",
+              scope: "common-area",
+              status: "demo-proposal",
+            },
+            {
+              id: "lounge",
+              label: "Shared Lounge Areas",
+              icon: "umbrella",
+              scope: "common-area",
+              status: "demo-proposal",
+            },
+            {
+              id: "courtyards",
+              label: "Landscaped Courtyards",
+              icon: "leaf",
+              scope: "common-area",
+              status: "demo-proposal",
+            },
+          ],
+        },
+      ],
+    },
+    location: {
+      areaLabel: `${demoLocation.city}, ${demoLocation.region}, México`,
+      description:
+        "Enjoy Baja’s coastal setting, with Pacific beaches, local restaurants, markets and other places to explore in and around Rosarito.",
+      illustrativePhoto: image(
+        "property-details/coastline",
+        "Illustrative Baja coastline with homes and palms above coastal cliffs and Pacific surf",
+      ),
+      nearby: [
+        { id: "beach", label: "Beach & Coastline", icon: "coast" },
+        { id: "restaurants", label: "Local Restaurants", icon: "utensils" },
+        { id: "markets", label: "Shopping & Markets", icon: "shopping" },
+        { id: "tijuana", label: "Access to Tijuana", icon: "car" },
+      ],
+    },
+    guestPhoto: { photo: suitePhotos.terrace, suiteId: "terrace" },
+    bookingBanner: {
+      heading: "Book Your Stay at Rosarito Stays",
+      description:
+        "Experience comfort, privacy and the best of Baja, all in one place.",
+      photo: bookingPhoto,
+    },
+  },
+  guestPolicies: {
+    status: "demo-proposal",
+    checkInFrom: "15:00",
+    checkOutBy: "11:00",
+    parking: {
+      availability: "on-site",
+      description: "Complimentary on-site parking is available for guests.",
+    },
+    smoking: "no-smoking-in-suites",
+    pets: "not-allowed",
+    quietHours: { from: "22:00", until: "08:00" },
+    registeredGuestsOnly: true,
+    partiesAndEvents: "not-allowed",
+    additionalHouseRules: ["Please respect the property and shared spaces."],
   },
   accommodations: {
     heading: "Find your stay",

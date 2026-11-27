@@ -28,7 +28,7 @@ Open [the local site](http://127.0.0.1:5173). Press Ctrl+C in the terminal to st
 
 ## Public review and client reuse
 
-The [published review](https://woubcalderan-tech.github.io/Rosarito-Stays/) for `v0.3.0-preview` uses AI-generated scenes from an approved fictional property collection. Local development and the explicit Pages review build display the imagery with a site-wide disclosure. The standard build selects a neutral template profile and omits the fictional brand, suite catalog, imagery, and provisional claims. The review workflow is manual and the preview carries crawler directives.
+The [published review](https://woubcalderan-tech.github.io/Rosarito-Stays/) includes the approved desktop and mobile [Property Details page](https://woubcalderan-tech.github.io/Rosarito-Stays/property-details/) in `v0.7.0-preview`. It uses AI-generated scenes, suite-specific amenity data, and shared fictional guest policies. Local development and the explicit Pages review build show the site-wide disclosure. The standard build selects the neutral profile and excludes fictional content, imagery, and policies. The manual review deployment uses `noindex, nofollow`.
 
 Use a separate project configuration and deployment for each future client. The client supplies verified property content, contact details, and licensed photographs. The portfolio demo, its database, and its booking exercises stay isolated from client data and services.
 

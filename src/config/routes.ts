@@ -1,6 +1,7 @@
 export const paths = {
   home: "/",
   residence: "/the-residence",
+  propertyDetails: "/property-details",
   accommodations: "/accommodations",
   booking: "/booking",
   contact: "/contact",

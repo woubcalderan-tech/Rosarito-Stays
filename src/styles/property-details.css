@@ -1,0 +1,690 @@
+.property-details-page {
+  --details-line: 1px solid rgb(160 125 87 / 24%);
+  --details-radius: clamp(0.75rem, 1.5vw, 1.45rem);
+  --details-gutter: clamp(1rem, 2.4vw, 3rem);
+  --listing-gutter: var(--details-gutter);
+  background: var(--color-cream);
+}
+
+.property-details-page :is(h1, h2, h3) {
+  font-family: var(--font-home-editorial, var(--font-display));
+}
+
+.property-details-page h2 {
+  font-size: clamp(2.1rem, 3.65vw, 4rem);
+  line-height: 1;
+  text-wrap: initial;
+}
+
+.property-details-page svg {
+  color: var(--color-olive);
+  flex-shrink: 0;
+}
+
+.property-hero {
+  display: grid;
+  align-items: center;
+  background: var(--color-sand);
+}
+
+.property-hero-copy {
+  padding: clamp(1.5rem, 3.8vw, 4.5rem) clamp(1.25rem, 6vw, 8rem);
+}
+
+.property-hero-copy img {
+  width: clamp(4.25rem, 9.6vw, 11rem);
+  height: auto;
+  margin-bottom: clamp(0.65rem, 1.15vw, 1.3rem);
+}
+
+.property-hero h1 {
+  font-size: clamp(2.65rem, 6vw, 7rem);
+  text-wrap: initial;
+}
+
+.property-hero p {
+  max-width: 26ch;
+  margin-top: clamp(0.6rem, 1.15vw, 1.3rem);
+  font: italic clamp(1.25rem, 2.25vw, 2.65rem)/1.18 var(--font-display);
+}
+
+.property-hero-copy::after {
+  display: block;
+  width: clamp(3rem, 8vw, 9rem);
+  border-bottom: 2px solid var(--color-olive);
+  margin-top: clamp(1rem, 2.4vw, 2.65rem);
+  content: "";
+}
+
+.property-hero > picture img,
+.property-details-content picture img {
+  width: 100%;
+  height: 100%;
+  object-fit: cover;
+}
+
+.property-highlights {
+  background: color-mix(in srgb, var(--color-sand) 27%, var(--color-cream));
+  border-bottom: var(--details-line);
+}
+
+.property-highlights ul {
+  width: min(100%, 112rem);
+  margin-inline: auto;
+  display: flex;
+  justify-content: center;
+  flex-wrap: wrap;
+  padding: clamp(1rem, 2vw, 2.3rem) var(--details-gutter);
+}
+
+.property-highlights li,
+.property-amenity-list li,
+.property-destinations li {
+  display: flex;
+  align-items: center;
+  gap: clamp(0.5rem, 1.1vw, 1.25rem);
+}
+
+.property-highlights li {
+  justify-content: center;
+  padding: 0.4rem clamp(0.6rem, 1.1vw, 1.25rem);
+  font-weight: 600;
+  line-height: 1.2;
+}
+
+.property-highlights li svg {
+  width: clamp(1.35rem, 3.1vw, 3.25rem);
+  height: auto;
+}
+
+.property-details-content {
+  width: min(100%, 112rem);
+  padding-inline: var(--details-gutter);
+  margin-inline: auto;
+}
+
+.property-details-content > section {
+  display: grid;
+  gap: clamp(1rem, 2.6vw, 3rem);
+  padding-block: clamp(1.25rem, 2.35vw, 2.8rem);
+}
+
+.property-details-content > section + section {
+  border-top: var(--details-line);
+}
+
+.property-details-content p {
+  font-size: clamp(0.94rem, 1.25vw, 1.22rem);
+  line-height: 1.42;
+}
+
+.property-details-content h2 + p {
+  margin-top: 0.55rem;
+}
+
+.property-amenities > div > p {
+  max-width: 44ch;
+}
+
+.property-amenities > picture {
+  border-radius: var(--details-radius);
+  aspect-ratio: 1.7;
+  overflow: hidden;
+}
+
+.property-amenity-list {
+  columns: 2 10rem;
+  column-gap: clamp(0.75rem, 3vw, 3.5rem);
+  column-rule: var(--details-line);
+  margin-top: clamp(0.75rem, 1.5vw, 1.6rem);
+}
+
+.property-amenity-list li,
+.property-destinations li {
+  break-inside: avoid;
+  padding-block: clamp(0.3rem, 0.65vw, 0.75rem);
+  line-height: 1.3;
+  font-size: clamp(0.86rem, 1.12vw, 1.1rem);
+  font-weight: 550;
+}
+
+.property-amenity-list svg,
+.property-destinations svg {
+  width: clamp(1.1rem, 2.5vw, 2.55rem);
+  height: auto;
+}
+
+.property-location {
+  align-items: center;
+}
+
+.property-location figure,
+.property-guest-photo {
+  position: relative;
+  border-radius: var(--details-radius);
+  overflow: hidden;
+}
+
+.property-location picture {
+  aspect-ratio: 2.5;
+}
+
+.property-location figcaption,
+.property-guest-photo figcaption {
+  position: absolute;
+  inset: auto 0 0;
+  padding: 0.35rem 0.8rem;
+  color: #fff9ee;
+  background: rgb(38 27 19 / 78%);
+  font-size: clamp(0.75rem, 0.95vw, 0.92rem);
+}
+
+.property-area {
+  display: flex;
+  gap: 0.55rem;
+  align-items: center;
+  margin-top: 0.85rem;
+  font-weight: 650;
+}
+
+.property-area svg {
+  width: clamp(1.25rem, 2.1vw, 2rem);
+  height: auto;
+}
+
+.property-destinations small {
+  display: block;
+  font-size: 0.84em;
+  font-weight: 400;
+}
+
+.property-guest {
+  grid-template-columns: repeat(auto-fit, minmax(min(100%, 15rem), 1fr));
+  align-items: stretch;
+}
+
+.property-guest-photo picture {
+  height: 100%;
+  min-height: 13rem;
+}
+
+.property-policy-stack {
+  display: grid;
+  gap: clamp(0.7rem, 1.3vw, 1.4rem);
+}
+
+.property-policy-card {
+  border: var(--details-line);
+  border-radius: calc(var(--details-radius) * 0.78);
+  background: color-mix(in srgb, var(--color-sand) 35%, var(--color-cream));
+  padding: clamp(0.85rem, 1.5vw, 1.6rem);
+}
+
+.property-policy-card h3 {
+  display: flex;
+  align-items: center;
+  gap: clamp(0.5rem, 1vw, 1.1rem);
+  margin-bottom: clamp(0.55rem, 0.9vw, 1rem);
+  font-size: clamp(1.45rem, 2.2vw, 2.65rem);
+  line-height: 1;
+}
+
+.property-policy-card h3 svg {
+  width: clamp(1.5rem, 2.7vw, 2.75rem);
+  height: auto;
+}
+
+.property-policy-card p,
+.property-arrival-times,
+.property-house-rules {
+  font-size: clamp(0.85rem, 1.13vw, 1.12rem);
+}
+
+.property-arrival-times {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 0.5rem 1rem;
+  line-height: 1.35;
+}
+
+.property-arrival-times > div + div {
+  border-left: var(--details-line);
+  padding-left: 1rem;
+}
+
+.property-arrival-times dd {
+  font-weight: 650;
+}
+
+.property-house-rules {
+  display: grid;
+  gap: clamp(0.35rem, 0.66vw, 0.75rem);
+}
+
+.property-house-rules li {
+  display: flex;
+  align-items: start;
+  gap: 0.65rem;
+  line-height: 1.3;
+}
+
+.property-house-rules svg {
+  width: 1.2em;
+  height: 1.2em;
+}
+
+.property-details-page .compact-booking h2 {
+  font-size: clamp(2rem, 3.4vw, 3.7rem);
+}
+
+.property-details-page .compact-booking p {
+  border: 0;
+  padding: 0;
+  max-width: 55ch;
+}
+
+.property-details-page .compact-booking-action svg {
+  color: currentColor;
+}
+
+@media (48rem <= width) {
+  .property-hero--photo {
+    position: relative;
+    isolation: isolate;
+    min-height: 32vw;
+  }
+
+  .property-hero--photo > picture {
+    position: absolute;
+    inset: 0;
+    z-index: -1;
+  }
+
+  .property-hero--photo .property-hero-copy {
+    max-width: 59%;
+  }
+
+  .property-highlights li {
+    flex: 1 1 0;
+  }
+
+  .property-highlights li + li,
+  .property-destinations {
+    border-left: var(--details-line);
+  }
+
+  .property-amenities:has(> picture) {
+    grid-template-columns: minmax(0, 0.9fr) minmax(0, 1.1fr);
+    align-items: center;
+  }
+
+  .property-location:has(figure) {
+    grid-template-columns: minmax(0, 1.1fr) minmax(0, 1.2fr);
+  }
+
+  .property-destinations {
+    padding-left: clamp(0.65rem, 1.6vw, 1.8rem);
+  }
+
+  .property-details-page .compact-booking-content {
+    display: grid;
+    grid-template-columns: auto auto;
+    justify-content: space-around;
+    gap: 0.35rem clamp(1.2rem, 4vw, 4rem);
+  }
+
+  .property-details-page .compact-booking p {
+    grid-row: 2;
+    align-self: start;
+  }
+
+  .property-details-page .compact-booking h2 {
+    align-self: end;
+  }
+
+  .property-details-page .compact-booking-action {
+    grid-column: 2;
+    grid-row: 1 / 3;
+  }
+}
+
+@media (48rem <= width < 64rem) {
+  .property-location:has(figure) .property-destinations {
+    display: grid;
+    grid-template-columns: repeat(4, minmax(0, 1fr));
+    grid-column: 1 / -1;
+    gap: 0.5rem;
+    border: 0;
+    padding-inline: 0;
+  }
+
+  .property-guest:has(.property-guest-photo):has(.property-policy-stack)
+    > .property-policy-card {
+    grid-column: 1 / -1;
+  }
+}
+
+@media (64rem <= width) {
+  .property-location:has(figure):has(.property-destinations) {
+    grid-template-columns: minmax(0, 1.3fr) minmax(0, 0.92fr) minmax(0, 0.48fr);
+    gap: clamp(1rem, 2.9vw, 3.3rem);
+  }
+
+  .property-guest:has(.property-guest-photo):has(.property-policy-stack):has(
+      > .property-policy-card
+    ) {
+    grid-template-columns: minmax(0, 1.2fr) minmax(0, 1fr) minmax(0, 1fr);
+    gap: clamp(0.75rem, 1.8vw, 2rem);
+  }
+}
+
+@media (width < 48rem) {
+  .property-details-page {
+    --details-gutter: clamp(0.95rem, 5vw, 2rem);
+    --details-radius: 0.65rem;
+  }
+
+  .property-hero {
+    background: transparent;
+    padding-inline: var(--details-gutter);
+  }
+
+  .property-hero-copy {
+    position: relative;
+    isolation: isolate;
+    padding: 0.75rem clamp(0.3rem, 2.5vw, 1rem) 0.65rem;
+  }
+
+  .property-hero-copy::before {
+    position: absolute;
+    z-index: -1;
+    inset: 0 0 0 auto;
+    width: min(34vw, 12rem);
+    background: url("../assets/brand/discovery-palm.svg") no-repeat right top /
+      contain;
+    opacity: 0.28;
+    content: "";
+  }
+
+  .property-breadcrumb {
+    display: flex;
+    align-items: center;
+    gap: 0.3rem;
+    margin-bottom: 0.65rem;
+    font-size: 0.75rem;
+  }
+
+  .property-breadcrumb a {
+    text-decoration: underline;
+    text-underline-offset: 0.16em;
+  }
+
+  .property-breadcrumb svg {
+    width: 0.8rem;
+    height: auto;
+  }
+
+  .property-details-page .property-eyebrow {
+    margin: 0 0 0.15rem;
+    color: var(--color-olive);
+    font: 700 0.66rem/1.3 var(--font-sans);
+    letter-spacing: 0.17em;
+    text-transform: uppercase;
+  }
+
+  .property-hero h1 {
+    font-size: clamp(2.25rem, 8.3vw, 3.4rem);
+  }
+
+  .property-hero h1 + p {
+    max-width: min(75%, 29ch);
+    margin-top: 0.3rem;
+    font-size: clamp(1rem, 3.8vw, 1.28rem);
+  }
+
+  .property-hero-copy::after {
+    width: 2.35rem;
+    margin-top: 0.6rem;
+  }
+
+  .property-hero > picture {
+    grid-row: 2;
+    aspect-ratio: 2.95;
+    border-radius: var(--details-radius);
+    overflow: hidden;
+  }
+
+  .property-hero > picture img {
+    object-fit: cover;
+    object-position: right center;
+    transform: scale(1.55);
+    transform-origin: right center;
+  }
+
+  .property-details-content > section {
+    gap: 0.65rem;
+    padding-block: 0.8rem;
+  }
+
+  .property-details-page h2 {
+    font-size: clamp(1.55rem, 5.5vw, 2.2rem);
+    line-height: 1.02;
+  }
+
+  .property-amenity-list {
+    display: grid;
+    grid-template-columns: repeat(2, minmax(0, 1fr));
+    column-gap: 0.7rem;
+    column-rule: none;
+    margin-top: 0.4rem;
+  }
+
+  .property-amenity-list li {
+    align-items: start;
+    gap: 0.45rem;
+    padding: 0.32rem 0.38rem 0.32rem 0;
+    font-size: clamp(0.75rem, 3.15vw, 0.92rem);
+  }
+
+  .property-amenity-list li:nth-child(even) {
+    padding-inline-start: 0.55rem;
+    border-inline-start: var(--details-line);
+  }
+
+  .property-amenity-list svg,
+  .property-destinations svg {
+    width: 1.05rem;
+  }
+
+  .property-facilities ul {
+    display: grid;
+    grid-template-columns: repeat(3, minmax(0, 1fr));
+    gap: clamp(0.35rem, 1.6vw, 0.65rem);
+  }
+
+  .property-facilities li {
+    text-align: center;
+    font-size: clamp(0.69rem, 2.9vw, 0.87rem);
+    font-weight: 600;
+    line-height: 1.2;
+  }
+
+  .property-facilities picture {
+    aspect-ratio: 1.65;
+    margin-bottom: 0.33rem;
+    border-radius: 0.55rem;
+    overflow: hidden;
+  }
+
+  .property-location {
+    align-items: start;
+  }
+
+  .property-location picture {
+    aspect-ratio: 2.2;
+  }
+
+  .property-location p {
+    font-size: clamp(0.8rem, 3.1vw, 0.96rem);
+    line-height: 1.35;
+  }
+
+  .property-location figcaption {
+    font-size: 0.66rem;
+    line-height: 1.25;
+    padding: 0.22rem 0.42rem;
+  }
+
+  .property-area {
+    margin-top: 0.42rem;
+  }
+
+  .property-area svg {
+    width: 1rem;
+  }
+
+  .property-destinations {
+    display: grid;
+    grid-template-columns: repeat(2, minmax(0, 1fr));
+    margin-top: 0.35rem;
+    column-gap: 0.35rem;
+  }
+
+  .property-destinations li {
+    gap: 0.37rem;
+    padding-block: 0.18rem;
+    font-size: 0.75rem;
+  }
+
+  .property-guest {
+    grid-template-columns: minmax(0, 1fr);
+    align-items: start;
+  }
+
+  .property-policy-stack {
+    gap: 0.32rem;
+  }
+
+  .property-stay-heading {
+    margin-bottom: 0.18rem;
+  }
+
+  .property-stay-heading h3 {
+    font-size: clamp(1.55rem, 5.5vw, 2.05rem);
+    line-height: 1;
+  }
+
+  .property-policy-stack .property-policy-card {
+    position: relative;
+    padding: 0.45rem 0.48rem 0.5rem 2.25rem;
+  }
+
+  .property-policy-stack .property-policy-card h3 {
+    margin-bottom: 0.08rem;
+    font: 650 0.81rem/1.2 var(--font-sans);
+  }
+
+  .property-policy-stack .property-policy-card h3 svg {
+    position: absolute;
+    inset: 0.52rem auto auto 0.54rem;
+    width: 1.18rem;
+  }
+
+  .property-policy-stack .property-policy-card p,
+  .property-house-rules {
+    font-size: 0.78rem;
+    line-height: 1.28;
+  }
+
+  .property-guest > .property-policy-card {
+    padding: 0.4rem 0 0;
+    border: 0;
+    background: transparent;
+  }
+
+  .property-guest > .property-policy-card h3 {
+    margin-bottom: 0.4rem;
+    color: var(--color-olive);
+    font: 700 0.72rem/1.35 var(--font-sans);
+    letter-spacing: 0.15em;
+    text-transform: uppercase;
+  }
+
+  .property-guest > .property-policy-card h3 svg {
+    display: none;
+  }
+
+  .property-house-rules {
+    gap: 0.3rem;
+  }
+
+  .property-house-rules li {
+    gap: 0.42rem;
+  }
+
+  .property-details-page .compact-booking-content {
+    display: grid;
+    justify-items: center;
+    min-height: auto;
+    gap: 0.47rem;
+    padding-block: 1rem;
+    text-align: center;
+  }
+
+  .property-details-page .compact-booking h2 {
+    max-width: 30ch;
+    font-size: clamp(1.65rem, 6.1vw, 2.4rem);
+  }
+
+  .property-details-page .compact-booking p {
+    font-size: 0.81rem;
+    line-height: 1.35;
+  }
+
+  .property-details-page .compact-booking-action {
+    min-height: 44px;
+  }
+}
+
+@media (width < 22.5rem) {
+  .property-facilities ul {
+    grid-template-columns: repeat(2, minmax(0, 1fr));
+  }
+
+  .property-facilities li:last-child:nth-child(odd) {
+    grid-column: 1 / -1;
+    justify-self: center;
+    width: calc((100% - 0.35rem) / 2);
+  }
+}
+
+@media (23.75rem <= width < 48rem) {
+  .property-location:has(figure) {
+    grid-template-columns: minmax(0, 0.91fr) minmax(0, 1.09fr);
+  }
+
+  .property-location figure {
+    align-self: center;
+  }
+
+  .property-location picture {
+    aspect-ratio: 1.35;
+  }
+
+  .property-location .property-destinations {
+    grid-column: 1 / -1;
+    margin-top: 0;
+  }
+}
+
+@media (25rem <= width < 48rem) {
+  .property-guest:has(.property-policy-stack):has(> .property-policy-card) {
+    grid-template-columns: repeat(2, minmax(0, 1fr));
+  }
+
+  .property-guest > .property-policy-card {
+    border-inline-start: var(--details-line);
+    border-radius: 0;
+    padding-inline-start: 0.65rem;
+  }
+}

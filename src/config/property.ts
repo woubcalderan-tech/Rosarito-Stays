@@ -75,6 +75,92 @@ export interface ResidenceConfig {
   }[];
 }
 
+export type PropertyDetailsIcon =
+  | "bed"
+  | "pool"
+  | "wifi"
+  | "snowflake"
+  | "kitchen"
+  | "utensils"
+  | "umbrella"
+  | "leaf"
+  | "grill"
+  | "coast"
+  | "shopping"
+  | "car";
+
+interface PropertyDetailsItem {
+  id: string;
+  label: string;
+  icon: PropertyDetailsIcon;
+}
+
+type PropertyDetailsAmenity = PropertyDetailsItem &
+  (
+    | { scope: "common-area"; status: "demo-proposal" | "verified" }
+    | { scope: "suite"; suiteAmenityId: AmenityId }
+  );
+
+export interface PropertyDetailsConfig {
+  hero?: { heading: string; description: string; photo?: PropertyImage };
+  mobile?: {
+    heading?: string;
+    description?: string;
+    locationHeading?: string;
+    facilities?: readonly {
+      amenityId: string;
+      label: string;
+      photo: PropertyImage;
+    }[];
+  };
+  highlights?: readonly (PropertyDetailsItem & {
+    suiteAmenityId?: AmenityId;
+  })[];
+  amenities?: {
+    description?: string;
+    photo?: PropertyImage;
+    groups: readonly {
+      id: string;
+      label: string;
+      items: readonly PropertyDetailsAmenity[];
+    }[];
+  };
+  location?: {
+    areaLabel?: string;
+    description: string;
+    illustrativePhoto?: PropertyImage;
+    nearby?: readonly {
+      id: string;
+      label: string;
+      icon?: PropertyDetailsIcon;
+      travelMinutes?: number;
+      transport?: "walking" | "driving" | "transit";
+    }[];
+  };
+  guestPhoto?: { photo: PropertyImage; suiteId: string };
+  bookingBanner?: {
+    heading: string;
+    description: string;
+    photo?: PropertyImage;
+  };
+}
+
+export interface GuestPolicies {
+  status: "demo-proposal" | "verified";
+  checkInFrom?: string;
+  checkOutBy?: string;
+  parking?: {
+    availability: "on-site" | "off-site" | "unavailable";
+    description?: string;
+  };
+  smoking?: "allowed" | "no-smoking-in-suites" | "prohibited";
+  pets?: "allowed" | "not-allowed" | "on-request";
+  quietHours?: { from: string; until: string };
+  registeredGuestsOnly?: boolean;
+  partiesAndEvents?: "allowed" | "not-allowed" | "on-request";
+  additionalHouseRules?: readonly string[];
+}
+
 export type SuiteBenefitId = "location" | "access" | "comfort" | "stays";
 
 export interface CatalogSuite {
@@ -133,6 +219,8 @@ export interface PropertyConfig {
     >;
   };
   residence?: ResidenceConfig;
+  propertyDetails?: PropertyDetailsConfig;
+  guestPolicies?: GuestPolicies;
   accommodations?: {
     heading: string;
     introduction: string;

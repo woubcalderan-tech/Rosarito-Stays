@@ -29,3 +29,11 @@ Start with one typed configuration object per project and the existing reusable 
 - **Communications:** Render fake confirmations onscreen or into a local test outbox. Avoid sending unsolicited email or SMS.
 
 The [roadmap](PROJECT-ROADMAP.md) sequences these changes, and the [photography inventory](PHOTO-REPLACEMENT-INVENTORY.md) documents the current assets and the retired release inventory.
+
+## P1 Property Details audit
+
+The property profile now distinguishes suite amenities from proposed common-area facilities. All four suites currently list A/C. High-speed Wi-Fi is configured for Courtyard and Terrace. Oceanview and Garden list full kitchens, Courtyard lists a kitchenette, and Terrace has a refreshment area rather than a full kitchen. Outdoor dining is configured for Garden and Terrace, and the Terrace BBQ is suite-specific. Smart TVs, laundry access, a communal BBQ, and security claims lack property-wide configuration. Verify mobile-only amenity claims such as coffee makers and linen or shower coverage before presenting them as universal.
+
+The shared pool, lounge, and courtyards are demo proposals. The reusable pool photograph is an enclosed courtyard scene, while the mockup depicts a pool looking out to sea. The chosen private bedroom is identified as the Terrace Suite. Do not infer parking capacity, security, distances, or verified standards from imagery.
+
+Property Details and a future FAQ can share structured guest policies and the existing `location.timezone`. The booking demonstration remains a date-selection flow. Replacing static configuration with an API later should preserve the data contract, validate server responses, and keep demo and verified client records in separate environments.
