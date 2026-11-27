@@ -38,6 +38,43 @@ export interface SuiteDetailConfig {
   };
 }
 
+export type ResidenceGalleryCategory =
+  "architecture" | "outdoor-spaces" | "interiors" | "ocean-views";
+
+export interface ResidenceBenefit {
+  icon: "waves" | "leaf" | "sun" | "bed" | "utensils" | "pin";
+  label: string;
+}
+
+interface ResidenceSectionCopy {
+  eyebrow?: string;
+  heading: string;
+  description?: string;
+}
+
+export interface ResidenceConfig {
+  heroCopy?: { heading: string; subtitle?: string };
+  architectureCopy?: ResidenceSectionCopy & { actionLabel?: string };
+  experienceCopy?: ResidenceSectionCopy & {
+    benefits?: readonly ResidenceBenefit[];
+  };
+  benefits?: readonly ResidenceBenefit[];
+  bookingBanner?: {
+    heading: string;
+    description: string;
+    photo?: PropertyImage;
+  };
+  hero?: PropertyImage;
+  architecture?: PropertyImage;
+  experience?: PropertyImage;
+  gallery?: readonly {
+    photo: PropertyImage;
+    categories: readonly ResidenceGalleryCategory[];
+    scope: "residence" | "private-suite" | "area";
+    suiteId?: string;
+  }[];
+}
+
 export type SuiteBenefitId = "location" | "access" | "comfort" | "stays";
 
 export interface CatalogSuite {
@@ -95,6 +132,7 @@ export interface PropertyConfig {
       }
     >;
   };
+  residence?: ResidenceConfig;
   accommodations?: {
     heading: string;
     introduction: string;

@@ -136,6 +136,46 @@ Measured in Edge at device scale factor 1, with a fresh context at each viewport
 
 Reuse the Oceanview balcony and living room, Courtyard patio and living room, Terrace outdoor pergola, and Garden outdoor dining and living room by their existing IDs. These scenes depict **private suite spaces**. Identify the relevant suite when presenting them. The Terrace refreshment area is distinct from a full kitchen. Oceanview and Garden each have two configured bedrooms, with one bedroom photo in each current gallery. Second-bedroom photography is optional future work.
 
+## R1 Residence photography
+
+The six approved AI-generated PNG masters are under ignored `image-masters/residence/`. The compositions were compared with both Residence references. The fountain courtyard and fire-pit courtyard are distinct scenes. SHA-256 comparison against all 32 local masters found no duplicate for the six new inputs. The closest perceptual pair was the fountain and fire-pit images at 72 bits apart on a 256-bit luminance dHash.
+
+| PNG master                           | Catalog ID                       | Placement                                           | Original dimensions |     Bytes | SHA-256                                                            |
+| ------------------------------------ | -------------------------------- | --------------------------------------------------- | ------------------- | --------: | ------------------------------------------------------------------ |
+| `residence-hero.png`                 | `residence/hero`                 | Hero, wide sunset terrace                           | 1825 × 862          | 2,726,371 | `b1d07fc5467d6c871056527b70ea0074e530b24a6a8e1fae545679953fdb427e` |
+| `residence-architecture.png`         | `residence/architecture`         | Architecture section, fountain courtyard            | 1672 × 941          | 3,194,848 | `b26c0c8ebaa0f47998831772427e5cf8a5ef4483736567e42a8308d05cc7b1cc` |
+| `residence-coastal-lounge.png`       | `residence/coastal-lounge`       | The Experience section, communal pergola and lounge | 1672 × 941          | 3,303,723 | `987876a20eb3391b8c49d7ffca215c267acfd5c5174cdc84c2058baae9970474` |
+| `residence-firepit.png`              | `residence/firepit`              | Gallery, evening fire-pit courtyard                 | 1672 × 941          | 3,096,241 | `f127fd34826ebc3682c94f54cf4795e234afffb39d2372ae0afcfc9384e84ea4` |
+| `residence-coastline-sunset.png`     | `residence/coastline-sunset`     | Gallery, illustrative Baja coastline at sunset      | 1672 × 941          | 2,570,447 | `ed3be843f4da46fec77256d9f25f08542a1a499bc76b78bec952ab890b4e8dc1` |
+| `residence-architectural-detail.png` | `residence/architectural-detail` | Gallery, portrait architectural detail              | 1122 × 1402         | 2,830,508 | `85c25666eced9bdf5cb4e2718c2dcd2a5c20e97d88d09a0633626d46c17ec8ff` |
+
+All WebPs retain the source framing. Hero quality is 85 and all other variants use quality 82. The 1825 px hero serves wide displays at the native width. The portrait tile tops out at 768 px for its compact role in the reference. Each filename uses `<catalog-id>-<width>.webp` under the fictional-demo directory.
+
+| Catalog ID                       | Optimized dimensions and bytes                                                             |
+| -------------------------------- | ------------------------------------------------------------------------------------------ |
+| `residence/hero`                 | 480 × 227 (30,150 B), 768 × 363 (68,692 B), 1200 × 567 (153,906 B), 1825 × 862 (295,418 B) |
+| `residence/architecture`         | 480 × 270 (43,604 B), 768 × 432 (99,996 B), 1200 × 675 (218,264 B)                         |
+| `residence/coastal-lounge`       | 480 × 270 (45,812 B), 768 × 432 (106,562 B), 1200 × 675 (230,492 B)                        |
+| `residence/firepit`              | 480 × 270 (40,020 B), 768 × 432 (92,604 B), 1200 × 675 (206,144 B)                         |
+| `residence/coastline-sunset`     | 480 × 270 (28,858 B), 768 × 432 (65,448 B), 1200 × 675 (139,530 B)                         |
+| `residence/architectural-detail` | 480 × 600 (82,290 B), 768 × 960 (168,760 B)                                                |
+
+The masters total **17,722,138 bytes**. The 18 derivatives total **2,116,550 bytes**. The review artifact includes 113 WebPs, including the 95 previously approved variants. The neutral build excludes these demo images and their configuration.
+
+### Proposed embedded gallery
+
+The desktop and mobile references both show the fire pit, bedroom, coastline, architectural detail and kitchen. **All** is the unfiltered view. The hero, Architecture and Experience photographs have separate section assignments.
+
+| Order | Photo ID                         | Categories                   | Caption context                      |
+| ----: | -------------------------------- | ---------------------------- | ------------------------------------ |
+|     1 | `residence/firepit`              | Architecture, Outdoor Spaces | Fictional Residence courtyard        |
+|     2 | `suites/suite-oceanview`         | Interiors, Ocean Views       | Private Oceanview Suite bedroom      |
+|     3 | `residence/coastline-sunset`     | Ocean Views                  | Illustrative Baja coastline          |
+|     4 | `residence/architectural-detail` | Architecture                 | Residence arch, lantern and planting |
+|     5 | `suites/oceanview-kitchen`       | Interiors, Ocean Views       | Private Oceanview Suite kitchen      |
+
+The two interior tiles use the same catalog IDs, alt text and files as the suite gallery. Keep their private-suite labels in the future layout.
+
 ## Historical v0.2.0-preview reference
 
 The following notes record the pre-conversion delivery specification and generation brief.

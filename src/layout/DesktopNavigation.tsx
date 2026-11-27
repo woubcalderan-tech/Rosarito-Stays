@@ -52,9 +52,11 @@ export function DesktopNavigation() {
         {navigation.map(({ label, entries }, index) => {
           const open = expanded === index;
           const active =
-            (pathname === paths.accommodations ||
+            (pathname.replace(/\/$/, "") === paths.residence &&
+              entries.some(({ to }) => to === paths.residence)) ||
+            ((pathname === paths.accommodations ||
               pathname.startsWith(paths.accommodations + "/")) &&
-            entries.some(({ to }) => to === paths.accommodations);
+              entries.some(({ to }) => to === paths.accommodations));
           const panel = `desktop-nav-panel-${index}`;
           return (
             <li key={label}>

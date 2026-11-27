@@ -73,3 +73,13 @@ The mobile booking panel reuses `BookingSearch` with a suite prop. It requires a
 The demonstration route validates `suite`, `checkIn`, `checkOut`, and `guests` before displaying a submitted selection. The URL preserves those values on reload. Desktop booking links can still pass the suite alone. The form makes no availability lookup, reservation, or payment.
 
 **Exercise.** In a local demo profile, temporarily lower one suite's `maximumGuests`. Reload its mobile details page and compare its guest selector with another suite. Restore the approved capacity after testing.
+
+## Residence page
+
+The optional `residence` block supplies `hero`, `architecture`, `experience`, and an ordered `gallery` to `/the-residence`. Configure `heroCopy`, `architectureCopy`, and `experienceCopy` alongside those photos. The story sections can render without photos. Add `experienceCopy.benefits`, page-level `benefits`, and `bookingBanner` when there is content for those sections. The neutral profile can omit `residence` and retain the route's placeholder. Each photo uses the existing `PropertyImage` fields and shared variant catalog.
+
+Gallery records can have several categories. **All** displays the configured order. Five entries use the desktop editorial mosaic in that order. Other counts and filtered sets use a responsive grid. Available categories come from the entries, and the Architecture link appears when both its label and gallery are configured. Set `scope: "private-suite"` and the corresponding `suiteId` to label suite interiors with their configured suite names. Use `scope: "area"` for surrounding-area photography and describe the location in its alt text.
+
+Below 768px the five-photo gallery uses a two-row mosaic. Both layouts use the same record order: firepit, bedroom, coastline, architectural detail, and kitchen in the demo. When replacing those photos, preview both layouts so that important details survive each crop. Tablet widths use an adaptive grid, while widths of 1024px and above use the desktop mosaic.
+
+**Exercise.** Inspect the Oceanview bedroom in the Residence gallery and the suite gallery. Compare its `currentSrc` and `srcset` at two widths to see how the browser selects different variants from the same photo ID.

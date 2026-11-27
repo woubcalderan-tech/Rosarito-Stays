@@ -152,6 +152,36 @@ export const demoPhotoVariants = {
     [960, 540],
     [1672, 941],
   ],
+  "residence/hero": [
+    [480, 227],
+    [768, 363],
+    [1200, 567],
+    [1825, 862],
+  ],
+  "residence/architecture": [
+    [480, 270],
+    [768, 432],
+    [1200, 675],
+  ],
+  "residence/coastal-lounge": [
+    [480, 270],
+    [768, 432],
+    [1200, 675],
+  ],
+  "residence/firepit": [
+    [480, 270],
+    [768, 432],
+    [1200, 675],
+  ],
+  "residence/coastline-sunset": [
+    [480, 270],
+    [768, 432],
+    [1200, 675],
+  ],
+  "residence/architectural-detail": [
+    [480, 600],
+    [768, 960],
+  ],
 } as const;
 
 export type DemoPhoto = keyof typeof demoPhotoVariants;

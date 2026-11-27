@@ -13,6 +13,7 @@ import {
   PlaceholderPage,
   SuitePage,
 } from "./pages/Pages";
+import { ResidencePage } from "./pages/ResidencePage";
 import "./styles/site.css";
 
 const router = createBrowserRouter(
@@ -22,10 +23,7 @@ const router = createBrowserRouter(
       Component: SiteLayout,
       children: [
         { index: true, Component: HomePage },
-        {
-          path: paths.residence,
-          element: <PlaceholderPage title="The Residence" />,
-        },
+        { path: paths.residence, Component: ResidencePage },
         { path: paths.accommodations, Component: AccommodationsPage },
         { path: `${paths.accommodations}/:slug`, Component: SuitePage },
         { path: paths.booking, Component: BookingPage },

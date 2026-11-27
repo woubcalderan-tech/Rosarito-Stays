@@ -64,6 +64,12 @@ function galleryPhoto(
   return { id, alt, position };
 }
 
+const oceanviewKitchen = galleryPhoto(
+  "suites/oceanview-kitchen",
+  "Kitchen with pendant lights and a dining table beside the ocean-facing opening",
+  "50% 48%",
+);
+
 const bookingPhoto = image("banners/booking-banner", "");
 
 const demoLocation = {
@@ -135,6 +141,98 @@ export const rosaritoDemo = {
         ),
       },
     },
+  },
+  residence: {
+    heroCopy: {
+      heading: "The Residence",
+      subtitle: `A boutique retreat in ${demoLocation.city}`,
+    },
+    architectureCopy: {
+      eyebrow: "Architecture",
+      heading: "Baja Mediterranean Architecture",
+      description:
+        "A timeless blend of Mediterranean elegance and Baja charm, with graceful arches, natural materials and open spaces that embrace the coastal setting.",
+      actionLabel: "Explore The Residence",
+    },
+    experienceCopy: {
+      eyebrow: "The Experience",
+      heading: "A Relaxed Coastal Atmosphere",
+      description:
+        "Inviting spaces, warm textures and ocean breezes create the perfect setting to unwind, connect and enjoy the best of Rosarito.",
+      benefits: [
+        { icon: "waves", label: "Ocean Views" },
+        { icon: "leaf", label: "Peaceful Spaces" },
+        { icon: "sun", label: "Baja Lifestyle" },
+      ],
+    },
+    benefits: [
+      { icon: "bed", label: "Boutique Suites" },
+      { icon: "utensils", label: "Outdoor Dining" },
+      { icon: "waves", label: "Coastal Setting" },
+      { icon: "leaf", label: "Relaxation Spaces" },
+      { icon: "pin", label: `Prime ${demoLocation.city} Location` },
+    ],
+    bookingBanner: {
+      heading: "Ready to experience The Residence?",
+      description: "Check availability and book your stay today.",
+      photo: bookingPhoto,
+    },
+    hero: galleryPhoto(
+      "residence/hero",
+      "Bougainvillea and arched doors frame a furnished oceanfront terrace at sunset",
+      "51% 55%",
+    ),
+    architecture: galleryPhoto(
+      "residence/architecture",
+      "Plaster arch framing a stone fountain and courtyard with flowering bougainvillea",
+      "50% 51%",
+    ),
+    experience: galleryPhoto(
+      "residence/coastal-lounge",
+      "Oceanfront pergola shading dining tables and lounge seating beside the coast",
+      "52% 51%",
+    ),
+    gallery: [
+      {
+        photo: galleryPhoto(
+          "residence/firepit",
+          "Chairs gathered around a lit fire pit in an arched courtyard at dusk",
+          "50% 54%",
+        ),
+        categories: ["architecture", "outdoor-spaces"],
+        scope: "residence",
+      },
+      {
+        photo: suitePhotos.oceanview,
+        categories: ["interiors", "ocean-views"],
+        scope: "private-suite",
+        suiteId: "oceanview",
+      },
+      {
+        photo: galleryPhoto(
+          "residence/coastline-sunset",
+          "Illustrative Baja coastline with waves below a rocky bluff at sunset",
+          "53% 48%",
+        ),
+        categories: ["ocean-views"],
+        scope: "area",
+      },
+      {
+        photo: galleryPhoto(
+          "residence/architectural-detail",
+          "Lantern, bougainvillea and potted agave beside a plaster arch",
+          "50% 50%",
+        ),
+        categories: ["architecture"],
+        scope: "residence",
+      },
+      {
+        photo: oceanviewKitchen,
+        categories: ["interiors", "ocean-views"],
+        scope: "private-suite",
+        suiteId: "oceanview",
+      },
+    ],
   },
   accommodations: {
     heading: "Find your stay",
@@ -220,11 +318,7 @@ export const rosaritoDemo = {
           "Living room with cream seating and open doors to the ocean-facing balcony",
           "50% 52%",
         ),
-        galleryPhoto(
-          "suites/oceanview-kitchen",
-          "Kitchen with pendant lights and a dining table beside the ocean-facing opening",
-          "50% 48%",
-        ),
+        oceanviewKitchen,
         galleryPhoto(
           "suites/oceanview-bathroom",
           "Stone bathroom with an arched mirror, walk-in shower, and an ocean-facing window",
