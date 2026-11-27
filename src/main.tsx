@@ -17,6 +17,8 @@ import { ResidencePage } from "./pages/ResidencePage";
 import { PropertyDetailsPage } from "./pages/PropertyDetailsPage";
 import "./styles/site.css";
 
+declare const __HAS_DESTINATION_GUIDE__: boolean;
+
 const router = createBrowserRouter(
   [
     {
@@ -26,10 +28,32 @@ const router = createBrowserRouter(
         { index: true, Component: HomePage },
         { path: paths.residence, Component: ResidencePage },
         { path: paths.propertyDetails, Component: PropertyDetailsPage },
+        ...(__HAS_DESTINATION_GUIDE__
+          ? [
+              {
+                path: paths.exploreRosarito,
+                lazy: async () => ({
+                  Component: (await import("./pages/ExploreRosaritoPage"))
+                    .ExploreRosaritoPage,
+                }),
+              },
+            ]
+          : []),
         { path: paths.accommodations, Component: AccommodationsPage },
         { path: `${paths.accommodations}/:slug`, Component: SuitePage },
         { path: paths.booking, Component: BookingPage },
         { path: paths.contact, Component: ContactPage },
+        ...(import.meta.env.DEV
+          ? [
+              {
+                path: "/_review/explore-map",
+                lazy: async () => ({
+                  Component: (await import("./pages/ExploreMapReviewPage"))
+                    .ExploreMapReviewPage,
+                }),
+              },
+            ]
+          : []),
         {
           path: paths.privacy,
           element: <PlaceholderPage title="Privacy Policy" />,

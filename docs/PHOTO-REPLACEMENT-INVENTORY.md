@@ -258,3 +258,35 @@ The mobile reference depicts three smaller facility cards instead of the desktop
 The approved mobile facilities reuse `residence/architecture` (Landscaped Courtyards), `residence/coastal-lounge` (Terrace & Lounge), and `hero/hero-desktop` (Swimming Pool). The Terrace Suite bedroom remains desktop-only.
 
 Cold Chrome contexts on the local review build transferred six WebPs: 225,768 bytes at 390 × 844 CSS pixels and DPR 1, and 414,816 bytes on the 412 × 924 CSS-pixel Pixel 9 profile at DPR 2.625. In both cases all six had arrived by network idle before scrolling. Progressive scrolling and decoding confirmed the same totals before capture. Only the hero is eager; the other five use native lazy loading.
+
+## E1 Explore Rosarito photography
+
+All six masters are approved AI-generated illustrations. The beach master shows daytime surf under the cliffs. The pier master shows a wooden pier and pavilions at golden hour. These are separate scenes. Destination imagery does not verify access, operating conditions, or a specific restaurant. The PNGs are in the ignored `image-masters/explore-rosarito` directory.
+
+| Master PNG                     | Catalog ID                 | Source dimensions | Source bytes | SHA-256                                                            |
+| ------------------------------ | -------------------------- | ----------------- | -----------: | ------------------------------------------------------------------ |
+| `explore-hero.png`             | `explore/hero`             | 2172 × 724        |    2,876,067 | `e58ba185fa55b7186d8d0324d673fe3ce25fc5c3ed89e098a5e91ef43c1931a7` |
+| `explore-rosarito-beach.png`   | `explore/rosarito-beach`   | 1672 × 941        |    2,945,858 | `625056b926f790cae955f7de0b2018575d855ed4fd89f8e3e8ac6dc5c261b2ab` |
+| `explore-rosarito-pier.png`    | `explore/rosarito-pier`    | 1672 × 941        |    2,326,359 | `5e3319dd1f0d1ba1b00b984d294b5efb2e374bf3fa6be9ea6b2b27beef7ac34c` |
+| `explore-puerto-nuevo.png`     | `explore/puerto-nuevo`     | 1672 × 941        |    2,629,806 | `a3fa92794cbc8e71cb4af455e1fa4f611b1f06410f9b11ce4af00aa66f326bf5` |
+| `explore-popotla.png`          | `explore/popotla`          | 1672 × 941        |    3,099,344 | `5634b18ed36a77a8c67122407682b887d9579f3d7b0befd12cd3fb291efae0aa` |
+| `explore-cerro-el-coronel.png` | `explore/cerro-el-coronel` | 1672 × 941        |    3,142,029 | `807d8069e36cdcb96b158ddc906a27f2d2639a17b3ad4a55bfee737f781d3d0c` |
+
+| Catalog ID                 | WebP dimensions and encoded sizes                                                                                  |
+| -------------------------- | ------------------------------------------------------------------------------------------------------------------ |
+| `explore/hero`             | 480 × 160 (19,466 B), 768 × 256 (44,612 B), 1200 × 400 (102,508 B), 1672 × 557 (186,952 B), 2172 × 724 (292,090 B) |
+| `explore/rosarito-beach`   | 480 × 270 (34,404 B), 768 × 432 (81,398 B), 1200 × 675 (181,568 B)                                                 |
+| `explore/rosarito-pier`    | 480 × 270 (26,556 B), 768 × 432 (57,740 B), 1200 × 675 (120,080 B)                                                 |
+| `explore/puerto-nuevo`     | 480 × 270 (36,792 B), 768 × 432 (76,132 B), 1200 × 675 (147,122 B)                                                 |
+| `explore/popotla`          | 480 × 270 (40,070 B), 768 × 432 (93,522 B), 1200 × 675 (202,928 B), 1672 × 941 (335,978 B)                         |
+| `explore/cerro-el-coronel` | 480 × 270 (34,816 B), 768 × 432 (85,354 B), 1200 × 675 (191,684 B), 1672 × 941 (326,394 B)                         |
+
+The 22 derivatives total 2,718,166 bytes. The hero uses quality 85 and preserves the complete 3:1 frame. Keep the left copy space on desktop and apply a right-biased crop on mobile through CSS. Attraction variants use quality 82. The 480px variants serve smaller cards and map popups, while 768px and 1200px support denser displays and full-width cards. The 1672px variants for Popotla and Cerro El Coronel support the wider desktop second row at higher device pixel ratios. Encoding preserves the original framing and does not upscale.
+
+Cards and map popups share these IDs and choose widths through the existing responsive resolver. Preserve `explore/puerto-nuevo` for future Dining use. It depicts illustrative coastal dining without associating the meal with a named restaurant. The fictional property popup uses `residence/coastal-lounge`. The closing banner uses `banners/booking-banner` and the property marker uses the existing brand wave.
+
+The local library contains 40 PNG masters, 143 review WebPs including these 22 derivatives, 48 archived JPGs, and 12 design references. The neutral build excludes the fictional guide, marker data, and photography.
+
+### E3 display reuse
+
+Explore Rosarito uses the existing five attraction IDs on both cards and map popups. Per-card crop positions preserve the shoreline, pier, lobster, boats and trail within the two approved desktop image ratios. The same hero and shared terracotta banner variants remain in use. E3 adds no derivatives. Responsive candidate requests can share the browser cache when a card and popup resolve to the same URL.

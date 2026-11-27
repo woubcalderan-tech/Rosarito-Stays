@@ -28,7 +28,9 @@ Open [the local site](http://127.0.0.1:5173). Press Ctrl+C in the terminal to st
 
 ## Public review and client reuse
 
-The [published review](https://woubcalderan-tech.github.io/Rosarito-Stays/) includes the approved desktop and mobile [Property Details page](https://woubcalderan-tech.github.io/Rosarito-Stays/property-details/) in `v0.7.0-preview`. It uses AI-generated scenes, suite-specific amenity data, and shared fictional guest policies. Local development and the explicit Pages review build show the site-wide disclosure. The standard build selects the neutral profile and excludes fictional content, imagery, and policies. The manual review deployment uses `noindex, nofollow`.
+The [published review](https://woubcalderan-tech.github.io/Rosarito-Stays/) includes the approved desktop and mobile [Explore Rosarito guide](https://woubcalderan-tech.github.io/Rosarito-Stays/explore-rosarito/) in `v0.8.0-preview`. Its interactive SVG map connects five configured attraction cards and a fictional property marker with popups, zoom, panning, reset, and an expanded view. The guide uses AI-generated illustrations. The map positions are schematic and unsuitable for navigation. The [photography inventory](docs/PHOTO-REPLACEMENT-INVENTORY.md#e1-explore-rosarito-photography) records the six guide masters and 22 responsive WebPs.
+
+Local development and the explicit Pages review build show the site-wide disclosure. The standard build selects the neutral profile and excludes fictional content, imagery, and policies. The manual review deployment uses `noindex, nofollow`. Dining is the next frontend milestone. The dedicated Residence gallery remains deferred.
 
 Use a separate project configuration and deployment for each future client. The client supplies verified property content, contact details, and licensed photographs. The portfolio demo, its database, and its booking exercises stay isolated from client data and services.
 

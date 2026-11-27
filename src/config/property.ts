@@ -8,6 +8,82 @@ export interface PropertyImage {
   position?: string;
 }
 
+export interface IllustrativeMapPosition {
+  x: number;
+  y: number;
+}
+
+interface DestinationSource {
+  label: string;
+  url?: `https://${string}`;
+}
+
+export interface DestinationAttraction {
+  id: string;
+  name: string;
+  category: string;
+  categoryIcon: "beach" | "pier" | "dining" | "fishing" | "mountain";
+  description: string;
+  extendedDescription?: string;
+  cardPhotoPosition?: string;
+  highlights: readonly string[];
+  photo: PropertyImage & {
+    depiction: "ai-generated-illustration" | "destination-photograph";
+    attribution?: DestinationSource;
+  };
+  order: number;
+  marker: {
+    style: "attraction";
+    position: IllustrativeMapPosition;
+    compactLabel?: string;
+  };
+  verifiedDestination?: {
+    coordinates?: { latitude: number; longitude: number };
+    visitorInformation?: string;
+    source: DestinationSource;
+    verifiedOn: string;
+  };
+}
+
+export interface FictionalPropertyMarker {
+  id: string;
+  name: string;
+  style: "brand-wave";
+  locationStatus: "fictional";
+  position: IllustrativeMapPosition;
+  description: string;
+  highlights?: readonly string[];
+  photo?: PropertyImage;
+  to: `/${string}`;
+}
+
+export interface DestinationGuide {
+  intro: {
+    eyebrow: string;
+    heading: string;
+    description: string;
+    hero: PropertyImage;
+    mobileHeroPosition?: string;
+  };
+  attractionsSection: { eyebrow: string; heading: string; description: string };
+  attractions: readonly DestinationAttraction[];
+  map: {
+    kind: "illustrative";
+    defaultAttractionId: string;
+    propertyMarker: FictionalPropertyMarker;
+    disclosure: string;
+  };
+  photographyDisclosure: string;
+  visitorInformationDisclosure?: string;
+  bookingBanner: {
+    heading: string;
+    description: string;
+    actionLabel: string;
+    photo?: PropertyImage;
+    to: `/${string}`;
+  };
+}
+
 export type AmenityId =
   | "ocean"
   | "kitchen"
@@ -219,6 +295,7 @@ export interface PropertyConfig {
     >;
   };
   residence?: ResidenceConfig;
+  destinationGuide?: DestinationGuide;
   propertyDetails?: PropertyDetailsConfig;
   guestPolicies?: GuestPolicies;
   accommodations?: {

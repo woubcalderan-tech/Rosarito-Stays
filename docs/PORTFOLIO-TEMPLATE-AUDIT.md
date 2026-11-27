@@ -37,3 +37,17 @@ The property profile now distinguishes suite amenities from proposed common-area
 The shared pool, lounge, and courtyards are demo proposals. The reusable pool photograph is an enclosed courtyard scene, while the mockup depicts a pool looking out to sea. The chosen private bedroom is identified as the Terrace Suite. Do not infer parking capacity, security, distances, or verified standards from imagery.
 
 Property Details and a future FAQ can share structured guest policies and the existing `location.timezone`. The booking demonstration remains a date-selection flow. Replacing static configuration with an API later should preserve the data contract, validate server responses, and keep demo and verified client records in separate environments.
+
+## E1 Explore Rosarito audit
+
+The destination guide adds five editorial attraction records and a separate fictional property marker. Headings, attractions, photography and schematic positions belong to the fictional profile. The review build can package its local image variants while the neutral profile omits the guide. The current navigation and routes remain unchanged.
+
+Preserve the standing logo, navigation, terracotta booking banner and cream footer when implementing the mockups. Desktop calls for a compact panoramic introduction, a large map, three cards in the first row and two wider cards below. Mobile places the right-cropped architectural photo above the introduction, keeps the map touch-friendly, and stacks the five cards. Use the established expandable cream footer on mobile.
+
+The schematic should stay local and self-contained. The reference map is visual direction, and its scale and marker placements are not a source of geographic facts. The configuration guide documents selection, focus and future renderer substitution. A real-client map requires a separately approved provider, verified geographic inputs, and source attribution. Shared booking remains a simulation.
+
+### E2 interaction boundary
+
+The development-only review harness demonstrates controlled destination selection independently of the camera. It uses the existing demo profile and responsive photo IDs. Both production build profiles exclude the harness. The neutral build excludes the destination guide route, Rosarito-specific SVG artwork, and fictional destinations and photography. The explicit review build includes the approved map through the new guide route. The map requests no external service.
+
+The desktop popup has a reserved overlay rail. Mobile uses a below-map panel for space and touch usability. The proxy destination selector, native marker controls and modal provide keyboard access. The schematic has no navigational scale, verified positions, routing, or geolocation. E3 connects the map to the desktop guide and E4 completes mobile presentation.

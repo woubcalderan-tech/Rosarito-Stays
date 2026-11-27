@@ -59,6 +59,8 @@ export default defineConfig(({ command, isPreview, mode }) => {
     define: {
       __PROPERTY_CONFIG__: JSON.stringify(profile),
       __SHOW_PREVIEW_CONTENT__: profile.kind === "fictional-demo",
+      __HAS_DESTINATION_GUIDE__:
+        "destinationGuide" in profile && Boolean(profile.destinationGuide),
     },
   };
 });

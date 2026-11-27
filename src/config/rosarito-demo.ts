@@ -4,6 +4,7 @@ import {
 } from "../assets/images/demo-photo-variants.ts";
 import type { DemoPhoto } from "../assets/images/demo-photo-variants.ts";
 import { demoBooking } from "./demo-booking.ts";
+import { paths } from "./routes.ts";
 import type {
   CatalogSuite,
   PropertyConfig,
@@ -92,11 +93,12 @@ const demoLocation = {
   country: "Mexico",
   timezone: "America/Tijuana",
 };
+const demoBrandName = "Rosarito Stays";
 
 export const rosaritoDemo = {
   kind: "fictional-demo",
   brand: {
-    name: "Rosarito Stays",
+    name: demoBrandName,
     subtitle: "Vacation Suites",
     logo: "/src/assets/brand/coastal-wave.svg",
     favicon: "/src/assets/brand/favicon.png",
@@ -235,6 +237,170 @@ export const rosaritoDemo = {
         suiteId: "oceanview",
       },
     ],
+  },
+  destinationGuide: {
+    intro: {
+      eyebrow: "Discover Baja California",
+      heading: "Explore Rosarito",
+      description:
+        "From sun-kissed beaches and coastal adventures to authentic Mexican culture, discover the experiences that make Rosarito an unforgettable destination.",
+      hero: image(
+        "explore/hero",
+        "Palm shadows on cream stucco beside a flowering arch looking out to the Pacific",
+      ),
+      mobileHeroPosition: "100% 50%",
+    },
+    attractionsSection: {
+      eyebrow: "Discover the Area",
+      heading: "Experiences Worth Exploring",
+      description:
+        "Discover the natural beauty, local culture and coastal experiences that make Baja California special.",
+    },
+    attractions: [
+      {
+        id: "rosarito-beach",
+        name: "Rosarito Beach",
+        category: "Beach & Relaxation",
+        categoryIcon: "beach",
+        cardPhotoPosition: "50% 56%",
+        description:
+          "Discover the coastal atmosphere of Rosarito, with sandy shores, Pacific Ocean scenery and a relaxed Baja lifestyle.",
+        highlights: ["Beach walks", "Coastal relaxation", "Ocean sunsets"],
+        photo: {
+          ...image(
+            "explore/rosarito-beach",
+            "Sandy Pacific shoreline with gentle waves below daytime coastal cliffs",
+          ),
+          depiction: "ai-generated-illustration",
+        },
+        order: 1,
+        marker: { style: "attraction", position: { x: 0.35, y: 0.36 } },
+      },
+      {
+        id: "rosarito-pier",
+        name: "Rosarito Beach Pier",
+        category: "Coastal Sightseeing",
+        categoryIcon: "pier",
+        cardPhotoPosition: "57% 50%",
+        description:
+          "Discover the coastal scenery associated with Rosarito's pier, from ocean views to beautiful sunset photography.",
+        highlights: ["Ocean views", "Coastal photography", "Sunset scenery"],
+        photo: {
+          ...image(
+            "explore/rosarito-pier",
+            "Wooden pier and pavilions stretching over the Pacific at sunset",
+          ),
+          depiction: "ai-generated-illustration",
+        },
+        order: 2,
+        marker: { style: "attraction", position: { x: 0.3, y: 0.23 } },
+      },
+      {
+        id: "puerto-nuevo",
+        name: "Puerto Nuevo Lobster Village",
+        category: "Dining & Local Culture",
+        categoryIcon: "dining",
+        cardPhotoPosition: "50% 68%",
+        description:
+          "Explore Baja's culinary heritage through traditional lobster dining and the coastal atmosphere associated with Puerto Nuevo.",
+        highlights: [
+          "Traditional lobster cuisine",
+          "Baja culinary culture",
+          "Coastal dining experiences",
+        ],
+        photo: {
+          ...image(
+            "explore/puerto-nuevo",
+            "Lobster with lime, rice and accompaniments on a table overlooking the ocean",
+          ),
+          depiction: "ai-generated-illustration",
+        },
+        order: 3,
+        marker: {
+          style: "attraction",
+          position: { x: 0.48, y: 0.77 },
+          compactLabel: "Puerto Nuevo",
+        },
+      },
+      {
+        id: "popotla",
+        name: "Popotla Fishing Village",
+        category: "Culture & Tradition",
+        categoryIcon: "fishing",
+        cardPhotoPosition: "50% 72%",
+        description:
+          "Discover the traditional coastal character of Popotla through its fishing culture, seaside atmosphere and local seafood traditions.",
+        highlights: [
+          "Traditional fishing culture",
+          "Local seafood",
+          "Coastal scenery",
+        ],
+        photo: {
+          ...image(
+            "explore/popotla",
+            "Colorful fishing boats pulled onto a beach beside coastal village buildings",
+          ),
+          depiction: "ai-generated-illustration",
+        },
+        order: 4,
+        marker: {
+          style: "attraction",
+          position: { x: 0.4, y: 0.57 },
+          compactLabel: "Popotla",
+        },
+      },
+      {
+        id: "cerro-el-coronel",
+        name: "Cerro El Coronel",
+        category: "Nature & Adventure",
+        categoryIcon: "mountain",
+        cardPhotoPosition: "54% 66%",
+        description:
+          "Discover the natural landscapes associated with Baja's coastal hills, panoramic scenery and outdoor exploration.",
+        highlights: [
+          "Coastal mountain landscapes",
+          "Nature photography",
+          "Outdoor exploration",
+        ],
+        photo: {
+          ...image(
+            "explore/cerro-el-coronel",
+            "Dirt trail through coastal hills with scrub vegetation and a wide Pacific view",
+          ),
+          depiction: "ai-generated-illustration",
+        },
+        order: 5,
+        marker: { style: "attraction", position: { x: 0.73, y: 0.68 } },
+      },
+    ],
+    map: {
+      kind: "illustrative",
+      defaultAttractionId: "rosarito-pier",
+      propertyMarker: {
+        id: "rosarito-stays",
+        name: demoBrandName,
+        style: "brand-wave",
+        locationStatus: "fictional",
+        position: { x: 0.55, y: 0.42 },
+        description:
+          "A fictional Mediterranean-inspired coastal stay in Rosarito.",
+        photo: residenceLounge,
+        to: paths.residence,
+      },
+      disclosure:
+        "Illustrative destination map. Property and marker positions are for demonstration purposes and are not intended for navigation.",
+    },
+    photographyDisclosure:
+      "Destination imagery is AI-generated and illustrative.",
+    visitorInformationDisclosure:
+      "Visitor access and operating information have not been verified.",
+    bookingBanner: {
+      heading: "Ready for your Rosarito escape?",
+      description: "Discover your perfect suite and start planning your stay.",
+      actionLabel: "Book a Stay",
+      photo: bookingPhoto,
+      to: paths.booking,
+    },
   },
   propertyDetails: {
     mobile: {

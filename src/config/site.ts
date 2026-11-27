@@ -48,7 +48,15 @@ export const navigation: readonly {
   },
   {
     label: "Local Guide",
-    entries: [discoveryDestinations.explore, discoveryDestinations.dining],
+    entries: [
+      property.destinationGuide
+        ? {
+            label: discoveryDestinations.explore.label,
+            to: paths.exploreRosarito,
+          }
+        : discoveryDestinations.explore,
+      discoveryDestinations.dining,
+    ],
   },
   {
     label: "Details",

@@ -2,6 +2,7 @@ export const paths = {
   home: "/",
   residence: "/the-residence",
   propertyDetails: "/property-details",
+  exploreRosarito: "/explore-rosarito",
   accommodations: "/accommodations",
   booking: "/booking",
   contact: "/contact",

@@ -10,11 +10,13 @@ export function CompactBookingBanner({
   description,
   photo,
   to = paths.booking,
+  actionLabel = en.booking,
 }: {
   heading: string;
   description: string;
   photo?: ImageAsset;
   to?: string;
+  actionLabel?: string;
 }) {
   return (
     <section
@@ -30,7 +32,7 @@ export function CompactBookingBanner({
         <h2 id="compact-booking-heading">{heading}</h2>
         <p>{description}</p>
         <Link className="action compact-booking-action" to={to}>
-          {en.booking} <ArrowRight size={18} aria-hidden="true" />
+          {actionLabel} <ArrowRight size={18} aria-hidden="true" />
         </Link>
       </div>
     </section>

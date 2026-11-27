@@ -54,7 +54,8 @@ export function DesktopNavigation() {
           const pagePath = pathname.replace(/\/$/, "");
           const active =
             ((pagePath === paths.residence ||
-              pagePath === paths.propertyDetails) &&
+              pagePath === paths.propertyDetails ||
+              pagePath === paths.exploreRosarito) &&
               entries.some(({ to }) => to === pagePath)) ||
             ((pathname === paths.accommodations ||
               pathname.startsWith(paths.accommodations + "/")) &&

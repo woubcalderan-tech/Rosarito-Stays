@@ -194,6 +194,40 @@ export const demoPhotoVariants = {
     [768, 307],
     [1200, 480],
   ],
+  "explore/hero": [
+    [480, 160],
+    [768, 256],
+    [1200, 400],
+    [1672, 557],
+    [2172, 724],
+  ],
+  "explore/rosarito-beach": [
+    [480, 270],
+    [768, 432],
+    [1200, 675],
+  ],
+  "explore/rosarito-pier": [
+    [480, 270],
+    [768, 432],
+    [1200, 675],
+  ],
+  "explore/puerto-nuevo": [
+    [480, 270],
+    [768, 432],
+    [1200, 675],
+  ],
+  "explore/popotla": [
+    [480, 270],
+    [768, 432],
+    [1200, 675],
+    [1672, 941],
+  ],
+  "explore/cerro-el-coronel": [
+    [480, 270],
+    [768, 432],
+    [1200, 675],
+    [1672, 941],
+  ],
 } as const;
 
 export type DemoPhoto = keyof typeof demoPhotoVariants;
