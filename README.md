@@ -34,6 +34,8 @@ The approved desktop and mobile [Dining page](https://woubcalderan-tech.github.i
 
 The approved desktop and mobile [Contact & FAQ page](https://woubcalderan-tech.github.io/Rosarito-Stays/contact/) is included in `v0.10.0-preview`. The form validates sample input in the browser, clears it after a valid simulation, and confirms that no message was sent or stored. FAQ answers reuse the centralized guest policies and suite amenities. Future message delivery requires a separate server implementation and verified contact details. The [configuration guide](docs/PROPERTY-CONFIGURATION.md#contact-and-faq-configuration) describes that boundary.
 
+`v0.10.1-preview` updates the mobile [Property Details page](https://woubcalderan-tech.github.io/Rosarito-Stays/property-details/) with a compact full-width hero that uses the existing property photograph. The original introduction now sits over the photograph, directly above Property Amenities. The desktop layout is unchanged.
+
 Local development and the explicit Pages review build show the site-wide disclosure. The standard build selects the neutral profile and excludes fictional content, imagery, and policies. The manual review deployment uses `noindex, nofollow`. The complete booking experience is the next milestone. The dedicated Residence gallery remains deferred.
 
 Use a separate project configuration and deployment for each future client. The client supplies verified property content, contact details, and licensed photographs. The portfolio demo, its database, and its booking exercises stay isolated from client data and services.

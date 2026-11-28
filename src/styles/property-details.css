@@ -385,43 +385,38 @@
   }
 
   .property-hero {
-    background: transparent;
-    padding-inline: var(--details-gutter);
+    min-height: clamp(11.5rem, 49vw, 18rem);
   }
 
-  .property-hero-copy {
+  .property-hero--photo {
     position: relative;
     isolation: isolate;
-    padding: 0.75rem clamp(0.3rem, 2.5vw, 1rem) 0.65rem;
   }
 
-  .property-hero-copy::before {
+  .property-hero--photo::before,
+  .property-hero--photo > picture {
     position: absolute;
+    inset: 0;
+  }
+
+  .property-hero--photo > picture {
+    z-index: -2;
+  }
+
+  .property-hero--photo::before {
     z-index: -1;
-    inset: 0 0 0 auto;
-    width: min(34vw, 12rem);
-    background: url("../assets/brand/discovery-palm.svg") no-repeat right top /
-      contain;
-    opacity: 0.28;
+    background: linear-gradient(
+      90deg,
+      #faf3e9ed,
+      #faf3e9c9 30%,
+      #faf3e98c 53%,
+      transparent 80%
+    );
     content: "";
   }
 
-  .property-breadcrumb {
-    display: flex;
-    align-items: center;
-    gap: 0.3rem;
-    margin-bottom: 0.65rem;
-    font-size: 0.75rem;
-  }
-
-  .property-breadcrumb a {
-    text-decoration: underline;
-    text-underline-offset: 0.16em;
-  }
-
-  .property-breadcrumb svg {
-    width: 0.8rem;
-    height: auto;
+  .property-hero-copy {
+    padding: 1.15rem var(--details-gutter);
   }
 
   .property-details-page .property-eyebrow {
@@ -437,28 +432,18 @@
   }
 
   .property-hero h1 + p {
-    max-width: min(75%, 29ch);
-    margin-top: 0.3rem;
-    font-size: clamp(1rem, 3.8vw, 1.28rem);
+    max-width: min(66%, 32ch);
+    margin-top: 0.48rem;
+    font: 400 clamp(0.93rem, 3.4vw, 1.05rem) / 1.4 var(--font-sans);
   }
 
   .property-hero-copy::after {
     width: 2.35rem;
-    margin-top: 0.6rem;
-  }
-
-  .property-hero > picture {
-    grid-row: 2;
-    aspect-ratio: 2.95;
-    border-radius: var(--details-radius);
-    overflow: hidden;
+    margin-top: 0.8rem;
   }
 
   .property-hero > picture img {
-    object-fit: cover;
-    object-position: right center;
-    transform: scale(1.55);
-    transform-origin: right center;
+    object-position: 77% 52%;
   }
 
   .property-details-content > section {

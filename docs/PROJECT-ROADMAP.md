@@ -7,7 +7,7 @@ Rosarito Stays is a fictional hospitality demo, a development portfolio showcase
 | 0. Conversion audit                   | Complete. Documented architecture and the legacy photo inventory.                                                                                                                                                                                                     |
 | 1. Fictional identity and photography | Complete in v0.3.0-preview. Approved desktop and mobile homepage, fictional photography, and site-wide disclosure.                                                                                                                                                    |
 | 2. Reusable property configuration    | Complete in v0.4.0-preview. Typed property profiles now supply branding, content, suites, photography references, contact, and booking defaults. The demo and neutral standard build have separate profiles.                                                          |
-| 3. Portfolio content                  | Accommodations and Suite Details, The Residence, Property Details, Explore Rosarito, Dining, and Contact & FAQ are complete through v0.10.0-preview. Use clear fictional copy and skip unconfigured destinations.                                                     |
+| 3. Portfolio content                  | Accommodations and Suite Details, The Residence, Property Details, Explore Rosarito, Dining, and Contact & FAQ are complete through v0.10.1-preview. Use clear fictional copy and skip unconfigured destinations.                                                     |
 | 4. Availability demo                  | Start with seeded data and a mock service, then move to an isolated demo database. Return simulated availability by suite and date. Test date boundaries, outages, and empty inventory.                                                                               |
 | 5. Reservation demo                   | Add simulated reservation state and conflict checks. Use server validation, atomic writes, idempotency, and resettable records. Keep public input to synthetic data and present confirmation as a simulation.                                                         |
 | 6. Administration demo                | Implement an isolated admin exercise using demo identities and role-based access. Exercise authorization, audit events, and inventory editing against synthetic records. Expose a read-only walkthrough if the public demo cannot reset write access safely.          |
@@ -41,6 +41,7 @@ After every implementation task, report what changed, the concepts used, the rel
 2. P2 — Desktop Property Details. Complete and visually approved.
 3. P3 — Mobile Property Details. Complete and visually approved, including three shared facility cards and the expandable cream footer.
 4. P4 — Final validation and release. Included in v0.7.0-preview.
+5. Mobile hero polish. Visually approved and included in v0.10.1-preview, with the existing property photograph behind the introduction and Property Amenities immediately below.
 
 The dedicated Residence gallery remains deferred.
 

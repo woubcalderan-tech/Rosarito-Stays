@@ -3,7 +3,6 @@ import {
   CalendarDays,
   CarFront,
   Check,
-  ChevronRight,
   CookingPot,
   Flame,
   Leaf,
@@ -17,7 +16,6 @@ import {
   Wifi,
 } from "lucide-react";
 import type { ReactNode } from "react";
-import { Link } from "react-router";
 import wave from "../assets/brand/coastal-wave.svg";
 import { propertyImage } from "../assets/images/homepage";
 import { CompactBookingBanner } from "../booking/CompactBookingBanner";
@@ -28,7 +26,7 @@ import type {
   PropertyDetailsIcon,
   PropertyImage,
 } from "../config/property";
-import { paths, property } from "../config/site";
+import { property } from "../config/site";
 import { useMobileViewport } from "../hooks/useMobileViewport";
 import { Metadata } from "../ui/Content";
 import { PolicyTime as Time } from "../ui/PolicyTime";
@@ -331,20 +329,13 @@ export function PropertyDetailsPage() {
         {hero?.photo && (
           <Photo
             photo={hero.photo}
-            sizes="(width < 48rem) 90vw, 100vw"
+            sizes="(width < 48rem) clamp(38rem, 147vw, 54rem), 100vw"
             priority
           />
         )}
         <div className="property-hero-copy">
           {isMobile ? (
-            <>
-              <nav className="property-breadcrumb" aria-label="Breadcrumb">
-                <Link to={paths.home}>Home</Link>
-                <ChevronRight aria-hidden="true" />
-                <span aria-current="page">{heading}</span>
-              </nav>
-              <p className="property-eyebrow">{heading}</p>
-            </>
+            <p className="property-eyebrow">{heading}</p>
           ) : (
             <img src={wave} alt="" width="88" height="28" />
           )}
