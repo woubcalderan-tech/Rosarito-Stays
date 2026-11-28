@@ -31,6 +31,7 @@ import type {
 import { paths, property } from "../config/site";
 import { useMobileViewport } from "../hooks/useMobileViewport";
 import { Metadata } from "../ui/Content";
+import { PolicyTime as Time } from "../ui/PolicyTime";
 import { ResponsiveImage } from "../ui/ResponsiveImage";
 import { PlaceholderPage } from "./Pages";
 import "../styles/property-details.css";
@@ -90,19 +91,6 @@ function suiteLabel(label: string, id?: AmenityId, showSingleSuite = false) {
       ? " in all suites"
       : " in selected suites")
   );
-}
-
-function formatClock(time: string) {
-  const [hour, minute] = time.split(":").map(Number);
-  return new Intl.DateTimeFormat(property.locale, {
-    hour: "numeric",
-    minute: "2-digit",
-    timeZone: "UTC",
-  }).format(Date.UTC(2000, 0, 1, hour, minute));
-}
-
-function Time({ value }: { value: string }) {
-  return <time dateTime={value}>{formatClock(value)}</time>;
 }
 
 function PolicyCard({

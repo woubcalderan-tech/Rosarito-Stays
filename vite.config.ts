@@ -62,6 +62,8 @@ export default defineConfig(({ command, isPreview, mode }) => {
       __HAS_DESTINATION_GUIDE__:
         "destinationGuide" in profile && Boolean(profile.destinationGuide),
       __HAS_DINING__: "dining" in profile && Boolean(profile.dining),
+      __HAS_CONTACT_PAGE__:
+        "contactPage" in profile && Boolean(profile.contactPage),
     },
   };
 });

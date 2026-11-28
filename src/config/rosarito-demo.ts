@@ -691,6 +691,153 @@ export const rosaritoDemo = {
       photo: bookingPhoto,
     },
   },
+  contactPage: {
+    hero: {
+      heading: "Contact & FAQ",
+      description:
+        "We're here to make your Rosarito escape effortless. Whether you're planning your stay or have a question about The Residence, we'd love to hear from you.",
+      photo: image(
+        "explore/hero",
+        "A flowering plaster arch framing a view of the Pacific",
+      ),
+    },
+    information: {
+      eyebrow: "Get in Touch",
+      heading: "Contact Our Team",
+      description:
+        "Have a question about suites, availability or your stay? Explore the demonstration form and find answers to common questions below.",
+      unavailable: "Unavailable in this demo",
+      decorativePhoto: image(
+        "residence/architectural-detail",
+        "Lantern, bougainvillea and potted agave beside a plaster arch",
+      ),
+    },
+    form: {
+      heading: "Send Us a Message",
+      description: "Use sample details to try the contact form.",
+      notice:
+        "This form is simulated. Please use fictional details and avoid entering real personal information.",
+      submitLabel: "Send Message",
+      resetLabel: "Try the Form Again",
+      confirmation:
+        "Your demonstration message is complete. No message was sent or stored.",
+      subjects: [
+        { id: "general", label: "General inquiry" },
+        { id: "availability", label: "Suite availability" },
+        { id: "booking", label: "Reservations and booking" },
+        { id: "amenities", label: "Property amenities" },
+        { id: "arrival", label: "Arrival and departure" },
+        { id: "other", label: "Other" },
+      ],
+    },
+    faq: {
+      heading: "Frequently Asked Questions",
+      description:
+        "Find quick answers to the most common questions about your stay at Rosarito Stays.",
+      groups: [
+        {
+          id: "reservations",
+          heading: "Reservations & Payments",
+          icon: "calendar",
+          questions: [
+            {
+              id: "book-a-suite",
+              question: "How do I book a suite?",
+              answer: {
+                text: "Choose a suite, travel dates, and the number of guests to try the simulated booking flow. This demonstration does not place or confirm a real reservation.",
+                link: { to: paths.booking, label: "Try the booking demo" },
+              },
+            },
+            {
+              id: "payment-methods",
+              question: "What payment methods are accepted?",
+              answer: {
+                text: "Payments are simulated. The demo does not accept payment information or process transactions.",
+              },
+            },
+            {
+              id: "cancellation",
+              question: "What is the cancellation policy?",
+              answer: {
+                text: "A cancellation policy has not been configured for this demonstration. The booking flow creates no real reservations or charges.",
+              },
+            },
+          ],
+        },
+        {
+          id: "arrival-and-departure",
+          heading: "Arrival & Departure",
+          icon: "plane",
+          questions: [
+            {
+              id: "stay-times",
+              question: "What are the check-in and check-out times?",
+              answer: {
+                fact: "stay-times",
+                link: {
+                  to: paths.propertyDetails,
+                  label: "See guest policies",
+                },
+              },
+            },
+            {
+              id: "early-and-late-arrival",
+              question: "Is early check-in or late check-out available?",
+              answer: {
+                text: "Early check-in and late check-out have not been configured. Refer to the standard times in the guest policies.",
+              },
+            },
+          ],
+        },
+        {
+          id: "residence-and-amenities",
+          heading: "The Residence & Amenities",
+          icon: "bed",
+          questions: [
+            {
+              id: "parking",
+              question: "Is parking available?",
+              answer: { fact: "parking" },
+            },
+            {
+              id: "wifi",
+              question: "Is Wi-Fi included?",
+              answer: { fact: "wifi" },
+            },
+            {
+              id: "pets",
+              question: "Are pets allowed?",
+              answer: { fact: "pets" },
+            },
+            {
+              id: "children",
+              question: "Are children welcome?",
+              answer: {
+                fact: "occupancy",
+                link: {
+                  to: paths.accommodations,
+                  label: "Compare suite capacities",
+                },
+              },
+            },
+            {
+              id: "beach-access",
+              question: "Is the property close to the beach?",
+              answer: {
+                text: "The Residence depicts a fictional coastal setting. Beach access and distances from the property are unverified.",
+                link: { to: paths.exploreRosarito, label: "Explore Rosarito" },
+              },
+            },
+          ],
+        },
+      ],
+    },
+    bookingBanner: {
+      heading: "Ready for your Rosarito escape?",
+      description: "Discover your perfect suite and start planning your stay.",
+      photo: bookingPhoto,
+    },
+  },
   guestPolicies: {
     status: "demo-proposal",
     checkInFrom: "15:00",

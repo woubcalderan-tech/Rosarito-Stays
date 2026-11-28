@@ -284,6 +284,52 @@ export interface GuestPolicies {
   additionalHouseRules?: readonly string[];
 }
 
+type ContactFaqFact = "stay-times" | "parking" | "wifi" | "pets" | "occupancy";
+
+export interface ContactFaqQuestion {
+  id: string;
+  question: string;
+  answer: ({ text: string } | { fact: ContactFaqFact }) & {
+    link?: { to: `/${string}`; label: string };
+  };
+}
+
+export interface ContactPageConfig {
+  hero: { heading: string; description: string; photo?: PropertyImage };
+  information: {
+    eyebrow: string;
+    heading: string;
+    description: string;
+    unavailable: string;
+    locationLabel?: string;
+    decorativePhoto?: PropertyImage;
+  };
+  form: {
+    heading: string;
+    description: string;
+    notice: string;
+    submitLabel: string;
+    resetLabel: string;
+    confirmation: string;
+    subjects: readonly { id: string; label: string }[];
+  };
+  faq: {
+    heading: string;
+    description: string;
+    groups: readonly {
+      id: string;
+      heading: string;
+      icon: "calendar" | "plane" | "bed";
+      questions: readonly ContactFaqQuestion[];
+    }[];
+  };
+  bookingBanner: {
+    heading: string;
+    description: string;
+    photo?: PropertyImage;
+  };
+}
+
 export type SuiteBenefitId = "location" | "access" | "comfort" | "stays";
 
 export interface CatalogSuite {
@@ -378,9 +424,12 @@ export interface PropertyConfig {
   contact?: {
     email?: string;
     telephone?: string;
+    whatsapp?: string;
     address?: string;
+    verified?: boolean;
     social?: Partial<Record<SocialChannel, `https://${string}`>>;
   };
+  contactPage?: ContactPageConfig;
   suites: readonly CatalogSuite[];
   initialFeaturedSuiteId?: string;
   booking: {

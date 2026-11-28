@@ -1,7 +1,7 @@
 import type { ReactNode } from "react";
 import { useParams, useSearchParams } from "react-router";
 import { validSuiteBooking } from "../booking/booking-selection";
-import { paths, property } from "../config/site";
+import { paths, property, verifiedContact } from "../config/site";
 import { en } from "../localization/en";
 import { getSuite } from "../services/suites";
 import { SuiteDetails } from "../suites/SuiteDetails";
@@ -57,12 +57,20 @@ export function ContactPage() {
           {address && <p>{address}</p>}
           {email && (
             <p>
-              <a href={`mailto:${email}`}>{email}</a>
+              {verifiedContact ? (
+                <a href={`mailto:${email}`}>{email}</a>
+              ) : (
+                email
+              )}
             </p>
           )}
           {telephone && (
             <p>
-              <a href={`tel:${telephone}`}>{telephone}</a>
+              {verifiedContact ? (
+                <a href={`tel:${telephone}`}>{telephone}</a>
+              ) : (
+                telephone
+              )}
             </p>
           )}
         </address>

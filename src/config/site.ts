@@ -6,6 +6,10 @@ export { paths, suiteBookingPath, suitePath } from "./routes";
 declare const __PROPERTY_CONFIG__: PropertyConfig;
 
 export const property = __PROPERTY_CONFIG__;
+export const verifiedContact =
+  property.kind === "client" && property.contact?.verified
+    ? property.contact
+    : undefined;
 export const site = {
   name: property.brand.name,
 };

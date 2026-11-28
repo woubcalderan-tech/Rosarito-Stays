@@ -306,3 +306,7 @@ The five approved AI-generated PNGs remain in the ignored `image-masters/dining/
 The 17 new WebPs total 2,361,474 bytes. Encoding follows the shared pipeline at quality 85 for the hero and 82 for supporting images, with resizing limited to source dimensions. The full-width hero variant supports large desktop layouts. The v0.9.0-preview inventory comprises 45 local PNG masters, 160 optimized WebPs, 48 archived JPGs, and 14 approved release references.
 
 Dining reuses `explore/puerto-nuevo` for the lobster feature, `suites/garden-outdoor-dining` for Make Yourself at Home, and `banners/booking-banner` for the closing banner. The Garden photo was selected after comparing the Garden and Terrace galleries. Its round table, flowering vines and visible suite doorway closely match the private dining composition. The imagery illustrates culinary experiences and conveys no verified restaurant operations or suite-wide amenities.
+
+## C1 Contact and FAQ photo reuse
+
+Contact & FAQ reuses `explore/hero`, `residence/architectural-detail`, and `banners/booking-banner`. The hero keeps the approved framing and places its text over the quieter left side of the photo. The Residence detail appears beside the desktop contact methods. The mobile layout omits the extra photo to keep the form close to the introduction. The responsive catalog remains at 160 WebPs.

@@ -19,6 +19,7 @@ import "./styles/site.css";
 
 declare const __HAS_DESTINATION_GUIDE__: boolean;
 declare const __HAS_DINING__: boolean;
+declare const __HAS_CONTACT_PAGE__: boolean;
 
 const router = createBrowserRouter(
   [
@@ -53,7 +54,15 @@ const router = createBrowserRouter(
         { path: paths.accommodations, Component: AccommodationsPage },
         { path: `${paths.accommodations}/:slug`, Component: SuitePage },
         { path: paths.booking, Component: BookingPage },
-        { path: paths.contact, Component: ContactPage },
+        __HAS_CONTACT_PAGE__
+          ? {
+              path: paths.contact,
+              lazy: async () => ({
+                Component: (await import("./pages/ContactFaqPage"))
+                  .ContactFaqPage,
+              }),
+            }
+          : { path: paths.contact, Component: ContactPage },
         ...(import.meta.env.DEV
           ? [
               {

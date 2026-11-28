@@ -56,7 +56,8 @@ export function DesktopNavigation() {
             ((pagePath === paths.residence ||
               pagePath === paths.propertyDetails ||
               pagePath === paths.exploreRosarito ||
-              pagePath === paths.dining) &&
+              pagePath === paths.dining ||
+              pagePath === paths.contact) &&
               entries.some(({ to }) => to === pagePath)) ||
             ((pathname === paths.accommodations ||
               pathname.startsWith(paths.accommodations + "/")) &&
