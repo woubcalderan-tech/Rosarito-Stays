@@ -2,17 +2,17 @@
 
 Rosarito Stays is a fictional hospitality demo, a development portfolio showcase, a reusable template, and a full-stack learning project. The approved homepage, existing routes, architecture, and Git history are the baseline.
 
-| Phase                                 | Work and completion criteria                                                                                                                                                                                                                                          |
-| ------------------------------------- | --------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------- |
-| 0. Conversion audit                   | Complete. Documented architecture and the legacy photo inventory.                                                                                                                                                                                                     |
-| 1. Fictional identity and photography | Complete in v0.3.0-preview. Approved desktop and mobile homepage, fictional photography, and site-wide disclosure.                                                                                                                                                    |
-| 2. Reusable property configuration    | Complete in v0.4.0-preview. Typed property profiles now supply branding, content, suites, photography references, contact, and booking defaults. The demo and neutral standard build have separate profiles.                                                          |
-| 3. Portfolio content                  | Accommodations and Suite Details are complete in v0.5.0-preview, The Residence in v0.6.0-preview, Property Details in v0.7.0-preview, and Explore Rosarito in v0.8.0-preview. Dining is next. Use clear fictional copy and skip unconfigured destinations.            |
-| 4. Availability demo                  | Start with seeded data and a mock service, then move to an isolated demo database. Return simulated availability by suite and date. Test date boundaries, outages, and empty inventory.                                                                               |
-| 5. Reservation demo                   | Add simulated reservation state and conflict checks. Use server validation, atomic writes, idempotency, and resettable records. Keep public input to synthetic data and present confirmation as a simulation.                                                         |
-| 6. Administration demo                | Implement an isolated admin exercise using demo identities and role-based access. Exercise authorization, audit events, and inventory editing against synthetic records. Expose a read-only walkthrough if the public demo cannot reset write access safely.          |
-| 7. Payment simulation                 | Simulate success, decline, cancellation, and duplicate events with a mock adapter. An optional provider sandbox exercise must use test credentials and test fixtures. Keep card entry, payment collection, payouts, and live provider configuration outside the demo. |
-| 8. Template handoff                   | Document setup, configuration, assets, deployment, and accessibility checks. Verify the demo and client configurations have separate data, credentials, and hosting. Keep client integrations as future project work.                                                 |
+| Phase                                 | Work and completion criteria                                                                                                                                                                                                                                                                |
+| ------------------------------------- | ------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------- |
+| 0. Conversion audit                   | Complete. Documented architecture and the legacy photo inventory.                                                                                                                                                                                                                           |
+| 1. Fictional identity and photography | Complete in v0.3.0-preview. Approved desktop and mobile homepage, fictional photography, and site-wide disclosure.                                                                                                                                                                          |
+| 2. Reusable property configuration    | Complete in v0.4.0-preview. Typed property profiles now supply branding, content, suites, photography references, contact, and booking defaults. The demo and neutral standard build have separate profiles.                                                                                |
+| 3. Portfolio content                  | Accommodations and Suite Details are complete in v0.5.0-preview, The Residence in v0.6.0-preview, Property Details in v0.7.0-preview, Explore Rosarito in v0.8.0-preview, and Dining in v0.9.0-preview. Contact & FAQ is next. Use clear fictional copy and skip unconfigured destinations. |
+| 4. Availability demo                  | Start with seeded data and a mock service, then move to an isolated demo database. Return simulated availability by suite and date. Test date boundaries, outages, and empty inventory.                                                                                                     |
+| 5. Reservation demo                   | Add simulated reservation state and conflict checks. Use server validation, atomic writes, idempotency, and resettable records. Keep public input to synthetic data and present confirmation as a simulation.                                                                               |
+| 6. Administration demo                | Implement an isolated admin exercise using demo identities and role-based access. Exercise authorization, audit events, and inventory editing against synthetic records. Expose a read-only walkthrough if the public demo cannot reset write access safely.                                |
+| 7. Payment simulation                 | Simulate success, decline, cancellation, and duplicate events with a mock adapter. An optional provider sandbox exercise must use test credentials and test fixtures. Keep card entry, payment collection, payouts, and live provider configuration outside the demo.                       |
+| 8. Template handoff                   | Document setup, configuration, assets, deployment, and accessibility checks. Verify the demo and client configurations have separate data, credentials, and hosting. Keep client integrations as future project work.                                                                       |
 
 ## Residence sequence
 
@@ -52,4 +52,10 @@ The dedicated Residence gallery remains deferred.
 4. E4 — Mobile guide. Complete and visually approved with stacked cards, an initially closed popup, the mobile booking shortcut, and the expandable footer.
 5. E5 — Final validation and publication. Included in v0.8.0-preview.
 
-Dining is the next development milestone.
+## Dining sequence
+
+1. D1 — Photography and configuration preparation. Complete with five approved local masters, 17 responsive WebPs, two approved Baja Culinary Journal references, and typed culinary experience records.
+2. D2 — Desktop and mobile Dining page. Complete and visually approved with shared navigation, configured culinary records, and reused booking and footer components.
+3. D3 — Final validation and publication. Included in v0.9.0-preview.
+
+Contact & FAQ is the next development milestone.

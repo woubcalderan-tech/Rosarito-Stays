@@ -55,7 +55,8 @@ export function DesktopNavigation() {
           const active =
             ((pagePath === paths.residence ||
               pagePath === paths.propertyDetails ||
-              pagePath === paths.exploreRosarito) &&
+              pagePath === paths.exploreRosarito ||
+              pagePath === paths.dining) &&
               entries.some(({ to }) => to === pagePath)) ||
             ((pathname === paths.accommodations ||
               pathname.startsWith(paths.accommodations + "/")) &&

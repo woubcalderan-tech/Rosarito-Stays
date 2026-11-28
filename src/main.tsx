@@ -18,6 +18,7 @@ import { PropertyDetailsPage } from "./pages/PropertyDetailsPage";
 import "./styles/site.css";
 
 declare const __HAS_DESTINATION_GUIDE__: boolean;
+declare const __HAS_DINING__: boolean;
 
 const router = createBrowserRouter(
   [
@@ -35,6 +36,16 @@ const router = createBrowserRouter(
                 lazy: async () => ({
                   Component: (await import("./pages/ExploreRosaritoPage"))
                     .ExploreRosaritoPage,
+                }),
+              },
+            ]
+          : []),
+        ...(__HAS_DINING__
+          ? [
+              {
+                path: paths.dining,
+                lazy: async () => ({
+                  Component: (await import("./pages/DiningPage")).DiningPage,
                 }),
               },
             ]

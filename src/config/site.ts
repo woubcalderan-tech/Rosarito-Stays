@@ -31,7 +31,7 @@ export const discoveryDestinations: Record<
   },
   dining: {
     label: property.home.discovery.dining.heading,
-    futurePath: property.home.discovery.dining.futurePath ?? "/dining",
+    futurePath: property.home.discovery.dining.futurePath ?? paths.dining,
   },
 };
 
@@ -55,7 +55,9 @@ export const navigation: readonly {
             to: paths.exploreRosarito,
           }
         : discoveryDestinations.explore,
-      discoveryDestinations.dining,
+      property.dining
+        ? { label: discoveryDestinations.dining.label, to: paths.dining }
+        : discoveryDestinations.dining,
     ],
   },
   {

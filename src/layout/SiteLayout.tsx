@@ -112,6 +112,8 @@ export function SiteLayout() {
   const destinationGuide =
     !!property.destinationGuide &&
     pathname.replace(/\/$/, "") === paths.exploreRosarito;
+  const dining =
+    !!property.dining && pathname.replace(/\/$/, "") === paths.dining;
   const suiteMatch = matchPath(`${paths.accommodations}/:slug`, pathname);
   const suiteDetails = Boolean(getSuite(suiteMatch?.params.slug));
   return (
@@ -124,7 +126,9 @@ export function SiteLayout() {
         home={home}
         accommodations={accommodations}
         suiteDetails={suiteDetails}
-        mobileBookingShortcut={residence || propertyDetails || destinationGuide}
+        mobileBookingShortcut={
+          residence || propertyDetails || destinationGuide || dining
+        }
       />
       <main id="main-content" tabIndex={-1} ref={main}>
         <Outlet />
@@ -137,7 +141,8 @@ export function SiteLayout() {
           suiteDetails ||
           residence ||
           propertyDetails ||
-          destinationGuide
+          destinationGuide ||
+          dining
         }
       />
       {__SHOW_PREVIEW_CONTENT__ && (

@@ -84,6 +84,53 @@ export interface DestinationGuide {
   };
 }
 
+export interface DiningExperience {
+  id: string;
+  category: string;
+  heading: string;
+  description: string;
+  highlights: readonly string[];
+  photo: PropertyImage & {
+    depiction: "ai-generated-illustration" | "destination-photograph";
+  };
+}
+
+export type DiningHighlightIcon =
+  "fish" | "utensils-crossed" | "waves-horizontal" | "cooking-pot";
+
+export interface DiningConfig {
+  hero: {
+    eyebrow: string;
+    heading: string;
+    description: string;
+    photo: PropertyImage;
+  };
+  editorialHeading: string;
+  mobileIntro: {
+    eyebrow: string;
+    heading: string;
+    description: string;
+    highlights: readonly { icon: DiningHighlightIcon; label: string }[];
+  };
+  featuredExperience: DiningExperience;
+  supportingExperiences: readonly DiningExperience[];
+  privateSuiteDining: {
+    heading: string;
+    description: string;
+    photo: PropertyImage;
+    actionLabel: string;
+    to: `/${string}`;
+  };
+  bookingBanner: {
+    heading: string;
+    description: string;
+    photo: PropertyImage;
+    actionLabel: string;
+    to: `/${string}`;
+  };
+  disclosure: string;
+}
+
 export type AmenityId =
   | "ocean"
   | "kitchen"
@@ -296,6 +343,7 @@ export interface PropertyConfig {
   };
   residence?: ResidenceConfig;
   destinationGuide?: DestinationGuide;
+  dining?: DiningConfig;
   propertyDetails?: PropertyDetailsConfig;
   guestPolicies?: GuestPolicies;
   accommodations?: {

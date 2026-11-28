@@ -61,6 +61,7 @@ export default defineConfig(({ command, isPreview, mode }) => {
       __SHOW_PREVIEW_CONTENT__: profile.kind === "fictional-demo",
       __HAS_DESTINATION_GUIDE__:
         "destinationGuide" in profile && Boolean(profile.destinationGuide),
+      __HAS_DINING__: "dining" in profile && Boolean(profile.dining),
     },
   };
 });

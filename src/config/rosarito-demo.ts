@@ -402,6 +402,149 @@ export const rosaritoDemo = {
       to: paths.booking,
     },
   },
+  dining: {
+    hero: {
+      eyebrow: "SAVOR BAJA CALIFORNIA",
+      heading: "A Taste of Rosarito",
+      description:
+        "From fresh Pacific seafood to authentic Mexican flavors, discover the culinary experiences that make every stay in Baja unforgettable.",
+      photo: image(
+        "dining/hero",
+        "Bougainvillea-covered dining terrace with set tables overlooking the Pacific",
+      ),
+    },
+    editorialHeading: "THE BAJA CULINARY JOURNAL",
+    mobileIntro: {
+      eyebrow: "DISCOVER LOCAL FLAVORS",
+      heading: "A Culinary Journey Through Baja",
+      description:
+        "Experience the rich flavors, coastal traditions and welcoming atmosphere of Baja California through its diverse dining experiences.",
+      highlights: [
+        { icon: "fish", label: "Fresh Pacific Seafood" },
+        { icon: "utensils-crossed", label: "Authentic Mexican Cuisine" },
+        { icon: "waves-horizontal", label: "Oceanfront Dining" },
+        { icon: "cooking-pot", label: "Local Culinary Traditions" },
+      ],
+    },
+    featuredExperience: {
+      id: "puerto-nuevo-lobster",
+      category: "BAJA'S SIGNATURE DISH",
+      heading: "Puerto Nuevo Lobster",
+      description:
+        "Discover traditional Baja-style lobster dishes served with lime, rice, tortillas and Mexican accompaniments in a coastal dining atmosphere.",
+      highlights: [
+        "Traditional lobster dishes.",
+        "Authentic Baja flavors.",
+        "Coastal dining atmosphere.",
+      ],
+      photo: {
+        ...image(
+          "explore/puerto-nuevo",
+          "Lobster with lime, rice and accompaniments on a table overlooking the ocean",
+        ),
+        depiction: "ai-generated-illustration",
+      },
+    },
+    supportingExperiences: [
+      {
+        id: "mexican-tacos",
+        category: "LOCAL FAVORITES",
+        heading: "Authentic Mexican Tacos",
+        description:
+          "Enjoy traditional Mexican tacos with fresh salsa, cilantro, lime and flavors inspired by Baja's culinary traditions.",
+        highlights: [
+          "Traditional street-food flavors.",
+          "Fresh ingredients.",
+          "Authentic Mexican recipes.",
+        ],
+        photo: {
+          ...image(
+            "dining/tacos",
+            "Tacos topped with cilantro and onion on a painted plate beside lime and salsa",
+          ),
+          depiction: "ai-generated-illustration",
+        },
+      },
+      {
+        id: "pacific-seafood",
+        category: "FROM THE OCEAN",
+        heading: "Fresh Pacific Seafood",
+        description:
+          "Explore the vibrant flavors of coastal cuisine, from grilled fish to ceviche and shrimp dishes prepared with citrus and herbs.",
+        highlights: [
+          "Coastal culinary traditions.",
+          "Fresh seafood dishes.",
+          "Light and vibrant flavors.",
+        ],
+        photo: {
+          ...image(
+            "dining/seafood",
+            "Shrimp with avocado, herbs and lime in a hand-painted bowl",
+          ),
+          depiction: "ai-generated-illustration",
+        },
+      },
+      {
+        id: "oceanfront-dining",
+        category: "DINING WITH A VIEW",
+        heading: "Oceanfront Dining",
+        description:
+          "Discover the relaxed atmosphere of coastal dining, where Pacific Ocean views and warm sunset colors complement the culinary experience.",
+        highlights: [
+          "Scenic coastal settings.",
+          "Relaxed dining atmosphere.",
+          "Romantic sunset ambiance.",
+        ],
+        photo: {
+          ...image(
+            "dining/oceanfront",
+            "Candlelit terrace table beneath a flowering arch overlooking the ocean at sunset",
+          ),
+          depiction: "ai-generated-illustration",
+        },
+      },
+      {
+        id: "breakfast-cafes",
+        category: "SLOW BAJA MORNINGS",
+        heading: "Breakfast & Local Cafés",
+        description:
+          "Start your day the Baja way with freshly brewed coffee, traditional breakfast dishes and the welcoming atmosphere of local cafés.",
+        highlights: [
+          "Freshly brewed coffee.",
+          "Traditional breakfast flavors.",
+          "Relaxed coastal mornings.",
+        ],
+        photo: {
+          ...image(
+            "dining/breakfast",
+            "Chilaquiles topped with a fried egg beside coffee, orange juice and fresh fruit",
+          ),
+          depiction: "ai-generated-illustration",
+        },
+      },
+    ],
+    privateSuiteDining: {
+      heading: "Make Yourself at Home",
+      description:
+        "Prefer a relaxed meal in your own private suite? Discover accommodations with kitchens, kitchenettes or private outdoor dining spaces, depending on your chosen suite.",
+      photo: image(
+        "suites/garden-outdoor-dining",
+        "Round dining table on the Garden Suite patio beside flowering vines and open doors",
+      ),
+      actionLabel: "Explore Our Suites",
+      to: paths.accommodations,
+    },
+    bookingBanner: {
+      heading: "Your Baja Getaway Awaits",
+      description:
+        "Discover unforgettable flavors and return to the comfort of your private suite.",
+      photo: bookingPhoto,
+      actionLabel: "Book a Stay",
+      to: paths.booking,
+    },
+    disclosure:
+      "Culinary imagery is AI-generated and illustrative. Specific restaurant services and operating information have not been verified.",
+  },
   propertyDetails: {
     mobile: {
       heading: "The Property",

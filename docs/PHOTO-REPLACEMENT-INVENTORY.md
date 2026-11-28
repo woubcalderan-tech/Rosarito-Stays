@@ -283,10 +283,26 @@ All six masters are approved AI-generated illustrations. The beach master shows 
 
 The 22 derivatives total 2,718,166 bytes. The hero uses quality 85 and preserves the complete 3:1 frame. Keep the left copy space on desktop and apply a right-biased crop on mobile through CSS. Attraction variants use quality 82. The 480px variants serve smaller cards and map popups, while 768px and 1200px support denser displays and full-width cards. The 1672px variants for Popotla and Cerro El Coronel support the wider desktop second row at higher device pixel ratios. Encoding preserves the original framing and does not upscale.
 
-Cards and map popups share these IDs and choose widths through the existing responsive resolver. Preserve `explore/puerto-nuevo` for future Dining use. It depicts illustrative coastal dining without associating the meal with a named restaurant. The fictional property popup uses `residence/coastal-lounge`. The closing banner uses `banners/booking-banner` and the property marker uses the existing brand wave.
+Cards and map popups share these IDs and choose widths through the existing responsive resolver. Dining also uses `explore/puerto-nuevo`. It depicts illustrative coastal dining without associating the meal with a named restaurant. The fictional property popup uses `residence/coastal-lounge`. The closing banner uses `banners/booking-banner` and the property marker uses the existing brand wave.
 
-The local library contains 40 PNG masters, 143 review WebPs including these 22 derivatives, 48 archived JPGs, and 12 design references. The neutral build excludes the fictional guide, marker data, and photography.
+At the Explore Rosarito release, the library contained 40 PNG masters, 143 review WebPs including these 22 derivatives, 48 archived JPGs, and 12 design references. The neutral build excludes the fictional guide, marker data, and photography.
 
 ### E3 display reuse
 
 Explore Rosarito uses the existing five attraction IDs on both cards and map popups. Per-card crop positions preserve the shoreline, pier, lobster, boats and trail within the two approved desktop image ratios. The same hero and shared terracotta banner variants remain in use. E3 adds no derivatives. Responsive candidate requests can share the browser cache when a card and popup resolve to the same URL.
+
+## D1 Dining photography
+
+The five approved AI-generated PNGs remain in the ignored `image-masters/dining/` directory. The 3:1 hero keeps the terrace and ocean on the right and the quieter wall on the left. The four 4:3 supporting photographs depict tacos, shrimp with avocado, a sunset dining terrace, and a chilaquiles breakfast. The full scene framing and natural colors are preserved in the catalog variants.
+
+| Master PNG              | Catalog ID          | Original dimensions | WebP dimensions and encoded sizes                                                                                  |
+| ----------------------- | ------------------- | ------------------- | ------------------------------------------------------------------------------------------------------------------ |
+| `dining-hero.png`       | `dining/hero`       | 2172 × 724          | 480 × 160 (26,778 B), 768 × 256 (62,132 B), 1200 × 400 (138,356 B), 1672 × 557 (244,454 B), 2172 × 724 (373,132 B) |
+| `dining-tacos.png`      | `dining/tacos`      | 1448 × 1086         | 480 × 360 (65,554 B), 768 × 576 (137,246 B), 1200 × 900 (264,180 B)                                                |
+| `dining-seafood.png`    | `dining/seafood`    | 1448 × 1086         | 480 × 360 (45,072 B), 768 × 576 (92,074 B), 1200 × 900 (168,296 B)                                                 |
+| `dining-oceanfront.png` | `dining/oceanfront` | 1448 × 1086         | 480 × 360 (45,024 B), 768 × 576 (96,480 B), 1200 × 900 (187,524 B)                                                 |
+| `dining-breakfast.png`  | `dining/breakfast`  | 1448 × 1086         | 480 × 360 (61,308 B), 768 × 576 (124,172 B), 1200 × 900 (229,692 B)                                                |
+
+The 17 new WebPs total 2,361,474 bytes. Encoding follows the shared pipeline at quality 85 for the hero and 82 for supporting images, with resizing limited to source dimensions. The full-width hero variant supports large desktop layouts. The v0.9.0-preview inventory comprises 45 local PNG masters, 160 optimized WebPs, 48 archived JPGs, and 14 approved release references.
+
+Dining reuses `explore/puerto-nuevo` for the lobster feature, `suites/garden-outdoor-dining` for Make Yourself at Home, and `banners/booking-banner` for the closing banner. The Garden photo was selected after comparing the Garden and Terrace galleries. Its round table, flowering vines and visible suite doorway closely match the private dining composition. The imagery illustrates culinary experiences and conveys no verified restaurant operations or suite-wide amenities.

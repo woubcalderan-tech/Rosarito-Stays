@@ -51,3 +51,9 @@ The schematic should stay local and self-contained. The reference map is visual 
 The development-only review harness demonstrates controlled destination selection independently of the camera. It uses the existing demo profile and responsive photo IDs. Both production build profiles exclude the harness. The neutral build excludes the destination guide route, Rosarito-specific SVG artwork, and fictional destinations and photography. The explicit review build includes the approved map through the new guide route. The map requests no external service.
 
 The desktop popup has a reserved overlay rail. Mobile uses a below-map panel for space and touch usability. The proxy destination selector, native marker controls and modal provide keyboard access. The schematic has no navigational scale, verified positions, routing, or geolocation. E3 connects the map to the desktop guide and E4 completes mobile presentation.
+
+## D1 Dining audit
+
+The approved Baja Culinary Journal references establish a panoramic hero, a featured lobster experience, four supporting experiences, a private-suite dining section, and a booking banner. The desktop and mobile implementations share the typed records, responsive image resolver, established branding, navigation, terracotta banner, and cream footer.
+
+Dining is editorial. The fictional profile supplies illustrative imagery and qualified copy about suite amenities. Restaurant identities, operating details, menus and reservations are outside the data model. The private-dining photo depicts the Garden Suite patio, and the closing CTA continues to the simulated booking flow. The local review profile enables the Dining route, shared navigation and footer entry. The neutral build omits Dining content and imagery.

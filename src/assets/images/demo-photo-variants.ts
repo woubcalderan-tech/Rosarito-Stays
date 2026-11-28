@@ -228,6 +228,33 @@ export const demoPhotoVariants = {
     [1200, 675],
     [1672, 941],
   ],
+  "dining/hero": [
+    [480, 160],
+    [768, 256],
+    [1200, 400],
+    [1672, 557],
+    [2172, 724],
+  ],
+  "dining/tacos": [
+    [480, 360],
+    [768, 576],
+    [1200, 900],
+  ],
+  "dining/seafood": [
+    [480, 360],
+    [768, 576],
+    [1200, 900],
+  ],
+  "dining/oceanfront": [
+    [480, 360],
+    [768, 576],
+    [1200, 900],
+  ],
+  "dining/breakfast": [
+    [480, 360],
+    [768, 576],
+    [1200, 900],
+  ],
 } as const;
 
 export type DemoPhoto = keyof typeof demoPhotoVariants;

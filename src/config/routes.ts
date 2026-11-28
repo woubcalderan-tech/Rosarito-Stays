@@ -3,6 +3,7 @@ export const paths = {
   residence: "/the-residence",
   propertyDetails: "/property-details",
   exploreRosarito: "/explore-rosarito",
+  dining: "/dining",
   accommodations: "/accommodations",
   booking: "/booking",
   contact: "/contact",
